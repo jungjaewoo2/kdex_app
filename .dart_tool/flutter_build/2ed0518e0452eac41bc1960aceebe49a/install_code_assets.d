@@ -1,0 +1,1 @@
+ D:\\Project\\gold_app\\kdex-new\\kdex_app\\.dart_tool\\flutter_build\\2ed0518e0452eac41bc1960aceebe49a\\native_assets.json: 

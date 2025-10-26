@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 오렌지 배경 -->
+    <item android:drawable="@color/splash_background" />
+    
+    <!-- 하단 웨이브 패턴 -->
+    <item android:gravity="bottom">
+        <shape android:shape="rectangle">
+            <size android:height="100dp" />
+            <gradient
+                android:startColor="#FBBF7C"
+                android:endColor="#F78F20"
+                android:angle="0" />
+        </shape>
+    </item>
+    
+    <!-- 로고 영역 -->
+    <item android:gravity="center">
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/splash_logo_vector" />
+    </item>
+</layer-list>

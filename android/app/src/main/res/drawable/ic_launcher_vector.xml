@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- 배경 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M0,0h108v108h-108z" />
+    
+    <!-- 상단 KOREA 영역 -->
+    <path
+        android:fillColor="#F78F20"
+        android:pathData="M20,20h68v8h-68z" />
+    
+    <!-- GOLD 영역 (더 큰) -->
+    <path
+        android:fillColor="#F78F20"
+        android:pathData="M10,35h88v20h-88z" />
+    
+    <!-- EXCHANGE 영역 -->
+    <path
+        android:fillColor="#F78F20"
+        android:pathData="M25,60h58v8h-58z" />
+    
+    <!-- 한국금거래소 영역 -->
+    <path
+        android:fillColor="#F78F20"
+        android:pathData="M15,75h78v12h-78z" />
+    
+    <!-- 하단 오렌지 영역 -->
+    <path
+        android:fillColor="#F78F20"
+        android:pathData="M0,95h108v13h-108z" />
+    
+    <!-- 유가증권 영역 (흰색) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,98h48v6h-48z" />
+</vector>

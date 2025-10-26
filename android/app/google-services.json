@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "629366143741",
+    "project_id": "kdex2025-b36c5",
+    "storage_bucket": "kdex2025-b36c5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629366143741:android:1e6b599632acf49ef79c94",
+        "android_client_info": {
+          "package_name": "com.kdex.app.v2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWBwZ2EDoFdl6cqlGY3y9ofRdwBttObmU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

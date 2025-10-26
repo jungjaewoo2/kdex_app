@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="400dp"
+    android:viewportWidth="300"
+    android:viewportHeight="400">
+    
+    <!-- KOREA -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,50h200v20h-200z" />
+    
+    <!-- GOLD -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,90h240v40h-240z" />
+    
+    <!-- EXCHANGE -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,150h180v20h-180z" />
+    
+    <!-- 구분선 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,190h200v2h-200z"
+        android:alpha="0.3" />
+    
+    <!-- 한국금거래소 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,210h220v30h-220z" />
+    
+    <!-- 유가증권 Check -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M80,260h140v20h-140z" />
+    
+    <!-- QR 코드 영역 (플레이스홀더) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M110,300h80v80h-80z" />
+    
+    <!-- Powered by -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M100,400h100v10h-100z"
+        android:alpha="0.8" />
+</vector>
