@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 오렌지 배경 -->
-    <item android:drawable="@color/splash_background" />
+    <!-- 스플래시 이미지를 화면 전체에 배치 -->
+    <item>
+        <bitmap
+            android:gravity="fill"
+            android:src="@drawable/splash" />
+    </item>
 </layer-list>
