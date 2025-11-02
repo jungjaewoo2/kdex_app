@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:device_info_plus/device_info_plus.dart';
 
 class ResultScreen extends StatefulWidget {
   final String id;
@@ -33,8 +32,6 @@ class _ResultScreenState extends State<ResultScreen> {
 
   Future<void> _fetchStockData() async {
     try {
-      final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-      final androidInfo = await deviceInfo.androidInfo;
       final ipAddress = await _getIPAddress();
 
       final params = {
@@ -44,8 +41,9 @@ class _ResultScreenState extends State<ResultScreen> {
         'ip': ipAddress,
       };
 
-      final uri = Uri.parse('https://pennygold.kr/kgex/viewGiftCardInfo')
-          .replace(queryParameters: params);
+      final uri = Uri.parse(
+        'https://pennygold.kr/kgex/viewGiftCardInfo',
+      ).replace(queryParameters: params);
 
       final response = await http.get(uri);
 
@@ -103,16 +101,21 @@ class _ResultScreenState extends State<ResultScreen> {
   }
 
   String _toDisplayDecimalNumber(double number) {
-    return number.toStringAsFixed(2).replaceAllMapped(
-      RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-      (Match m) => '${m[1]},',
-    );
+    return number
+        .toStringAsFixed(2)
+        .replaceAllMapped(
+          RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+          (Match m) => '${m[1]},',
+        );
   }
 
   double _calculatePrice() {
     if (stockData == null) return 0.0;
     final perPrice = double.tryParse(stockData!['TICKERG'].toString()) ?? 0.0;
-    final weightStr = stockData!['ID'].toString().substring(2, 7).replaceAll('d', '.');
+    final weightStr = stockData!['ID']
+        .toString()
+        .substring(2, 7)
+        .replaceAll('d', '.');
     final weight = double.tryParse(weightStr) ?? 0.0;
     return perPrice * weight;
   }
@@ -130,9 +133,7 @@ class _ResultScreenState extends State<ResultScreen> {
           backgroundColor: const Color(0xFF2C1E1A),
           foregroundColor: Colors.white,
         ),
-        body: const Center(
-          child: CircularProgressIndicator(),
-        ),
+        body: const Center(child: CircularProgressIndicator()),
       );
     }
 
@@ -144,83 +145,95 @@ class _ResultScreenState extends State<ResultScreen> {
           icon: const Icon(Icons.arrow_back),
           onPressed: _goBack,
         ),
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
-        body: Column(
-          children: [
-            // 이미지 영역
-            Container(
-              width: double.infinity,
-              height: 240,
-              color: const Color(0xFFFCF9EE),
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(
-                    _getStockImagePath(),
-                    width: 100,
-                    height: 100,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Image.asset(
-                        'assets/images/stock/no_stock.png',
-                        width: 100,
-                        height: 100,
-                      );
-                    },
-                  ),
-                  Image.asset(
-                    stockId == 'no_stock'
-                        ? 'assets/images/logo_gray.png'
-                        : 'assets/images/logo.png',
-                    width: 80,
-                    height: 80,
-                  ),
-                ],
-              ),
-            ),
-            // 정보 영역
-            Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(20),
+      body: Stack(
+        children: [
+          // iOS 상태바 영역 주황색 배경
+          Container(
+            color: const Color(0xFFED7C2A),
+            height: MediaQuery.of(context).padding.top,
+          ),
+          // 메인 콘텐츠
+          Column(
+            children: [
+              // 이미지 영역
+              Container(
+                width: double.infinity,
+                height: 240,
+                color: const Color(0xFFFCF9EE),
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    if (stockData == null || errorMessage != null)
-                      _buildErrorWidget()
-                    else
-                      Column(
-                        children: [
-                          _buildStockInfo(),
-                          const SizedBox(height: 20),
-                          _buildStockEvaluation(),
-                        ],
-                      ),
+                    Image.asset(
+                      _getStockImagePath(),
+                      width: 100,
+                      height: 100,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Image.asset(
+                          'assets/images/stock/no_stock.png',
+                          width: 100,
+                          height: 100,
+                        );
+                      },
+                    ),
+                    Image.asset(
+                      stockId == 'no_stock'
+                          ? 'assets/images/logo_gray.png'
+                          : 'assets/images/logo.png',
+                      width: 80,
+                      height: 80,
+                    ),
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
-        bottomNavigationBar: Container(
-          height: 60,
-          color: const Color(0xFFED7C2A),
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              onTap: _goBack,
-              child: const Center(
-                child: Text(
-                  '이전화면',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+              // 정보 영역
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      if (stockData == null || errorMessage != null)
+                        _buildErrorWidget()
+                      else
+                        Column(
+                          children: [
+                            _buildStockInfo(),
+                            const SizedBox(height: 20),
+                            _buildStockEvaluation(),
+                          ],
+                        ),
+                    ],
                   ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+      bottomNavigationBar: Container(
+        height: 60,
+        color: const Color(0xFFED7C2A),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: _goBack,
+            child: const Center(
+              child: Text(
+                '이전화면',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
           ),
         ),
-      );
+      ),
+    );
   }
 
   Widget _buildErrorWidget() {
@@ -228,18 +241,11 @@ class _ResultScreenState extends State<ResultScreen> {
       padding: const EdgeInsets.all(50),
       child: Column(
         children: [
-          const Icon(
-            Icons.error_outline,
-            color: Colors.red,
-            size: 60,
-          ),
+          const Icon(Icons.error_outline, color: Colors.red, size: 60),
           const SizedBox(height: 20),
           Text(
             errorMessage ?? '사용이 불가능한 상품권입니다.',
-            style: const TextStyle(
-              color: Colors.red,
-              fontSize: 18,
-            ),
+            style: const TextStyle(color: Colors.red, fontSize: 18),
             textAlign: TextAlign.center,
           ),
         ],
@@ -263,15 +269,18 @@ class _ResultScreenState extends State<ResultScreen> {
         children: [
           const Text(
             '유가증권 정보',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           _buildInfoRow('구입일', _toDisplayDate(buyDate)),
-          _buildInfoRow('기준금액', '${_toDisplayDecimalNumber(double.parse(stockData!['APPLIEDAMOUNT'].toString()))} 원'),
-          _buildInfoRow('유가증권 구입금액', '${_toDisplayNumber(double.parse(stockData!['AMOUNT'].toString()))} 원'),
+          _buildInfoRow(
+            '기준금액',
+            '${_toDisplayDecimalNumber(double.parse(stockData!['APPLIEDAMOUNT'].toString()))} 원',
+          ),
+          _buildInfoRow(
+            '유가증권 구입금액',
+            '${_toDisplayNumber(double.parse(stockData!['AMOUNT'].toString()))} 원',
+          ),
           _buildInfoRow('유가증권 유효성', '유효'),
           _buildInfoRow('유가증권 유효기간', '구입일로부터 20년'),
           _buildInfoRow('', '(~ ${_toDisplayDate(endDate)})', isSubText: true),
@@ -297,10 +306,7 @@ class _ResultScreenState extends State<ResultScreen> {
         children: [
           const Text(
             '유가증권 평가',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           _buildInfoRow('평가일', _toDisplayDate(currentDate)),
@@ -318,10 +324,7 @@ class _ResultScreenState extends State<ResultScreen> {
         children: [
           Expanded(
             flex: 1,
-            child: Text(
-              title,
-              style: const TextStyle(fontSize: 16),
-            ),
+            child: Text(title, style: const TextStyle(fontSize: 16)),
           ),
           Expanded(
             flex: 1,

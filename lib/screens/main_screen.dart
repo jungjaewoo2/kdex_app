@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
+import 'package:flutter/services.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:http/http.dart' as http;
+import 'package:permission_handler/permission_handler.dart';
 import 'dart:convert';
-import '../push_settings_dialog.dart';
-import 'camera_screen.dart' hide ResultScreen;
 import 'result_screen.dart';
+import '../services/camera_permission_service.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,8 +14,238 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   bool _isScanning = false;
+  String? _lastScannedCode;
+  MobileScannerController? _scannerController;
+  bool _isInitializing = true;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    _initializeScanner();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    // 스캐너 안전하게 종료 (stop은 async이므로 dispose에서는 호출하지 않음)
+    _scannerController?.dispose();
+    _scannerController = null;
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    debugPrint('앱 라이프사이클 변경: $state');
+
+    if (state == AppLifecycleState.resumed) {
+      // 앱이 다시 활성화될 때 스캐너 재시작
+      debugPrint('앱 재개, 스캐너 재시작 시도');
+      _restartScanner();
+    } else if (state == AppLifecycleState.paused) {
+      // 앱이 백그라운드로 갈 때 스캐너 중지
+      debugPrint('앱 일시정지, 스캐너 중지');
+      _scannerController?.stop();
+    }
+  }
+
+  Future<void> _restartScanner() async {
+    debugPrint('[MainScreen] 스캐너 재시작 시작');
+
+    // 권한 재확인
+    final permissionService = CameraPermissionService();
+    final permissionStatus = await permissionService.getStatus();
+    debugPrint('[MainScreen] 재시작 시 권한 상태: $permissionStatus');
+
+    if (!permissionStatus.isGranted) {
+      debugPrint('[MainScreen] 권한이 없어 재초기화');
+      await _initializeScanner();
+      return;
+    }
+
+    if (_scannerController == null) {
+      debugPrint('[MainScreen] 컨트롤러가 없어 재초기화');
+      await _initializeScanner();
+      return;
+    }
+
+    try {
+      setState(() {
+        _isInitializing = true;
+      });
+
+      // 기존 스캐너 중지
+      await _scannerController?.stop();
+      await Future.delayed(const Duration(milliseconds: 500));
+
+      // 스캐너 재시작
+      await _scannerController?.start();
+
+      if (mounted) {
+        await Future.delayed(const Duration(milliseconds: 500));
+        setState(() {
+          _isInitializing = false;
+        });
+        debugPrint('[MainScreen] 스캐너 재시작 성공');
+      }
+    } catch (e) {
+      debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
+      if (mounted) {
+        setState(() {
+          _isInitializing = false;
+        });
+        // 재초기화 시도
+        await _initializeScanner();
+      }
+    }
+  }
+
+  Future<void> _initializeScanner() async {
+    debugPrint('[MainScreen] 스캐너 초기화 시작');
+
+    // 기존 컨트롤러 완전 정리
+    if (_scannerController != null) {
+      try {
+        await _scannerController?.stop();
+      } catch (e) {
+        debugPrint('[MainScreen] 스캐너 중지 오류: $e');
+      }
+      try {
+        await _scannerController?.dispose();
+      } catch (e) {
+        debugPrint('[MainScreen] 스캐너 해제 오류: $e');
+      }
+      _scannerController = null;
+      // 리소스 완전 해제를 위한 대기
+      await Future.delayed(const Duration(milliseconds: 300));
+    }
+
+    // 권한 서비스를 통해 권한 확인 및 요청 (싱글톤으로 중복 방지)
+    final permissionService = CameraPermissionService();
+    debugPrint('[MainScreen] 권한 확인 시작');
+    final permissionStatus = await permissionService.requestIfNeeded();
+    debugPrint('[MainScreen] 권한 상태: $permissionStatus');
+
+    if (!permissionStatus.isGranted) {
+      debugPrint('[MainScreen] 권한이 거부됨');
+      if (mounted) {
+        setState(() {
+          _isInitializing = false;
+        });
+        _showPermissionErrorDialog();
+      }
+      return;
+    }
+
+    // 권한이 허용된 경우에만 컨트롤러 생성
+    try {
+      debugPrint('[MainScreen] 스캐너 컨트롤러 생성 시작');
+
+      _scannerController = MobileScannerController(
+        detectionSpeed: DetectionSpeed.noDuplicates,
+        facing: CameraFacing.back,
+        torchEnabled: false,
+      );
+
+      debugPrint('[MainScreen] 스캐너 컨트롤러 생성 완료');
+
+      // 위젯 빌드 후 스캐너 시작
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        if (!mounted || _scannerController == null) {
+          debugPrint('[MainScreen] 위젯이 마운트되지 않거나 컨트롤러가 null');
+          return;
+        }
+
+        try {
+          debugPrint('[MainScreen] 스캐너 시작 시도...');
+
+          // 카메라 리소스가 완전히 해제될 시간 확보
+          await Future.delayed(const Duration(milliseconds: 500));
+
+          if (!mounted || _scannerController == null) {
+            debugPrint('[MainScreen] 대기 중 위젯이 마운트 해제되거나 컨트롤러가 null');
+            return;
+          }
+
+          // 권한이 이미 허용되었으므로 MobileScanner는 자동 요청하지 않음
+          await _scannerController?.start();
+          debugPrint('[MainScreen] 스캐너 시작 성공');
+
+          // 카메라 프리뷰가 렌더링될 시간 확보
+          await Future.delayed(const Duration(milliseconds: 500));
+
+          if (mounted) {
+            debugPrint('[MainScreen] 상태 업데이트: _isInitializing = false');
+            setState(() {
+              _isInitializing = false;
+            });
+          }
+        } catch (e, stackTrace) {
+          debugPrint('[MainScreen] 스캐너 시작 오류: $e');
+          debugPrint('[MainScreen] 스택 트레이스: $stackTrace');
+          if (mounted) {
+            setState(() {
+              _isInitializing = false;
+            });
+            _showErrorDialog('카메라를 시작할 수 없습니다: $e');
+          }
+        }
+      });
+    } catch (e) {
+      debugPrint('[MainScreen] 스캐너 컨트롤러 생성 오류: $e');
+      if (mounted) {
+        setState(() {
+          _isInitializing = false;
+        });
+        _showErrorDialog('카메라 초기화 실패: $e');
+      }
+    }
+  }
+
+  void _showPermissionErrorDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('카메라 권한 필요'),
+        content: const Text(
+          'QR 코드 스캔을 위해 카메라 권한이 필요합니다.\n설정에서 카메라 권한을 허용해주세요.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('취소'),
+          ),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(context);
+              // 설정 앱 열기
+              await openAppSettings();
+            },
+            child: const Text('설정으로 이동'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('오류'),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('확인'),
+          ),
+        ],
+      ),
+    );
+  }
 
   void _onBarcodeDetect(BarcodeCapture capture) async {
     if (_isScanning) return;
@@ -23,14 +253,21 @@ class _MainScreenState extends State<MainScreen> {
     final List<Barcode> barcodes = capture.barcodes;
     if (barcodes.isEmpty) return;
 
+    final barcode = barcodes.first;
+    if (barcode.rawValue == null) return;
+
+    // 같은 코드를 연속으로 스캔하는 것을 방지
+    if (_lastScannedCode == barcode.rawValue) return;
+
     setState(() {
       _isScanning = true;
+      _lastScannedCode = barcode.rawValue;
     });
 
-    final barcode = barcodes.first;
-    if (barcode.rawValue != null) {
-      _processBarcode(barcode.rawValue!);
-    }
+    // 스캔 중지
+    await _scannerController?.stop();
+
+    _processBarcode(barcode.rawValue!);
   }
 
   Future<void> _processBarcode(String code) async {
@@ -40,7 +277,9 @@ class _MainScreenState extends State<MainScreen> {
     if (!code.startsWith(prefix)) {
       setState(() {
         _isScanning = false;
+        _lastScannedCode = null;
       });
+      _scannerController?.start();
       return;
     }
 
@@ -63,33 +302,54 @@ class _MainScreenState extends State<MainScreen> {
         final data = json.decode(response.body);
 
         if (data['rows'] != null && data['rows'].length > 0) {
-          final stockInfo = data['rows'][0];
-
           if (mounted) {
-            Navigator.push(
+            // 결과 화면으로 이동
+            await Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => ResultScreen(id: id, lat: 0.0, lng: 0.0),
               ),
             );
+            // 결과 화면에서 돌아왔을 때 스캐너 재시작 및 상태 초기화
+            if (mounted) {
+              setState(() {
+                _isScanning = false;
+                _lastScannedCode = null;
+              });
+              _scannerController?.start();
+            }
           }
+        } else {
+          // 유가증권 정보를 찾을 수 없는 경우 스캐너 재시작
+          if (mounted) {
+            setState(() {
+              _isScanning = false;
+              _lastScannedCode = null;
+            });
+            _scannerController?.start();
+          }
+        }
+      } else {
+        // API 오류 시 스캐너 재시작
+        if (mounted) {
+          setState(() {
+            _isScanning = false;
+            _lastScannedCode = null;
+          });
+          _scannerController?.start();
         }
       }
     } catch (e) {
       debugPrint('API 에러: $e');
-    } finally {
-      setState(() {
-        _isScanning = false;
-      });
+      // 에러 발생 시 스캐너 재시작
+      if (mounted) {
+        setState(() {
+          _isScanning = false;
+          _lastScannedCode = null;
+        });
+        _scannerController?.start();
+      }
     }
-  }
-
-  void _showPushSettings() {
-    showDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) => const PushSettingsDialog(),
-    );
   }
 
   void _onAppDownloadTap() {
@@ -101,174 +361,131 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Column(
-          children: [
-            // 상단 헤더
-            Container(
-              height: 60,
-              decoration: BoxDecoration(
-                color: const Color(0xFFED7C2A),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.1),
-                    blurRadius: 4,
-                    offset: const Offset(0, 2),
+      body: Stack(
+        children: [
+          // iOS 상태바 영역 주황색 배경
+          Container(
+            color: const Color(0xFFED7C2A),
+            height: MediaQuery.of(context).padding.top,
+          ),
+          // 메인 콘텐츠
+          SafeArea(
+            child: Column(
+              children: [
+                // 상단 로고 및 체크 아이콘
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 40),
+                  child: Column(
+                    children: [
+                      Image.asset('assets/images/logo.png', height: 80),
+                      const SizedBox(height: 10),
+                      Image.asset('assets/images/check.png', height: 60),
+                    ],
                   ),
-                ],
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                children: [
-                  // 왼쪽: 타이틀
-                  const Text(
-                    '유가증권 Check',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  // 중앙: 빈 공간
-                  const Spacer(),
-                  // 오른쪽: 푸시 아이콘
-                  GestureDetector(
-                    onTap: _showPushSettings,
-                    child: Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.2),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Icon(
-                        Icons.notifications_outlined,
-                        color: Colors.white,
-                        size: 24,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            // 상단 로고 및 체크 아이콘
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 40),
-              child: Column(
-                children: [
-                  Image.asset('assets/images/logo.png', height: 80),
-                  const SizedBox(height: 10),
-                  Image.asset('assets/images/check.png', height: 60),
-                ],
-              ),
-            ),
-
-            // 카메라 스캔 영역
-            Expanded(
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                child: Stack(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: MobileScanner(onDetect: _onBarcodeDetect),
-                    ),
-                    // 중앙 스캔 가이드
-                    Center(
-                      child: Container(
-                        width: 250,
-                        height: 250,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.orange.withValues(alpha: 0.8),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                    ),
-                    // 로딩 인디케이터
-                    if (_isScanning)
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha: 0.5),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const Center(
-                          child: CircularProgressIndicator(
-                            color: Colors.orange,
-                          ),
-                        ),
-                      ),
-                  ],
                 ),
-              ),
-            ),
 
-            // 버전 정보
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: Text(
-                '2020.10.12:001',
-                style: TextStyle(color: Colors.grey[600], fontSize: 12),
-              ),
-            ),
-
-            // 하단 센골드 앱 다운로드 배너
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              decoration: const BoxDecoration(color: Color(0xFF8E57FE)),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                // 카메라 스캔 영역
+                Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Stack(
                       children: [
-                        const Text(
-                          '100원으로 금거래',
-                          style: TextStyle(
-                            color: Colors.yellow,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: _isInitializing
+                              ? Container(
+                                  color: Colors.black,
+                                  child: const Center(
+                                    child: CircularProgressIndicator(
+                                      color: Colors.orange,
+                                    ),
+                                  ),
+                                )
+                              : _scannerController != null
+                              ? SizedBox.expand(
+                                  child: MobileScanner(
+                                    controller: _scannerController,
+                                    onDetect: _onBarcodeDetect,
+                                    errorBuilder: (context, error, child) {
+                                      debugPrint('MobileScanner 에러: $error');
+                                      return Container(
+                                        color: Colors.black,
+                                        child: Center(
+                                          child: Text(
+                                            '카메라 오류: $error',
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                )
+                              : Container(
+                                  color: Colors.black,
+                                  child: const Center(
+                                    child: Text(
+                                      '카메라를 초기화할 수 없습니다',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                        ),
+                        // 중앙 스캔 가이드
+                        Center(
+                          child: Container(
+                            width: 250,
+                            height: 250,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.orange.withValues(alpha: 0.8),
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
                           ),
                         ),
-                        const Text(
-                          '#센골드',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                        // 로딩 인디케이터
+                        if (_isScanning)
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black.withValues(alpha: 0.5),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.orange,
+                              ),
+                            ),
                           ),
-                        ),
                       ],
                     ),
                   ),
-                  GestureDetector(
-                    onTap: _onAppDownloadTap,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.yellow,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: const Text(
-                        'GO >',
-                        style: TextStyle(
-                          color: Color(0xFF8E57FE),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
+                ),
+
+                // 버전 정보
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: Text(
+                    '2020.10.12:001',
+                    style: TextStyle(color: Colors.grey[600], fontSize: 12),
                   ),
-                ],
-              ),
+                ),
+
+                // 하단 센골드 앱 다운로드 배너
+                GestureDetector(
+                  onTap: _onAppDownloadTap,
+                  child: Image.asset(
+                    'assets/images/kdex_banner.jpg',
+                    width: double.infinity,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

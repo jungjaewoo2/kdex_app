@@ -6,6 +6,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import '../services/camera_permission_service.dart';
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen({super.key});
@@ -23,19 +24,23 @@ class _CameraScreenState extends State<CameraScreen> {
   // 바코드 스캐너 사용 모드
   final bool _useBarcodeScanner = true;
   bool _isScanning = false;
+  String? _lastScannedCode;
+  MobileScannerController? _scannerController;
 
   @override
   void initState() {
     super.initState();
     if (_useBarcodeScanner) {
-      // 바코드 스캐너는 별도 초기화 불필요
+      _scannerController = MobileScannerController();
     } else {
       _initializeCamera();
     }
   }
 
   Future<void> _initializeCamera() async {
-    final status = await Permission.camera.request();
+    // 권한 서비스를 통해 권한 확인 및 요청 (싱글톤으로 중복 방지)
+    final permissionService = CameraPermissionService();
+    final status = await permissionService.requestIfNeeded();
     if (!status.isGranted) {
       if (mounted) {
         _showErrorDialog('카메라 권한이 필요합니다.');
@@ -69,6 +74,7 @@ class _CameraScreenState extends State<CameraScreen> {
   @override
   void dispose() {
     _controller?.dispose();
+    _scannerController?.dispose();
     super.dispose();
   }
 
@@ -78,14 +84,21 @@ class _CameraScreenState extends State<CameraScreen> {
     final List<Barcode> barcodes = capture.barcodes;
     if (barcodes.isEmpty) return;
 
+    final barcode = barcodes.first;
+    if (barcode.rawValue == null) return;
+
+    // 같은 코드를 연속으로 스캔하는 것을 방지
+    if (_lastScannedCode == barcode.rawValue) return;
+
     setState(() {
       _isScanning = true;
+      _lastScannedCode = barcode.rawValue;
     });
 
-    final barcode = barcodes.first;
-    if (barcode.rawValue != null) {
-      _processBarcode(barcode.rawValue!);
-    }
+    // 스캔 중지
+    await _scannerController?.stop();
+
+    _processBarcode(barcode.rawValue!);
   }
 
   Future<void> _processBarcode(String code) async {
@@ -95,7 +108,9 @@ class _CameraScreenState extends State<CameraScreen> {
     if (!code.startsWith(prefix)) {
       setState(() {
         _isScanning = false;
+        _lastScannedCode = null;
       });
+      _scannerController?.start();
       _showErrorDialog('유효하지 않은 유가증권 코드입니다.');
       return;
     }
@@ -122,33 +137,53 @@ class _CameraScreenState extends State<CameraScreen> {
           final stockInfo = data['rows'][0];
 
           if (mounted) {
-            Navigator.push(
+            // 결과 화면으로 이동
+            await Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) =>
                     ResultScreen(stockInfo: stockInfo, id: id),
               ),
             );
+            // 결과 화면에서 돌아왔을 때 스캐너 재시작 및 상태 초기화
+            if (mounted) {
+              setState(() {
+                _isScanning = false;
+                _lastScannedCode = null;
+              });
+              _scannerController?.start();
+            }
           }
         } else {
           if (mounted) {
+            setState(() {
+              _isScanning = false;
+              _lastScannedCode = null;
+            });
+            _scannerController?.start();
             _showErrorDialog('유가증권 정보를 찾을 수 없습니다.');
           }
         }
       } else {
         if (mounted) {
+          setState(() {
+            _isScanning = false;
+            _lastScannedCode = null;
+          });
+          _scannerController?.start();
           _showErrorDialog('서버 오류가 발생했습니다.');
         }
       }
     } catch (e) {
       debugPrint('API 에러: $e');
       if (mounted) {
+        setState(() {
+          _isScanning = false;
+          _lastScannedCode = null;
+        });
+        _scannerController?.start();
         _showErrorDialog('네트워크 오류가 발생했습니다.');
       }
-    } finally {
-      setState(() {
-        _isScanning = false;
-      });
     }
   }
 
@@ -213,7 +248,9 @@ class _CameraScreenState extends State<CameraScreen> {
               Navigator.pop(context);
               setState(() {
                 _isScanning = false;
+                _lastScannedCode = null;
               });
+              _scannerController?.start();
             },
             child: const Text('확인'),
           ),
@@ -234,66 +271,84 @@ class _CameraScreenState extends State<CameraScreen> {
   Widget _buildBarcodeScanner() {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(16),
-              color: Colors.black,
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const Expanded(
-                    child: Text(
-                      '유가증권 QR코드 스캔',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+      body: Stack(
+        children: [
+          // iOS 상태바 영역 주황색 배경
+          Container(
+            color: const Color(0xFFED7C2A),
+            height: MediaQuery.of(context).padding.top,
+          ),
+          // 메인 콘텐츠
+          SafeArea(
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  color: Colors.black,
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.arrow_back, color: Colors.white),
+                        onPressed: () => Navigator.pop(context),
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  const SizedBox(width: 48), // 뒤로가기 버튼과 균형 맞추기
-                ],
-              ),
-            ),
-            Expanded(
-              child: Stack(
-                children: [
-                  MobileScanner(onDetect: _onBarcodeDetect),
-                  Container(
-                    margin: const EdgeInsets.all(48),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.orange, width: 3),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const AspectRatio(aspectRatio: 1, child: SizedBox()),
-                  ),
-                  if (_isScanning)
-                    Container(
-                      color: Colors.black.withValues(alpha: 0.54),
-                      child: const Center(
-                        child: CircularProgressIndicator(color: Colors.orange),
+                      const Expanded(
+                        child: Text(
+                          '유가증권 QR코드 스캔',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                    ),
-                ],
-              ),
+                      const SizedBox(width: 48), // 뒤로가기 버튼과 균형 맞추기
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Stack(
+                    children: [
+                      MobileScanner(
+                        controller: _scannerController,
+                        onDetect: _onBarcodeDetect,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(48),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.orange, width: 3),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const AspectRatio(
+                          aspectRatio: 1,
+                          child: SizedBox(),
+                        ),
+                      ),
+                      if (_isScanning)
+                        Container(
+                          color: Colors.black.withValues(alpha: 0.54),
+                          child: const Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.orange,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(24),
+                  decoration: BoxDecoration(color: Colors.black),
+                  child: const Text(
+                    'QR 코드를 화면 가운데에 맞춰주세요',
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
             ),
-            Container(
-              padding: const EdgeInsets.all(24),
-              decoration: BoxDecoration(color: Colors.black),
-              child: const Text(
-                'QR 코드를 화면 가운데에 맞춰주세요',
-                style: TextStyle(color: Colors.white, fontSize: 14),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -301,104 +356,117 @@ class _CameraScreenState extends State<CameraScreen> {
   Widget _buildCameraView() {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(16),
-              color: Colors.black,
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const Expanded(
-                    child: Text(
-                      '유가증권 촬영',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+      body: Stack(
+        children: [
+          // iOS 상태바 영역 주황색 배경
+          Container(
+            color: const Color(0xFFED7C2A),
+            height: MediaQuery.of(context).padding.top,
+          ),
+          // 메인 콘텐츠
+          SafeArea(
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  color: Colors.black,
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.arrow_back, color: Colors.white),
+                        onPressed: () => Navigator.pop(context),
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.photo_library, color: Colors.white),
-                    onPressed: _pickFromGallery,
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  if (_isInitialized && _controller != null)
-                    Center(
-                      child: AspectRatio(
-                        aspectRatio: _controller!.value.aspectRatio,
-                        child: CameraPreview(_controller!),
+                      const Expanded(
+                        child: Text(
+                          '유가증권 촬영',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                    )
-                  else
-                    const Center(
-                      child: CircularProgressIndicator(color: Colors.white),
-                    ),
-                  Container(
-                    margin: const EdgeInsets.all(32),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white, width: 3),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const AspectRatio(
-                      aspectRatio: 1.6,
-                      child: SizedBox(),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(24),
-              decoration: BoxDecoration(
-                color: Colors.black,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
-                    blurRadius: 10,
-                    offset: const Offset(0, -5),
-                  ),
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: _takePicture,
-                    child: Container(
-                      width: 70,
-                      height: 70,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                        border: Border.all(color: Colors.white, width: 4),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.photo_library,
+                          color: Colors.white,
+                        ),
+                        onPressed: _pickFromGallery,
                       ),
-                      child: _isCapturing
-                          ? const Center(
-                              child: CircularProgressIndicator(
-                                color: Colors.black,
-                              ),
-                            )
-                          : const SizedBox(),
-                    ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                Expanded(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      if (_isInitialized && _controller != null)
+                        Center(
+                          child: AspectRatio(
+                            aspectRatio: _controller!.value.aspectRatio,
+                            child: CameraPreview(_controller!),
+                          ),
+                        )
+                      else
+                        const Center(
+                          child: CircularProgressIndicator(color: Colors.white),
+                        ),
+                      Container(
+                        margin: const EdgeInsets.all(32),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 3),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const AspectRatio(
+                          aspectRatio: 1.6,
+                          child: SizedBox(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(24),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        blurRadius: 10,
+                        offset: const Offset(0, -5),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: _takePicture,
+                        child: Container(
+                          width: 70,
+                          height: 70,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                            border: Border.all(color: Colors.white, width: 4),
+                          ),
+                          child: _isCapturing
+                              ? const Center(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.black,
+                                  ),
+                                )
+                              : const SizedBox(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
