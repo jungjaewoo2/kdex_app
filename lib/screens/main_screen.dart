@@ -234,20 +234,14 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     _lastScannedCode = code;
     _lastScanTime = now;
 
-    // 스캔 중지
-    try {
-      debugPrint('[MainScreen] 스캐너 중지 시도...');
-      await _scannerController?.stop();
-      debugPrint('[MainScreen] 스캐너 중지 완료');
-    } catch (e) {
-      debugPrint('[MainScreen] 스캐너 중지 오류: $e');
-    }
-
-    // setState는 UI 업데이트만 담당
+    // ✅ UI를 즉시 업데이트하여 MobileScanner 위젯 제거 (카메라 완전 중지)
     if (mounted) {
       setState(() {});
-      debugPrint('[MainScreen] UI 업데이트 완료');
+      debugPrint('[MainScreen] UI 업데이트: 스캐너 위젯 숨김');
     }
+
+    // 카메라 리소스 해제 대기
+    await Future.delayed(const Duration(milliseconds: 100));
 
     // 바코드 처리
     debugPrint('[MainScreen] _processBarcode 호출');
@@ -401,13 +395,22 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                                     ),
                                   ),
                                 )
+                              : _isScanning
+                              ? Container(
+                                  color: Colors.black,
+                                  child: const Center(
+                                    child: CircularProgressIndicator(
+                                      color: Colors.orange,
+                                    ),
+                                  ),
+                                )
                               : _scannerController != null
                               ? SizedBox.expand(
                                   child: MobileScanner(
                                     controller: _scannerController,
                                     onDetect: _onBarcodeDetect,
                                     errorBuilder: (context, error, child) {
-                                      debugPrint('MobileScanner 에러: $error');
+                                      debugPrint('[MainScreen] MobileScanner 에러: $error');
                                       return Container(
                                         color: Colors.black,
                                         child: Center(
