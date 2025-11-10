@@ -19,6 +19,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   String? _lastScannedCode;
   MobileScannerController? _scannerController;
   bool _isInitializing = true;
+  DateTime? _lastScanTime;
 
   @override
   void initState() {
@@ -269,7 +270,11 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   }
 
   void _onBarcodeDetect(BarcodeCapture capture) async {
-    if (_isScanning) return;
+    // 스캔 중이면 무시
+    if (_isScanning) {
+      debugPrint('[MainScreen] 이미 스캔 중, 무시');
+      return;
+    }
 
     final List<Barcode> barcodes = capture.barcodes;
     if (barcodes.isEmpty) return;
@@ -277,35 +282,57 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     final barcode = barcodes.first;
     if (barcode.rawValue == null) return;
 
+    final now = DateTime.now();
+    
     // 같은 코드를 연속으로 스캔하는 것을 방지
-    if (_lastScannedCode == barcode.rawValue) return;
+    if (_lastScannedCode == barcode.rawValue) {
+      debugPrint('[MainScreen] 중복 코드 감지, 무시: ${barcode.rawValue}');
+      return;
+    }
+
+    // 디바운싱: 마지막 스캔으로부터 1초 이내 스캔 무시
+    if (_lastScanTime != null && now.difference(_lastScanTime!) < const Duration(seconds: 1)) {
+      debugPrint('[MainScreen] 너무 빠른 스캔, 무시 (${now.difference(_lastScanTime!).inMilliseconds}ms)');
+      return;
+    }
+
+    debugPrint('[MainScreen] 바코드 감지: ${barcode.rawValue}');
 
     setState(() {
       _isScanning = true;
       _lastScannedCode = barcode.rawValue;
+      _lastScanTime = now;
     });
 
     // 스캔 중지
-    await _scannerController?.stop();
+    try {
+      await _scannerController?.stop();
+      debugPrint('[MainScreen] 스캐너 중지 완료');
+    } catch (e) {
+      debugPrint('[MainScreen] 스캐너 중지 오류: $e');
+    }
 
     _processBarcode(barcode.rawValue!);
   }
 
   Future<void> _processBarcode(String code) async {
-    debugPrint('스캔된 바코드: $code');
+    debugPrint('[MainScreen] 스캔된 바코드 처리 시작: $code');
 
     const prefix = 'http://www.exgold.co.kr/securities/spot_securities.html?';
     if (!code.startsWith(prefix)) {
-      setState(() {
-        _isScanning = false;
-        _lastScannedCode = null;
-      });
-      _scannerController?.start();
+      debugPrint('[MainScreen] 유효하지 않은 QR 코드 형식');
+      if (mounted) {
+        setState(() {
+          _isScanning = false;
+          _lastScannedCode = null;
+        });
+        _scannerController?.start();
+      }
       return;
     }
 
     final id = code.replaceFirst(prefix, '');
-    debugPrint('유가증권 ID: $id');
+    debugPrint('[MainScreen] 유가증권 ID 추출: $id');
 
     // API 호출
     await _fetchSecurityInfo(id);
@@ -313,16 +340,20 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
 
   Future<void> _fetchSecurityInfo(String id) async {
     try {
+      debugPrint('[MainScreen] API 호출 시작: $id');
       final url = Uri.parse(
         'https://pennygold.kr/kgex/viewGiftCardInfo',
       ).replace(queryParameters: {'id': id, 'lat': '0', 'lng': '0', 'ip': ''});
 
       final response = await http.get(url);
+      debugPrint('[MainScreen] API 응답: ${response.statusCode}');
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
+        debugPrint('[MainScreen] API 데이터: ${data.toString()}');
 
         if (data['rows'] != null && data['rows'].length > 0) {
+          debugPrint('[MainScreen] 유가증권 정보 발견, 결과 화면으로 이동');
           if (mounted) {
             // 결과 화면으로 이동
             await Navigator.push(
@@ -331,42 +362,51 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                 builder: (context) => ResultScreen(id: id, lat: 0.0, lng: 0.0),
               ),
             );
+            debugPrint('[MainScreen] 결과 화면에서 돌아옴');
             // 결과 화면에서 돌아왔을 때 스캐너 재시작 및 상태 초기화
             if (mounted) {
               setState(() {
                 _isScanning = false;
                 _lastScannedCode = null;
+                _lastScanTime = null;
               });
+              await Future.delayed(const Duration(milliseconds: 300));
               _scannerController?.start();
+              debugPrint('[MainScreen] 스캐너 재시작 완료');
             }
           }
         } else {
+          debugPrint('[MainScreen] 유가증권 정보 없음');
           // 유가증권 정보를 찾을 수 없는 경우 스캐너 재시작
           if (mounted) {
             setState(() {
               _isScanning = false;
               _lastScannedCode = null;
+              _lastScanTime = null;
             });
             _scannerController?.start();
           }
         }
       } else {
+        debugPrint('[MainScreen] API 오류: ${response.statusCode}');
         // API 오류 시 스캐너 재시작
         if (mounted) {
           setState(() {
             _isScanning = false;
             _lastScannedCode = null;
+            _lastScanTime = null;
           });
           _scannerController?.start();
         }
       }
     } catch (e) {
-      debugPrint('API 에러: $e');
+      debugPrint('[MainScreen] API 에러: $e');
       // 에러 발생 시 스캐너 재시작
       if (mounted) {
         setState(() {
           _isScanning = false;
           _lastScannedCode = null;
+          _lastScanTime = null;
         });
         _scannerController?.start();
       }
