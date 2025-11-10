@@ -259,7 +259,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
           _isScanning = false;
           _lastScannedCode = null;
         });
-        _scannerController?.start();
+        // MobileScanner 위젯이 다시 빌드되며 자동 시작됨
+        debugPrint('[MainScreen] 스캐너 위젯 다시 표시 (자동 시작)');
       }
       return;
     }
@@ -298,14 +299,14 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             debugPrint('[MainScreen] 결과 화면에서 돌아옴');
             // 결과 화면에서 돌아왔을 때 스캐너 재시작 및 상태 초기화
             if (mounted) {
+              await Future.delayed(const Duration(milliseconds: 300));
               setState(() {
                 _isScanning = false;
                 _lastScannedCode = null;
                 _lastScanTime = null;
               });
-              await Future.delayed(const Duration(milliseconds: 300));
-              _scannerController?.start();
-              debugPrint('[MainScreen] 스캐너 재시작 완료');
+              // MobileScanner 위젯이 다시 빌드되며 자동 시작됨
+              debugPrint('[MainScreen] 스캐너 위젯 다시 표시 (자동 시작)');
             }
           }
         } else {
@@ -317,7 +318,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
               _lastScannedCode = null;
               _lastScanTime = null;
             });
-            _scannerController?.start();
+            debugPrint('[MainScreen] 스캐너 위젯 다시 표시 (자동 시작)');
           }
         }
       } else {
@@ -329,7 +330,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             _lastScannedCode = null;
             _lastScanTime = null;
           });
-          _scannerController?.start();
+          debugPrint('[MainScreen] 스캐너 위젯 다시 표시 (자동 시작)');
         }
       }
     } catch (e) {
@@ -341,7 +342,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
           _lastScannedCode = null;
           _lastScanTime = null;
         });
-        _scannerController?.start();
+        debugPrint('[MainScreen] 스캐너 위젯 다시 표시 (자동 시작)');
       }
     }
   }
