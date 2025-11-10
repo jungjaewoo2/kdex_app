@@ -73,152 +73,64 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _restartScanner() async {
-    debugPrint('[MainScreen] 스캐너 재시작 시작');
-
-    // 권한 재확인
-    final permissionService = CameraPermissionService();
-    final permissionStatus = await permissionService.getStatus();
-    debugPrint('[MainScreen] 재시작 시 권한 상태: $permissionStatus');
-
-    if (!permissionStatus.isGranted) {
-      debugPrint('[MainScreen] 권한이 없어 재초기화');
-      await _initializeScanner();
-      return;
-    }
-
-    if (_scannerController == null) {
-      debugPrint('[MainScreen] 컨트롤러가 없어 재초기화');
-      await _initializeScanner();
-      return;
-    }
-
-    try {
-      setState(() {
-        _isInitializing = true;
-      });
-
-      // 기존 스캐너 중지
-      await _scannerController?.stop();
-      await Future.delayed(const Duration(milliseconds: 500));
-
-      // 스캐너 재시작
-      await _scannerController?.start();
-
-      if (mounted) {
-        await Future.delayed(const Duration(milliseconds: 500));
-        setState(() {
-          _isInitializing = false;
-        });
-        debugPrint('[MainScreen] 스캐너 재시작 성공');
-      }
-    } catch (e) {
-      debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
-      if (mounted) {
-        setState(() {
-          _isInitializing = false;
-        });
-        // 재초기화 시도
-        await _initializeScanner();
-      }
-    }
+    debugPrint('[MainScreen] ========== 스캐너 재시작 ==========');
+    await _initializeScanner();
   }
 
   Future<void> _initializeScanner() async {
-    debugPrint('[MainScreen] 스캐너 초기화 시작');
+    debugPrint('[MainScreen] ========== 스캐너 초기화 시작 ==========');
 
     // 기존 컨트롤러 완전 정리
     if (_scannerController != null) {
+      debugPrint('[MainScreen] 기존 컨트롤러 정리 중...');
       try {
         await _scannerController?.stop();
+        debugPrint('[MainScreen] 기존 스캐너 중지 완료');
       } catch (e) {
         debugPrint('[MainScreen] 스캐너 중지 오류: $e');
       }
       try {
         await _scannerController?.dispose();
+        debugPrint('[MainScreen] 기존 스캐너 dispose 완료');
       } catch (e) {
         debugPrint('[MainScreen] 스캐너 해제 오류: $e');
       }
       _scannerController = null;
-      // 리소스 완전 해제를 위한 대기
-      await Future.delayed(const Duration(milliseconds: 300));
+      await Future.delayed(const Duration(milliseconds: 500));
+      debugPrint('[MainScreen] 기존 컨트롤러 정리 완료');
     }
 
-    // iOS와 Android 모두 먼저 컨트롤러를 생성
-    // MobileScanner가 플랫폼별로 자동으로 권한을 처리함
     try {
-      debugPrint('[MainScreen] 스캐너 컨트롤러 생성 시작');
+      debugPrint('[MainScreen] 새 컨트롤러 생성 중...');
 
       _scannerController = MobileScannerController(
-        detectionSpeed: DetectionSpeed.normal,
+        detectionSpeed: DetectionSpeed.noDuplicates,
         facing: CameraFacing.back,
         torchEnabled: false,
         returnImage: false,
       );
 
-      debugPrint('[MainScreen] 스캐너 컨트롤러 생성 완료');
+      debugPrint('[MainScreen] 컨트롤러 생성 완료: ${_scannerController != null}');
 
-      // 위젯 빌드 후 스캐너 시작
-      WidgetsBinding.instance.addPostFrameCallback((_) async {
-        if (!mounted || _scannerController == null) {
-          debugPrint('[MainScreen] 위젯이 마운트되지 않거나 컨트롤러가 null');
-          return;
-        }
+      if (mounted) {
+        setState(() {
+          _isInitializing = false;
+        });
+        debugPrint('[MainScreen] UI 업데이트: _isInitializing = false');
+      }
 
-        try {
-          debugPrint('[MainScreen] 스캐너 시작 시도...');
-
-          // 카메라 리소스가 완전히 해제될 시간 확보
-          await Future.delayed(const Duration(milliseconds: 500));
-
-          if (!mounted || _scannerController == null) {
-            debugPrint('[MainScreen] 대기 중 위젯이 마운트 해제되거나 컨트롤러가 null');
-            return;
-          }
-
-          // MobileScanner가 플랫폼별로 권한을 자동 처리
-          await _scannerController?.start();
-          debugPrint('[MainScreen] 스캐너 시작 성공');
-
-          // 카메라 프리뷰가 렌더링될 시간 확보
-          await Future.delayed(const Duration(milliseconds: 500));
-
-          if (mounted) {
-            debugPrint('[MainScreen] 상태 업데이트: _isInitializing = false');
-            setState(() {
-              _isInitializing = false;
-            });
-          }
-        } catch (e, stackTrace) {
-          debugPrint('[MainScreen] 스캐너 시작 오류: $e');
-          debugPrint('[MainScreen] 스택 트레이스: $stackTrace');
-          
-          // iOS에서 권한이 없어 실패한 경우 권한 다이얼로그 표시
-          if (e.toString().contains('permission') || e.toString().contains('Authorization')) {
-            debugPrint('[MainScreen] 권한 오류로 판단됨');
-            if (mounted) {
-              setState(() {
-                _isInitializing = false;
-              });
-              _showPermissionErrorDialog();
-            }
-          } else {
-            if (mounted) {
-              setState(() {
-                _isInitializing = false;
-              });
-              _showErrorDialog('카메라를 시작할 수 없습니다: $e');
-            }
-          }
-        }
-      });
-    } catch (e) {
-      debugPrint('[MainScreen] 스캐너 컨트롤러 생성 오류: $e');
+      // 컨트롤러는 MobileScanner 위젯이 빌드될 때 자동으로 시작됨
+      debugPrint('[MainScreen] 스캐너가 위젯에 의해 자동 시작될 것임');
+      
+    } catch (e, stackTrace) {
+      debugPrint('[MainScreen] ❌ 컨트롤러 생성 실패: $e');
+      debugPrint('[MainScreen] 스택 트레이스: $stackTrace');
+      
       if (mounted) {
         setState(() {
           _isInitializing = false;
         });
         
-        // iOS에서 권한이 없어 실패한 경우
         if (e.toString().contains('permission') || e.toString().contains('Authorization')) {
           _showPermissionErrorDialog();
         } else {
@@ -271,38 +183,62 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   }
 
   void _onBarcodeDetect(BarcodeCapture capture) async {
+    debugPrint('[MainScreen] ========== onBarcodeDetect 호출됨 ==========');
+    debugPrint('[MainScreen] _isScanning: $_isScanning');
+    
     // 스캔 중이면 무시 (즉시 리턴)
     if (_isScanning) {
+      debugPrint('[MainScreen] 이미 스캔 중, 무시함');
       return;
     }
 
     final List<Barcode> barcodes = capture.barcodes;
-    if (barcodes.isEmpty) return;
+    debugPrint('[MainScreen] 감지된 바코드 개수: ${barcodes.length}');
+    
+    if (barcodes.isEmpty) {
+      debugPrint('[MainScreen] 바코드가 비어있음');
+      return;
+    }
 
     final barcode = barcodes.first;
-    if (barcode.rawValue == null) return;
+    if (barcode.rawValue == null) {
+      debugPrint('[MainScreen] 바코드 값이 null');
+      return;
+    }
 
     final code = barcode.rawValue!;
     final now = DateTime.now();
     
+    debugPrint('[MainScreen] 바코드 값: $code');
+    debugPrint('[MainScreen] 마지막 스캔 코드: $_lastScannedCode');
+    
     // 같은 코드를 연속으로 스캔하는 것을 방지
     if (_lastScannedCode == code) {
+      debugPrint('[MainScreen] 중복 코드, 무시');
       return;
     }
 
     // 디바운싱: 마지막 스캔으로부터 500ms 이내 스캔 무시
-    if (_lastScanTime != null && now.difference(_lastScanTime!) < const Duration(milliseconds: 500)) {
-      return;
+    if (_lastScanTime != null) {
+      final diff = now.difference(_lastScanTime!);
+      debugPrint('[MainScreen] 마지막 스캔으로부터 ${diff.inMilliseconds}ms 경과');
+      if (diff < const Duration(milliseconds: 500)) {
+        debugPrint('[MainScreen] 너무 빠른 스캔, 무시');
+        return;
+      }
     }
 
     // ✅ 플래그를 즉시 설정하여 추가 onDetect 차단
+    debugPrint('[MainScreen] ✅ 바코드 처리 시작');
     _isScanning = true;
     _lastScannedCode = code;
     _lastScanTime = now;
 
-    // 스캔 중지 (UI 업데이트 전에)
+    // 스캔 중지
     try {
+      debugPrint('[MainScreen] 스캐너 중지 시도...');
       await _scannerController?.stop();
+      debugPrint('[MainScreen] 스캐너 중지 완료');
     } catch (e) {
       debugPrint('[MainScreen] 스캐너 중지 오류: $e');
     }
@@ -310,9 +246,11 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     // setState는 UI 업데이트만 담당
     if (mounted) {
       setState(() {});
+      debugPrint('[MainScreen] UI 업데이트 완료');
     }
 
     // 바코드 처리
+    debugPrint('[MainScreen] _processBarcode 호출');
     await _processBarcode(code);
   }
 
