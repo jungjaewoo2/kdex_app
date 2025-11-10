@@ -1,526 +1,879 @@
 [connected:b9bb105bf3e4e9cd943f874b5192135108593b87]
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5691 DR=158.8448 factor=0.0218
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5699 DR=158.6122 factor=0.0220
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5708 DR=158.3804 factor=0.0221
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5716 DR=158.1479 factor=0.0223
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5725 DR=157.9165 factor=0.0224
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5733 DR=157.6848 factor=0.0226
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5741 DR=157.4538 factor=0.0227
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5750 DR=157.2232 factor=0.0229
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <0DC7FFAF-FCE4-470C-8397-98979FFBC003>.<1> received response, status 200 content K
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <0DC7FFAF-FCE4-470C-8397-98979FFBC003>.<1> done using Connection 1
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <0DC7FFAF-FCE4-470C-8397-98979FFBC003>.<1> response ended
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <0DC7FFAF-FCE4-470C-8397-98979FFBC003>.<1> summary for task success {transaction_duration_ms=438, response_status=200, connection=1, protocol="h2", domain_lookup_duration_ms=35, connect_duration_ms=209, secure_connection_duration_ms=110, private_relay=false, request_start_ms=291, request_duration_ms=3, response_start_ms=427, response_duration_ms=8, request_bytes=321, response_bytes=280, cache_hit=false}
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <0DC7FFAF-FCE4-470C-8397-98979FFBC003>.<1> finished successfully
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Ending background task with UIBackgroundTaskIdentifier: 31
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Ending task with identifier 31 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x282124d80>
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Decrementing reference count for assertion used by background task with identifier 31: <private>
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Connection 1: cleaning up
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C1 2E0449F3-5AD8-43D4-A477-E6A57559E672 Hostname#a3f6afa1:443 tcp, url hash: be282695, tls, definite, attribution: developer] cancel
-Nov 10 21:35:44 runningboardd(RunningBoard)[31] <Notice>: Acquiring assertion targeting [application<com.kdex.app.v2>:16588] from originator [application<com.kdex.app.v2>:16588] with description <RBSAssertionDescriptor| "com.apple.CFNetwork.StorageDB" ID:31-16588-17472 target:16588 attributes:[
-	<RBSDomainAttribute| domain:"com.apple.common" name:"FinishTaskUninterruptable" sourceEnvironment:"(null)">,
-	<RBSAcquisitionCompletionAttribute| policy:AfterApplication>
-	]>
-Nov 10 21:35:44 runningboardd(RunningBoard)[31] <Notice>: Assertion 31-16588-17472 (target:[application<com.kdex.app.v2>:16588]) will be created as inactive as start-time-defining assertions exist
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C1 2E0449F3-5AD8-43D4-A477-E6A57559E672 Hostname#a3f6afa1:443 tcp, url hash: be282695, tls, definite, attribution: developer] cancelled
-	[C1.1 9EC50E2C-E673-411C-BC28-60E5241CE0C2 192.168.0.20:64661<->IPv4#7d0859ee:443]
-	Connected Path: satisfied (Path is satisfied), viable, interface: en0, ipv4, dns
-	Privacy Stance: Not Eligible
-	Duration: 0.431s, DNS @0.001s took 0.035s, TCP @0.057s took 0.096s, TLS 1.3 took 0.113s
-	bytes in/out: 5521/1113, packets in/out: 12/19, rtt: 0.039s, retransmitted bytes: 0, out-of-order bytes: 0
-Nov 10 21:35:44 Runner(libusrtcp.dylib)[16588] <Notice>: nw_protocol_tcp_log_summary [C1.1:3] 
-	[BE12F9D4-ABFA-4027-843B-0CB3E96AC5F8 <private>:64661<-><private>:443]
-	Init: 1, Conn_Time: 95.698ms, SYNs: 2, WR_T: 0/0, RD_T: 0/0, TFO: 0/0/0, ECN: 0/0/0, TS: 1
-	rtt_cache: kernel, rtt_upd: 6, rtt: 39.218ms, rtt_var: 8.750ms rtt_nc: 65.812ms, rtt_var_nc: 44.375ms base rtt: 33ms
-	ACKs-compressed: 0, ACKs delayed: 0 delayed ACKs sent: 0
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: nw_flow_disconnected [C1.1 IPv4#7d0859ee:443 cancelled channel-flow ((null))] Output protocol disconnected
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: nw_connection_report_state_with_handler_on_nw_queue [C1] reporting state cancelled
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Connection 1: done
-Nov 10 21:35:44 Runner(libusrtcp.dylib)[16588] <Notice>: tcp_output [C1.1:3] flags=[F.] seq=1899339407, ack=3166096287, win=4096 state=FIN_WAIT_1 rcv_nxt=3166096287, snd_una=1899339305
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5758 DR=156.9927 factor=0.0230
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Garbage collection for alternative services
-Nov 10 21:35:44 dasd[93] <Notice>: Trigger: <private> is now [0]
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x282105ac0>
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Created background task <private>. Assertion will be assigned soon
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Reusing assertion <BKSProcessAssertion: 0x281711a40>
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> resuming, timeouts(60.0, 604800.0) QOS(0x19) Voucher <private>
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: [Telemetry]: Activity <nw_activity 12:2 [2FE127B3-0CEC-4CE8-830A-E27863B85E84] (reporting strategy default)> on Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> was not selected for reporting
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> {strength 1, tls 8, ct 0, sub 0, sig 0, ciphers 1, bundle 0, builtin 0}
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Connection 3: enabling TLS
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Connection 3: starting, TC(0x0)
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3 11752595-094B-4FDF-B3F6-D96A93469A76 Hostname#a3f6afa1:443 tcp, url hash: be282695, tls, definite, attribution: developer, context: com.apple.CFNetwork.NSURLSession.{5E3A41B3-B837-4E89-8CD8-8EF1BE27BEFD}{(null)}{Y}{2} (private), proc: 608F7888-90FB-381B-B169-7D77715FA56D] start
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3 Hostname#a3f6afa1:443 initial path ((null))] event: path:start @0.000s
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3 Hostname#a3f6afa1:443 waiting path (satisfied (Path is satisfied), interface: en0, ipv4, dns)] event: path:satisfied @0.000s, uuid: FF292082-5411-4757-BDF8-46F688F406AC
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3 Hostname#a3f6afa1:443 in_progress resolver (satisfied (Path is satisfied), interface: en0, ipv4, dns)] event: resolver:start_dns @0.000s
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: nw_connection_report_state_with_handler_on_nw_queue [C3] reporting state preparing
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> setting up Connection 3
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992] getaddrinfo start -- flags: 0xC000D000, ifindex: 0, protocols: 0, hostname: <mask.hash: 'sPrTnP91YIIMWAfG3k+8ew=='>, options: 0x8 {use-failover}, client pid: 16588 (Runner)
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992->Q30989] Question for <mask.hash: 'LlEZRDKqi9MFmsUHMJi/lg=='> (HTTPS) assigned DNS service 9
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992->Q11488] Question for <mask.hash: 'LlEZRDKqi9MFmsUHMJi/lg=='> (AAAA) assigned DNS service 9
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [Q11488] ShouldSuppressUnicastQuery: Query suppressed for <mask.hash: 'LlEZRDKqi9MFmsUHMJi/lg=='> AAAA (AAAA records are unusable)
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992->Q11539] Question for <mask.hash: 'LlEZRDKqi9MFmsUHMJi/lg=='> (Addr) assigned DNS service 9
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992->Q11488] GenerateNegativeResponse: Generating negative response for question <mask.hash: 'LlEZRDKqi9MFmsUHMJi/lg=='> (AAAA)
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: nw_endpoint_resolver_update [C3 Hostname#a3f6afa1:443 in_progress resolver (satisfied (Path is satisfied), interface: en0, ipv4, dns)] Adding endpoint handler for IPv4#7d0859ee:443
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: nw_endpoint_resolver_update [C3 Hostname#a3f6afa1:443 in_progress resolver (satisfied (Path is satisfied), interface: en0, ipv4, dns)] Adding endpoint handler for IPv4#a9c02b01:443
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: nw_endpoint_resolver_update [C3 Hostname#a3f6afa1:443 in_progress resolver (satisfied (Path is satisfied), interface: en0, ipv4, dns)] Adding endpoint handler for IPv4#222c304f:443
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: nw_endpoint_resolver_update [C3 Hostname#a3f6afa1:443 in_progress resolver (satisfied (Path is satisfied), interface: en0, ipv4, dns)] Adding endpoint handler for IPv4#c0396082:443
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3 Hostname#a3f6afa1:443 in_progress resolver (satisfied (Path is satisfied), interface: en0, ipv4, dns)] event: resolver:receive_dns @0.009s
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5767 DR=156.7626 factor=0.0232
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3.1 IPv4#7d0859ee:443 initial path ((null))] event: path:start @0.009s
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3.1 IPv4#7d0859ee:443 waiting path (satisfied (Path is satisfied), interface: en0, ipv4, dns)] event: path:satisfied @0.009s, uuid: C56C41C4-4605-4085-8F8E-9F851AB467CC
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3.1 IPv4#7d0859ee:443 in_progress channel-flow (satisfied (Path is satisfied), interface: en0, ipv4, dns)] event: flow:start_nexus @0.010s
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992->Q30989] getaddrinfo result -- event: add, ifindex: 0, name: BBLbsWbu, type: HTTPS, rdata: <none>, reason: no-data
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992->Q11488] getaddrinfo result -- event: add, ifindex: 0, name: BBLbsWbu, type: AAAA, rdata: <none>, reason: query-suppressed
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992->Q11539] getaddrinfo result -- event: add, ifindex: 0, name: BBLbsWbu, type: A, rdata: BBjxVLas, expired: no
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992->Q11539] getaddrinfo result -- event: add, ifindex: 0, name: BBLbsWbu, type: A, rdata: BBMWOiBY, expired: no
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992->Q11539] getaddrinfo result -- event: add, ifindex: 0, name: BBLbsWbu, type: A, rdata: BBjUeaXP, expired: no
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992->Q11539] getaddrinfo result -- event: add, ifindex: 0, name: BBLbsWbu, type: A, rdata: BBBrIzTd, expired: no
-Nov 10 21:35:44 mDNSResponder[119] <Notice>: [R6992] getaddrinfo stop -- hostname: <mask.hash: 'sPrTnP91YIIMWAfG3k+8ew=='>, client pid: 16588 (Runner)
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3.1 IPv4#7d0859ee:443 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: en0, ipv4, dns)] event: flow:receive_nexus @0.010s
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3.1 IPv4#7d0859ee:443 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: en0, ipv4, dns)] event: flow:start_connect @0.011s
-Nov 10 21:35:44 Runner(libusrtcp.dylib)[16588] <Notice>: tcp_output [C3.1:3] flags=[S] seq=3987943682, ack=0, win=65535 state=SYN_SENT rcv_nxt=0, snd_una=3987943682
-Nov 10 21:35:44 backboardd(BackBoardHIDEventFoundation)[63] <Notice>: destinations for VendorDefined event: ()
-Nov 10 21:35:44 Runner(libusrtcp.dylib)[16588] <Notice>: tcp_input [C1.1:3] flags=[F.] seq=3166096287, ack=1899339407, win=1050 state=FIN_WAIT_1 rcv_nxt=3166096287, snd_una=1899339407
-Nov 10 21:35:44 Runner(libusrtcp.dylib)[16588] <Notice>: tcp_output [C1.1:3] flags=[F.] seq=1899339407, ack=3166096288, win=4096 state=CLOSING rcv_nxt=3166096288, snd_una=1899339407
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5775 DR=156.5455 factor=0.0233
-Nov 10 21:35:44 symptomsd(SymptomEvaluator)[151] <Notice>: Data Usage for com.kdex.app.v2 on flow 87152 - WiFi in/out: 254005/59305, WiFi delta_in/delta_out: 7377/2877, Cell in/out: 0/0, Cell delta_in/delta_out: 0/0, RNF: 0, subscriber tag: 0
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <EB168336-EA4C-479A-8C69-7A0ABFCF4E24>.<1> received response, status 200 content K
-Nov 10 21:35:44 symptomsd(SymptomEvaluator)[151] <Notice>: WiFi observer _foregroundCounts.currentCombinedFlags is 0x0
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Garbage collection for alternative services
-Nov 10 21:35:44 symptomsd(SymptomEvaluator)[151] <Notice>: WiFi observer _backgroundCounts.currentCombinedFlags is 0x100000101010
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <EB168336-EA4C-479A-8C69-7A0ABFCF4E24>.<1> done using Connection 2
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <EB168336-EA4C-479A-8C69-7A0ABFCF4E24>.<1> response ended
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <EB168336-EA4C-479A-8C69-7A0ABFCF4E24>.<1> summary for task success {transaction_duration_ms=469, response_status=200, connection=2, protocol="h2", domain_lookup_duration_ms=20, connect_duration_ms=226, secure_connection_duration_ms=134, private_relay=false, request_start_ms=277, request_duration_ms=0, response_start_ms=462, response_duration_ms=6, request_bytes=311, response_bytes=785, cache_hit=false}
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <EB168336-EA4C-479A-8C69-7A0ABFCF4E24>.<1> finished successfully
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Ending background task with UIBackgroundTaskIdentifier: 32
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Ending task with identifier 32 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x282130580>
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Decrementing reference count for assertion used by background task with identifier 32: <private>
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5783 DR=156.3124 factor=0.0235
-Nov 10 21:35:44 Runner(libusrtcp.dylib)[16588] <Notice>: tcp_input [C3.1:3] flags=[S.] seq=1879785950, ack=3987943683, win=65535 state=SYN_SENT rcv_nxt=0, snd_una=3987943682
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: nw_flow_connected [C3.1 IPv4#7d0859ee:443 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: en0, ipv4, dns)] Transport protocol connected (tcp)
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3.1 IPv4#7d0859ee:443 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: en0, ipv4, dns)] event: flow:finish_transport @0.041s
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3 Hostname#a3f6afa1:443 in_progress resolver (satisfied (Path is satisfied), interface: en0, ipv4, dns)] event: flow:finish_transport @0.041s
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_session_apply_protocol_options_for_transport_block_invoke(1745) [C3.1:2][0x147f21910] TLS configured [min_version(0x0303) max_version(0x0304) name(<private>) tickets(false) false_start(false) enforce_ev(false) enforce_ats(false) ech(false)]
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2028) [C3.1:2][0x147f21910] Client handshake started
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS client enter_early_data
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS client read_server_hello
-Nov 10 21:35:44 Runner(libsystem_containermanager.dylib)[16588] <Notice>: Requesting app group container lookup; personaid = 1000, type = DEFAULT, name = 117F9CDA-C871-4583-842B-14601008101B, identifier = <private>, euid = 501, uid = 501, platform = 2
-Nov 10 21:35:44 containermanagerd[10429] <Error>: -[MCMClientConnection createOrLookupContainerWithContainerIdentity:createIfNecessary:transient:useLocking:updateLinks:withError:](858): com.kdex.app.v2 not entitled to retrieve container class 7 with identifier group.com.google.common
-Nov 10 21:35:44 Runner(libsystem_containermanager.dylib)[16588] <Error>: container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
-Nov 10 21:35:44 containermanagerd[10429] <Error>: [0] command=38, client=<<~~~>, u=<501/501/~~/0/1000>, uid=501, pid=16588, sandboxed=1, platform=2 (1/1/0) [<~~~>]>, error=55 (NOT_ENTITLED_FOR_OPERATION)
-Nov 10 21:35:44 Runner[16588] <Error>: -[MLKITx_GIPPseudonymousIDStore initializeStorage]: Shared App Groups unavailable
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5792 DR=156.0742 factor=0.0236
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [com.kdex.app.v2] START liquidating the old, as snapshot generation succeeded
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [com.kdex.app.v2] deleting old snapshots: (
-)
-Nov 10 21:35:44 SpringBoard(SplashBoard)[60] <Notice>: <XBApplicationSnapshotManifestImpl: 0x2811d2e00> [com.kdex.app.v2] Snapshot data for <XBApplicationSnapshot: 0x14d09f2a0; \M-b\M^@\M-&C4E8632A1A9B> [com.kdex.app.v2] written to file: /private/var/mobile/Containers/Data/Application/3EECC3AB-C7EA-4223-B034-D39767A231F7/Library/SplashBoard/Snapshots/sceneID:com.kdex.app.v2-default/downscaled/3AA8DA4D-8370-4EFF-84FF-C4E8632A1A9B@2x.ktx
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [com.kdex.app.v2] deleting old suspend snapshots using predicate: <XBApplicationSnapshotPredicate: 0x283fb7f70> {
-    name = SBSuspendSnapshot;
-    contentTypeMask = SceneContent;
-}
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5801 DR=155.8480 factor=0.0238
-Nov 10 21:35:44 SpringBoard(SplashBoard)[60] <Notice>: <XBApplicationSnapshotManifestImpl: 0x2811d2e00> [com.kdex.app.v2] Snapshot data for <XBApplicationSnapshot: 0x14fa0c950; \M-b\M^@\M-&04C0FBC7D442> [com.kdex.app.v2] written to file: /private/var/mobile/Containers/Data/Application/3EECC3AB-C7EA-4223-B034-D39767A231F7/Library/SplashBoard/Snapshots/sceneID:com.kdex.app.v2-default/1DC59673-E819-464A-B98B-04C0FBC7D442@2x.ktx
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [com.kdex.app.v2] STOP liquidating the old
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [display:<private>] [<private>] Snapshot request (0x283bf03c0) complete with error: 0
-Nov 10 21:35:44 Runner(FrontBoardServices)[16588] <Notice>: Snapshot request 0x283a5d9e0 complete
-Nov 10 21:35:44 Runner(FrontBoardServices)[16588] <Notice>: Performing snapshot request 0x283a65800 (type 1)
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [display:<private>] [<private>] Got snapshot-perform request (0x283bf38e0)
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5809 DR=155.6169 factor=0.0239
-Nov 10 21:35:44 Runner(libsystem_containermanager.dylib)[16588] <Notice>: Requesting app group container lookup; personaid = 1000, type = DEFAULT, name = 117F9CDA-C871-4583-842B-14601008101B, identifier = <private>, euid = 501, uid = 501, platform = 2
-Nov 10 21:35:44 containermanagerd[10429] <Error>: -[MCMClientConnection createOrLookupContainerWithContainerIdentity:createIfNecessary:transient:useLocking:updateLinks:withError:](858): com.kdex.app.v2 not entitled to retrieve container class 7 with identifier group.com.google.common
-Nov 10 21:35:44 containermanagerd[10429] <Error>: [0] command=38, client=<<~~~>, u=<501/501/~~/0/1000>, uid=501, pid=16588, sandboxed=1, platform=2 (1/1/0) [<~~~>]>, error=55 (NOT_ENTITLED_FOR_OPERATION)
-Nov 10 21:35:44 Runner(libsystem_containermanager.dylib)[16588] <Error>: container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
-Nov 10 21:35:44 Runner[16588] <Error>: -[MLKITx_GIPPseudonymousIDStore initializeStorage]: Shared App Groups unavailable
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x282120fc0>
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Created background task <private>. Assertion will be assigned soon
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Reusing assertion <BKSProcessAssertion: 0x281711a40>
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <FFD46B30-9596-4A47-B4A7-ED92E7D7EBAD>.<2> resuming, timeouts(60.0, 604800.0) QOS(0x11) Voucher <private>
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: [Telemetry]: Activity <nw_activity 12:2 [56D965AB-2F15-45E1-AF18-B2EDFC4D108D] (reporting strategy default)> on Task <FFD46B30-9596-4A47-B4A7-ED92E7D7EBAD>.<2> was not selected for reporting
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <FFD46B30-9596-4A47-B4A7-ED92E7D7EBAD>.<2> {strength 1, tls 8, ct 0, sub 0, sig 0, ciphers 1, bundle 0, builtin 0}
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <FFD46B30-9596-4A47-B4A7-ED92E7D7EBAD>.<2> now using Connection 2
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <FFD46B30-9596-4A47-B4A7-ED92E7D7EBAD>.<2> sent request, body S 187
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5818 DR=155.3880 factor=0.0241
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client read_hello_retry_request
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client read_server_hello
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client read_encrypted_extensions
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client read_certificate_request
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client read_server_certificate
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client read_server_certificate_verify
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_evaluate_trust_async(1631) [C3.1:2][0x147f21910] Performing external trust evaluation
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_evaluate_trust_async_external(1616) [C3.1:2][0x147f21910] Asyncing for external verify block
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Connection 3: asked to evaluate TLS Trust
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5826 DR=155.1608 factor=0.0242
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5835 DR=154.9341 factor=0.0244
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5843 DR=154.7068 factor=0.0245
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> auth completion disp=0 cred=0x283626bd0
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5852 DR=154.4794 factor=0.0246
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: System Trust Evaluation yielded status(0)
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Connection 3: TLS Trust result 0
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_evaluate_trust_async_external_block_invoke_3(1572) [C3.1:2][0x147f21910] Returning from external verify block with result: true
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_certificate_verify_callback(1793) [C3.1:2][0x147f21910] Certificate verification result: OK
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client read_server_finished
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client send_end_of_early_data
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client send_client_encrypted_extensions
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client send_client_certificate
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client complete_second_flight
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS 1.3 client done
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS client finish_client_handshake
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2045) [C3.1:2][0x147f21910] Client handshake state: TLS client done
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: boringssl_context_info_handler(2034) [C3.1:2][0x147f21910] Client handshake done
-Nov 10 21:35:44 Runner(libboringssl.dylib)[16588] <Notice>: nw_protocol_boringssl_signal_connected(724) [C3.1:2][0x147f21910] TLS connected [version(0x0304) ciphersuite(TLS_AES_128_GCM_SHA256) group(0x001d) signature_alg(0x0403) alpn(h2) resumed(0) offered_ticket(0) false_started(0) ocsp_received(0) sct_received(0) connect_time(139ms) flight_time(67ms) rtt(66ms) write_stalls(0) read_stalls(7)]
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: nw_flow_connected [C3.1 IPv4#7d0859ee:443 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: en0, ipv4, dns)] Output protocol connected (CFNetworkConnection-1625966554)
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3.1 IPv4#7d0859ee:443 ready channel-flow (satisfied (Path is satisfied), viable, interface: en0, ipv4, dns)] event: flow:finish_connect @0.182s
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: nw_connection_report_state_with_handler_on_nw_queue [C3] reporting state ready
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3 Hostname#a3f6afa1:443 ready resolver (satisfied (Path is satisfied), interface: en0, ipv4, dns)] event: flow:finish_connect @0.182s
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3.1 IPv4#7d0859ee:443 ready channel-flow (satisfied (Path is satisfied), viable, interface: en0, ipv4, dns)] event: flow:changed_viability @0.182s
-Nov 10 21:35:44 Runner(libnetwork.dylib)[16588] <Notice>: [C3 Hostname#a3f6afa1:443 ready resolver (satisfied (Path is satisfied), interface: en0, ipv4, dns)] event: flow:changed_viability @0.182s
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Connection 3: connected successfully
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Connection 3: TLS handshake complete
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Connection 3: ready C(N) E(N)
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> now using Connection 3
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Connection 3: received viability advisory(Y)
-Nov 10 21:35:44 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> sent request, body S 406
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5860 DR=154.2532 factor=0.0248
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5869 DR=154.0273 factor=0.0249
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5878 DR=153.8054 factor=0.0251
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5886 DR=153.5761 factor=0.0252
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5895 DR=153.3508 factor=0.0254
-Nov 10 21:35:44 SpringBoard(SplashBoard)[60] <Notice>: <XBApplicationSnapshotManifestImpl: 0x2811d2e00> [com.kdex.app.v2] Snapshot data for <XBApplicationSnapshot: 0x14fadbb80; \M-b\M^@\M-&9F3642856D6F> [com.kdex.app.v2] written to file: /private/var/mobile/Containers/Data/Application/3EECC3AB-C7EA-4223-B034-D39767A231F7/Library/SplashBoard/Snapshots/sceneID:com.kdex.app.v2-default/downscaled/A7797DE3-666A-47F3-BC29-9F3642856D6F@2x.ktx
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [com.kdex.app.v2] START liquidating the old, as snapshot generation succeeded
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [com.kdex.app.v2] deleting old snapshots: (
-)
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5904 DR=153.1283 factor=0.0255
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5912 DR=152.9013 factor=0.0257
-Nov 10 21:35:44 SpringBoard(SplashBoard)[60] <Notice>: <XBApplicationSnapshotManifestImpl: 0x2811d2e00> [com.kdex.app.v2] Snapshot data for <XBApplicationSnapshot: 0x14d7f81e0; \M-b\M^@\M-&17F69FBB1520> [com.kdex.app.v2] written to file: /private/var/mobile/Containers/Data/Application/3EECC3AB-C7EA-4223-B034-D39767A231F7/Library/SplashBoard/Snapshots/sceneID:com.kdex.app.v2-default/83F5AB03-C2FA-41D3-BF56-17F69FBB1520@2x.ktx
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [com.kdex.app.v2] deleting old suspend snapshots using predicate: <XBApplicationSnapshotPredicate: 0x283fb6860> {
-    name = SBSuspendSnapshot;
-    contentTypeMask = SceneContent;
-}
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [com.kdex.app.v2] STOP liquidating the old
-Nov 10 21:35:44 Runner(FrontBoardServices)[16588] <Notice>: Snapshot request 0x283a65800 complete
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Ending background task with UIBackgroundTaskIdentifier: 29
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Ending task with identifier 29 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x283a63690>
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Decrementing reference count for assertion used by background task with identifier 29: <private>
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: [display:<private>] [<private>] Snapshot request (0x283bf38e0) complete with error: 0
-Nov 10 21:35:44 SpringBoard(FrontBoard)[60] <Notice>: Got response for <FBSceneSnapshotAction: 0x28123e780; sceneID:com.kdex.app.v2-default>: success
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: Scene <FBScene: 0x2808e15c0; sceneID:com.kdex.app.v2-default> is setting idleTimerDisabled to: YES (ignoring because isBackgrounded)
-Nov 10 21:35:44 SpringBoard(SpringBoard)[60] <Notice>: Scene <FBScene: 0x2808e15c0; sceneID:com.kdex.app.v2-default> is setting idleTimerDisabled to: NO (ignoring because isBackgrounded)
-Nov 10 21:35:44 runningboardd(RunningBoard)[31] <Notice>: Invalidating assertion 31-60-17468 (target:[application<com.kdex.app.v2>:16588]) from originator [daemon<com.apple.SpringBoard>:60]
-Nov 10 21:35:44 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(58:86:94:8C:76:78) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<84 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 10 21:35:44 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(58:86:94:8C:76:78) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BK<1 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 10 21:35:44 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(58:86:94:8C:76:78) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VI<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 10 21:35:44 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(58:86:94:8C:76:78) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VO<1 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 10 21:35:44 kernel(IO80211Family)[0] <Notice>: postMessageInternal:isPipeOpened:1, msg 169, dataLen 136
-Nov 10 21:35:44 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:L3 Control VO TX(58:86:94:8C:76:78) Success=1 NoACK=0 Expired=0 OtherErr=0
-Nov 10 21:35:44 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(FF:FF:FF:FF:FF:FF) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 10 21:35:44 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(FF:FF:FF:FF:FF:FF) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BK<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 10 21:35:44 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(FF:FF:FF:FF:FF:FF) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VI<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 10 21:35:44 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(FF:FF:FF:FF:FF:FF) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VO<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: [0x281f058f0] [keyboardFocus] Disabling event deferring records requested: adding recreation reason: detachedContext; for reason: _UIEventDeferringManager: 0x281f058f0: disabling keyboardFocus: context detached for window: 0x149815b30; contextID: 0x27F50E6E
-Nov 10 21:35:44 backboardd(BackBoardHIDEventFoundation)[63] <Notice>: new deferring rules for pid:16588: []
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: sceneOfRecord: sceneID: sceneID:com.kdex.app.v2-default  persistentID: 0CD60EDF-3267-4485-A085-EAEA15FA3735
-Nov 10 21:35:44 mediaserverd(CMCapture)[34] <Notice>: <<<< FigCaptureSession >>>> captureSession_updateRunningCondition: <0x140df7d80[16588][com.kdex.app.v2]> ClientStartedSession:0 Cam/Audio:1/0 bg:1 prewarming:0 int:0 multitasking:0 pip:0 devStolen:0 pressured:0 active:0 shouldRun:0 start:0 stop:0 stopRecordingIfActive:0
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Ending background task with UIBackgroundTaskIdentifier: 19
-Nov 10 21:35:44 mediaserverd(CMCapture)[34] <Notice>: <<<< FigCaptureSession >>>> captureSession_SetConfiguration: <0x140df7d80[16588][com.kdex.app.v2]> New configuration: FigCaptureSessionConfiguration 0x13fe33e80: ID 40, AVCaptureSessionPresetPhoto multiCam: 0, appAudio: 1, autoConfig: 1, runWhileMultitasking: 0
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Ending task with identifier 19 and description: <private>, _expireHandler: (null)
-Nov 10 21:35:44 mediaserverd(CMCapture)[34] <Notice>: <<<< FigCaptureSession >>>> captureSession_updateRunningCondition: <0x140df7d80[16588][com.kdex.app.v2]> ClientStartedSession:0 Cam/Audio:0/0 bg:1 prewarming:0 int:0 multitasking:0 pip:0 devStolen:0 pressured:0 active:0 shouldRun:0 start:0 stop:0 stopRecordingIfActive:0
-Nov 10 21:35:44 Runner(UIKitCore)[16588] <Notice>: <private>: Decrementing reference count for assertion used by background task with identifier 19: <private>
-Nov 10 21:35:44 mediaserverd(MediaExperience)[34] <Notice>: -CMSession_CInterface- CMSessionFinalize: Session [0x13de72fb0] being finalized
-Nov 10 21:35:44 SpringBoard(FrontBoard)[60] <Notice>: [sceneID:com.kdex.app.v2-default] Scene action [Logical Deactivate][0xb478] completed with success: 1
-Nov 10 21:35:44 mediaserverd(MediaExperience)[34] <Notice>: -CMSession_CInterface- CMSessionFinalize: Session [0x13dfdb8d0] being finalized
-Nov 10 21:35:44 SpringBoard(FrontBoard)[60] <Notice>: [sceneID:com.kdex.app.v2-default] Scene assertion state did change: BackgroundActive.
-Nov 10 21:35:44 runningboardd(RunningBoard)[31] <Notice>: Acquiring assertion targeting [application<com.kdex.app.v2>:16588] from originator [daemon<com.apple.SpringBoard>:60] with description <RBSAssertionDescriptor| "FBWorkspace (BackgroundActive)" ID:31-60-17473 target:16588 attributes:[
-	<RBSDomainAttribute| domain:"com.apple.frontboard" name:"Workspace-BackgroundActive" sourceEnvironment:"(null)">
-	]>
-Nov 10 21:35:44 mediaserverd(RunningBoardServices)[34] <Notice>: Received state update for 16588
-Nov 10 21:35:44 SpringBoard(FrontBoard)[60] <Notice>: [application<com.kdex.app.v2>:16588] Workspace assertion state did change: BackgroundActive (acquireAssertion = YES).
-Nov 10 21:35:44 wifid(WiFiPolicy)[51] <Notice>: __WiFiDeviceProcessLqmTxStatsEvent: LQM-TX: Success:86(100.0%) Failure:0(0.0%) Retries:0(0.0%) NoACK:0(0.0%) Drops:0(0.0%) NoBuff:0(0.0%) NoRes:0(0.0%) ChipErr:0(0.0%) Expired:0(0.0%) ForcedExpiry:0(0.0%) Free:0(0.0%)
-Nov 10 21:35:44 runningboardd(RunningBoard)[31] <Notice>: Assertion 31-60-17473 (target:[application<com.kdex.app.v2>:16588]) will be created as active
-Nov 10 21:35:44 SpringBoard(FrontBoard)[60] <Notice>: [sceneID:com.kdex.app.v2-default] Scene activity mode did change: suspended.
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5921 DR=152.6723 factor=0.0258
-Nov 10 21:35:44 runningboardd(RunningBoard)[31] <Notice>: Invalidating assertion 31-60-17469 (target:[application<com.kdex.app.v2>:16588]) from originator [daemon<com.apple.SpringBoard>:60]
-Nov 10 21:35:44 SpringBoard(FrontBoard)[60] <Notice>: [sceneID:com.kdex.app.v2-default] Scene assertion state did change: None.
-Nov 10 21:35:44 runningboardd(RunningBoard)[31] <Notice>: Invalidating assertion 31-60-17473 (target:[application<com.kdex.app.v2>:16588]) from originator [daemon<com.apple.SpringBoard>:60]
-Nov 10 21:35:44 runningboardd(RunningBoard)[31] <Notice>: Calculated state for application<com.kdex.app.v2>: running-active (role: UserInteractiveNonFocal)
-Nov 10 21:35:44 SpringBoard(FrontBoard)[60] <Notice>: [application<com.kdex.app.v2>:16588] Workspace assertion state did change: None (acquireAssertion = NO).
-Nov 10 21:35:44 SpringBoard(RunningBoardServices)[60] <Notice>: Received state update for 16588
-Nov 10 21:35:44 dasd(RunningBoardServices)[93] <Notice>: Received state update for 16588
-Nov 10 21:35:44 wifid(RunningBoardServices)[51] <Notice>: Received state update for 16588
-Nov 10 21:35:44 symptomsd(RunningBoardServices)[151] <Notice>: Received state update for 16588
-Nov 10 21:35:44 watchdogd(RunningBoardServices)[56] <Notice>: Received state update for 16588
-Nov 10 21:35:44 locationd(RunningBoardServices)[67] <Notice>: Received state update for 16588
-Nov 10 21:35:44 contextstored(RunningBoardServices)[59] <Notice>: Received state update for 16588
-Nov 10 21:35:44 UserEventAgent(RunningBoardServices)[28] <Notice>: Received state update for 16588
-Nov 10 21:35:44 kbd(RunningBoardServices)[289] <Notice>: Received state update for 16588
-Nov 10 21:35:44 aggregated(RunningBoardServices)[15892] <Notice>: Received state update for 16588
-Nov 10 21:35:44 useractivityd(RunningBoardServices)[165] <Notice>: Received state update for 16588
-Nov 10 21:35:44 CommCenter(RunningBoardServices)[87] <Notice>: Received state update for 16588
-Nov 10 21:35:44 callservicesd(RunningBoardServices)[10479] <Notice>: Received state update for 16588
-Nov 10 21:35:44 SpringBoard(SplashBoard)[60] <Notice>: <XBApplicationSnapshotManifestImpl: 0x2811d2e00> [com.kdex.app.v2] Snapshot data for <XBApplicationSnapshot: 0x14f9d1300; \M-b\M^@\M-&7A92CC37C8F4> [com.kdex.app.v2] written to file: /private/var/mobile/Containers/Data/Application/3EECC3AB-C7EA-4223-B034-D39767A231F7/Library/SplashBoard/Snapshots/sceneID:com.kdex.app.v2-default/downscaled/C377F21F-9C06-44F1-97B0-7A92CC37C8F4@2x.ktx
-Nov 10 21:35:44 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5930 DR=152.4571 factor=0.0260
-Nov 10 21:35:44 SpringBoard(CoreMotion)[60] <Notice>: [CLIoHidInterface] Property for usage pair {65280, 9}: {GyroProperties = {
-    GyroFactoryMode = 0;
-    GyroMeasurementRange = 2000;
-    GyroXAxisOffset = 0;
-    GyroYAxisOffset = 0;
-    GyroZAxisOffset = 0;
-}} was set successfully
-Nov 10 21:35:44 backboardd(IOKit)[63] <Notice>: 0x10000037f: set report interval:5000 client:E66BA7F0-8983-4282-97CE-60FF0CDE19BA
-Nov 10 21:35:44 SpringBoard(CoreMotion)[60] <Notice>: [CLIoHidInterface] Property for usage pair {65280, 9}: {ReportInterval = 5000} was set successfully
-Nov 10 21:35:44 SpringBoard(CoreMotion)[60] <Notice>: [CLIoHidInterface] Property for usage pair {65280, 9}: {GyroExtLevelTriggerSync = 0} was set successfully
-Nov 10 21:35:44 backboardd(IOKit)[63] <Notice>: 0x10000037f: set batch interval:15000 client:E66BA7F0-8983-4282-97CE-60FF0CDE19BA
-Nov 10 21:35:44 SpringBoard(CoreMotion)[60] <Notice>: [CLIoHidInterface] Property for usage pair {65280, 9}: {BatchInterval = 15000} was set successfully
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5938 DR=152.2301 factor=0.0261
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5947 DR=152.0073 factor=0.0263
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> received response, status 200 content K
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Garbage collection for alternative services
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> done using Connection 3
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> response ended
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> summary for task success {transaction_duration_ms=373, response_status=200, connection=3, protocol="h2", domain_lookup_duration_ms=9, connect_duration_ms=171, secure_connection_duration_ms=139, private_relay=false, request_start_ms=185, request_duration_ms=0, response_start_ms=370, response_duration_ms=3, request_bytes=558, response_bytes=413, cache_hit=false}
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Task <67D87149-9487-469E-A439-BE731AD3D8AD>.<1> finished successfully
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending background task with UIBackgroundTaskIdentifier: 33
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending task with identifier 33 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x28210af40>
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Decrementing reference count for assertion used by background task with identifier 33: <private>
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Connection 3: cleaning up
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5956 DR=151.7863 factor=0.0264
-Nov 10 21:35:45 Runner(libnetwork.dylib)[16588] <Notice>: [C3 11752595-094B-4FDF-B3F6-D96A93469A76 Hostname#a3f6afa1:443 tcp, url hash: be282695, tls, definite, attribution: developer] cancel
-Nov 10 21:35:45 Runner(libnetwork.dylib)[16588] <Notice>: [C3 11752595-094B-4FDF-B3F6-D96A93469A76 Hostname#a3f6afa1:443 tcp, url hash: be282695, tls, definite, attribution: developer] cancelled
-	[C3.1 C56C41C4-4605-4085-8F8E-9F851AB467CC 192.168.0.20:64663<->IPv4#7d0859ee:443]
-	Connected Path: satisfied (Path is satisfied), viable, interface: en0, ipv4, dns
-	Privacy Stance: Not Eligible
-	Duration: 0.373s, DNS @0.000s took 0.009s, TCP @0.011s took 0.030s, TLS 1.3 took 0.141s
-	bytes in/out: 4352/1350, packets in/out: 10/15, rtt: 0.033s, retransmitted bytes: 0, out-of-order bytes: 0
-Nov 10 21:35:45 Runner(libusrtcp.dylib)[16588] <Notice>: nw_protocol_tcp_log_summary [C3.1:3] 
-	[6323D017-643C-4FF1-904F-58942126947D <private>:64663<-><private>:443]
-	Init: 1, Conn_Time: 30.087ms, SYNs: 1, WR_T: 0/0, RD_T: 0/0, TFO: 0/0/0, ECN: 0/0/0, TS: 1
-	rtt_cache: process, rtt_upd: 5, rtt: 33.656ms, rtt_var: 2.937ms rtt_nc: 30.687ms, rtt_var_nc: 5.937ms base rtt: 30ms
-	ACKs-compressed: 0, ACKs delayed: 0 delayed ACKs sent: 0
-Nov 10 21:35:45 Runner(libnetwork.dylib)[16588] <Notice>: nw_flow_disconnected [C3.1 IPv4#7d0859ee:443 cancelled channel-flow ((null))] Output protocol disconnected
-Nov 10 21:35:45 Runner(libnetwork.dylib)[16588] <Notice>: nw_connection_report_state_with_handler_on_nw_queue [C3] reporting state cancelled
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Connection 3: done
-Nov 10 21:35:45 Runner(libusrtcp.dylib)[16588] <Notice>: tcp_output [C3.1:3] flags=[F.] seq=3987945057, ack=1879790303, win=4096 state=FIN_WAIT_1 rcv_nxt=1879790303, snd_una=3987944955
-Nov 10 21:35:45 kernel(IO80211Family)[0] <Notice>: postMessageInternal:isPipeOpened:1, msg 39, dataLen 180
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x283a46490>
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Created background task <private>. Assertion will be assigned soon
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Reusing assertion <BKSProcessAssertion: 0x281711a40>
-Nov 10 21:35:45 kernel(AppleBCMWLANCore)[0] <Notice>: WiFi Scores  ChanQual Score = 0  TxLoss Score = 5  RxLoss Score = 0  TxLat Score = 5 [0(100 %) / 0(0 %) / 0(0 %) / 0(0 %)] RxLat Score = 0 [0(0 %) / 0(0 %) / 0(0 %) / 0(0 %)]  intermittent-state = 0  latency = 0  LinkReco = 0x0
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: __WiFiDeviceManagerMonitor24GHzInfraNetworkTraffic: SNR 31.3, CCA 17.3, Tx bandwidth 63099.2 (kbps), Rx bandwidth 63099.2, Tx data rate 96.5 (kbps), Rx data rate  118.8, Tx air time 0.153 %, Rx air time 0.188 %, Good background traffic ? No
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: __WiFiDeviceManagerEvaluate24GHzInfraNetworkState:isConnected Yes, isTimeSensitiveAppRunning No, isThereTrafficNow No
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: __WiFiLQAMgrLogStats(KK-929:Moving): Rssi: -31 Channel: 9 Bandwidth: 40Mhz Snr: 35 Cca: 12 (S:0 O:0 I:0) TxPer: 0.0% (91) BcnPer: 0.0% (49, 50.6%) RxFrms: 72 RxRetryFrames: 2 TxRate: 144444 RxRate: 144444 FBRate: 39000 TxFwFrms: 8 TxFwFail: 0 TxReTrans: 0 time: 61.4secs fgApp: com.kdex.app.v2
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: WiFiLQAMgrCopyCoalescedUndispatchedLQMEvent: Rssi: -31 Snr:35 Cca: 12 TxFrames: 91 TxFail: 0 BcnRx: 49 BcnSch: 49  RxFrames: 72 RxRetries: 2 TxRate: 144444 RxRate: 144444 FBRate: 39000 TxFwFrms: 8 TxFwFail:0 TxRetries: 0
-Nov 10 21:35:45 SpringBoard(SpringBoard)[60] <Notice>: [SBWiFiManager] signal strength bars changed to 3
-Nov 10 21:35:45 symptomsd(SymptomEvaluator)[151] <Notice>: L2 Metrics on en0: rssi: -31 [-1,-1] -> -31, snr: 35 (cca [wake/total] self/other/intf): [0,0]/[0,0]/[0,0]/12 (txFrames/txReTx/txFail): 91/0/0 -> (was/is) 0/0
-Nov 10 21:35:45 symptomsd(SymptomEvaluator)[151] <Notice>: Received Wi-Fi Assist Override along with LQM info: 0
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending background task with UIBackgroundTaskIdentifier: 27
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending task with identifier 27 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x283a61b30>
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Decrementing reference count for assertion used by background task with identifier 27: <private>
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: -[WiFiUsageLQMWindowAnalysis initWithRollingWindow:andReason:andActiveCall:onQueue:]: LQM window analysis triggered by DataTriggered @ 21:35:45
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5964 DR=151.5707 factor=0.0266
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: _isIOCTLDisabledOnInterface: isDisabled FALSE
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: Apple80211BindToInterface: isIOCTLDisabled FALSE
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: _Apple80211BindToInterfaceWithIOUC: Sanity test passed. Version - <private>
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: _Apple80211BindToInterfaceWithIOUC: useIOUCWhenPossible TRUE
-Nov 10 21:35:45 kernel(IO80211Family)[0] <Notice>: IO80211APIUserClient::stop
-Nov 10 21:35:45 kernel(IO80211Family)[0] <Notice>: IO80211APIUserClient::free
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: _isIOCTLDisabledOnInterface: isDisabled FALSE
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: Apple80211BindToInterface: isIOCTLDisabled FALSE
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: _Apple80211BindToInterfaceWithIOUC: Sanity test passed. Version - <private>
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: _Apple80211BindToInterfaceWithIOUC: useIOUCWhenPossible TRUE
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: -[WiFiUsageLQMWindowAnalysis getBeforeKernelWindowWithLikelyhood] - Not fetching "before" kernel rolling window for analysis: DataTriggered @ 21:35:45 (enabled: YES - sampling:NO - ongoing kernel window parsing:NO)
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: -[WiFiUsageLQMWindowAnalysisDataTriggered initWithRollingWindow:andSubReason:andActiveCall:onQueue:]: LQM window analysis triggered by DataTriggered (Match Start) with matched or match-ended criterias: (
-    "median_txRateOverDeviceTheoreticalMaxPercentage <= 50 (where fgApp != nil AND fgApp != com.apple.springboard) on 58:86:94:8c:76:78 matched:True triggering since 21:35:45 "
-)
-Nov 10 21:35:45 Runner(libusrtcp.dylib)[16588] <Notice>: tcp_input [C3.1:3] flags=[F.] seq=1879790303, ack=3987945057, win=1050 state=FIN_WAIT_1 rcv_nxt=1879790303, snd_una=3987945033
-Nov 10 21:35:45 Runner(libusrtcp.dylib)[16588] <Notice>: tcp_output [C3.1:3] flags=[F.] seq=3987945057, ack=1879790304, win=4096 state=CLOSING rcv_nxt=1879790304, snd_una=3987945057
-Nov 10 21:35:45 symptomsd(SymptomEvaluator)[151] <Notice>: Data Usage for com.kdex.app.v2 on flow 87159 - WiFi in/out: 259837/62095, WiFi delta_in/delta_out: 5832/2790, Cell in/out: 0/0, Cell delta_in/delta_out: 0/0, RNF: 0, subscriber tag: 0
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Removed last relative-start-date-defining assertion for process application<com.kdex.app.v2>
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Activating delayed assertion 31-16588-17470 (target:[application<com.kdex.app.v2>:16588])
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Activating delayed assertion 31-16588-17472 (target:[application<com.kdex.app.v2>:16588])
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5973 DR=151.3396 factor=0.0267
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Attempting to rename power assertion 37005 for target application<com.kdex.app.v2> to application<com.kdex.app.v2>;31-16588-17470:Shared Background Assertion 9 for com.kdex.app.v2(FinishTask);31-16588-17472:com.apple.CFNetwork.StorageDB
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: [application<com.kdex.app.v2>:16588] Set jetsam priority to 4 [0] flag[1]
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: [application<com.kdex.app.v2>:16588] Set darwin role to: Background
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: 16588 Set Darwin GPU to "deny"
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Error>: setGPURole:pid: failed due to nil IOGPU device ref
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Calculated state for application<com.kdex.app.v2>: running-active (role: Background)
-Nov 10 21:35:45 SpringBoard(RunningBoardServices)[60] <Notice>: Received state update for 16588
-Nov 10 21:35:45 mediaserverd(RunningBoardServices)[34] <Notice>: Received state update for 16588
-Nov 10 21:35:45 mediaserverd(MediaExperience)[34] <Notice>: -CMSessionMgr- CMSessionMgrHandleApplicationStateChange: Client com.kdex.app.v2 with pid '16588' is now Background Running. Background entitlement: NO ActiveLongFormVideoSession: NO WhitelistedLongFormVideoApp NO
-Nov 10 21:35:45 mediaserverd(MediaExperience)[34] <Notice>: -CMSessionMgr- CMSessionMgrHandleApplicationStateChange: Sending stop command to com.kdex.app.v2 with pid '16588' because client is not allowed to play in the background AND does not continue AirPlaying video when device locks
-Nov 10 21:35:45 mediaserverd(AudioToolbox)[34] <Notice>:           SSServerImp.cpp:1252  pid 16588(Runner)
-Nov 10 21:35:45 SpringBoard(UserNotificationsServer)[60] <Notice>: [com.kdex.app.v2] com.kdex.app.v2 application state changed to BackgroundRunning
-Nov 10 21:35:45 dasd(RunningBoardServices)[93] <Notice>: Received state update for 16588
-Nov 10 21:35:45 SpringBoard(UserNotificationsServer)[60] <Notice>: [com.kdex.app.v2] Ignore becoming background for application without push registration
-Nov 10 21:35:45 kbd(RunningBoardServices)[289] <Notice>: Received state update for 16588
-Nov 10 21:35:45 wifid(RunningBoardServices)[51] <Notice>: Received state update for 16588
-Nov 10 21:35:45 UserEventAgent(RunningBoardServices)[28] <Notice>: Received state update for 16588
-Nov 10 21:35:45 symptomsd(RunningBoardServices)[151] <Notice>: Received state update for 16588
-Nov 10 21:35:45 locationd(RunningBoardServices)[67] <Notice>: Received state update for 16588
-Nov 10 21:35:45 locationd[67] <Notice>: {"msg":"#CLIUA Marking change", "clientKey":"com.kdex.app.v2", "reason":"Decaying in-use status from process state", "assertionLevel":4, "coming":1}
-Nov 10 21:35:45 locationd[67] <Notice>: {"msg":"#CLIUA Marking change", "clientKey":"com.kdex.app.v2", "reason":"Process state from RunningBoard", "assertionLevel":5, "coming":0}
-Nov 10 21:35:45 CommCenter(RunningBoardServices)[87] <Notice>: Received state update for 16588
-Nov 10 21:35:45 locationd[67] <Notice>: location disabled system-wide, denying executable com.kdex.app.v2
-Nov 10 21:35:45 locationd[67] <Notice>: location disabled system-wide, denying executable com.kdex.app.v2
-Nov 10 21:35:45 locationd[67] <Notice>: location disabled system-wide, denying executable com.kdex.app.v2
-Nov 10 21:35:45 locationd[67] <Notice>: {"msg":"Skip UpdateClientServiceTypeMasks #pla for zones. BigSwitch is Off", "ClientKey":"com.kdex.app.v2"}
-Nov 10 21:35:45 useractivityd(RunningBoardServices)[165] <Notice>: Received state update for 16588
-Nov 10 21:35:45 aggregated(RunningBoardServices)[15892] <Notice>: Received state update for 16588
-Nov 10 21:35:45 contextstored(RunningBoardServices)[59] <Notice>: Received state update for 16588
-Nov 10 21:35:45 callservicesd(RunningBoardServices)[10479] <Notice>: Received state update for 16588
-Nov 10 21:35:45 watchdogd(RunningBoardServices)[56] <Notice>: Received state update for 16588
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: WifiDeviceManagerCatsWhitelistedApp: CATS en0:  deviceManager:0x102820800 FgApp:(null) stateChange:1 whitelisted=0
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: WifiDeviceManagerCatsUpdateEvent(): CATS Update en0: Enter deviceManager:0x102820800  source:1 enable:1 appPolicy:1 bitmap:0x0
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: WiFiDeviceManagerCatsSetLowLatencyApp: CATSUpdate en0: fgApp:(null) b=0x0 rc=0
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: WiFiDeviceManagerCatsSetForegroundApp: CATSUpdate en0: fgApp:(null) hs=1 t=1 wl=0 rc=0
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: -[WiFiUsageApplicationSession applicationStateDidChange:withAttributes:]: application session ended
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: +[WiFiUsageAccessPointProfile _isProfileValidForUse:withCachedDict:]: Profile for bssid: 58:86:94:8c:76:78 is NOT valid: version:profile_AP__V3.4 (current:profile_AP__V3.4) parsingSuccessful:NO occurrencies:0 (>=2) maxAssocTime(sec):0 (>=60.000000) isCurrent:NO currentAssocTime(sec):314224.180412
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: -[WiFiUsageMonitor submitAnalytics:]: submitting analytics for session type Application
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: WiFiDeviceManagerCatsP2PUpdate: CATSUpdate appPolicy=0
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: WiFiDeviceManagerCatsUcmUpdate: CATSUpdate UCM
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: WiFiDeviceManagerCatsScanUpdate: CATSUpdate Scan Manager
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: WiFiDeviceManagerCatsScanUpdate: CATSUpdate appPolicy=0
-Nov 10 21:35:45 wifid(WiFiPolicy)[51] <Notice>: WifiDeviceManagerCatsUpdateEvent: CATSUpdate en0: Exit deviceManager=0x102820800 Source:1 stateChange:1 (P:1-->0 B:0x0-->0x0)
-Nov 10 21:35:45 symptomsd(SymptomEvaluator)[151] <Notice>: com.kdex.app.v2: Foreground: false
-Nov 10 21:35:45 symptomsd(SymptomEvaluator)[151] <Notice>: call _saveAndUnloadSelectState on com.kdex.app.v2 exiting foreground state
-Nov 10 21:35:45 wifip2pd[251] <Notice>: Ended transaction: CATS Foreground [P2PSPITransactionResponder.swift:76]
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5982 DR=151.1180 factor=0.0269
-Nov 10 21:35:45 WirelessRadioManagerd[45] <Notice>: <private>
-Nov 10 21:35:45 WirelessRadioManagerd[45] <Notice>: <private>
-Nov 10 21:35:45 WirelessRadioManagerd[45] <Notice>: <private>
-Nov 10 21:35:45 kernel(IO80211Family)[0] <Notice>: com.apple.p2p: awdlCATsPolicy[10119] : Clearing kApple80211ServiceNameCatsPolicy with desired_latency:2, ValidInfra:1
-Nov 10 21:35:45 wifip2pd[251] <Notice>: Started transaction: CATS Background [P2PSPITransactionResponder.swift:52]
-Nov 10 21:35:45 kernel(IO80211Family)[0] <Notice>: com.apple.p2p: awdlCATsPolicy[10119] : Setting kApple80211ServiceNameCatsPolicy with desired_latency:3, ValidInfra:1
-Nov 10 21:35:45 SpringBoard(CoreMotion)[60] <Notice>: [CLIoHidInterface] Property for usage pair {65280, 9}: {GyroProperties = {
-    GyroFactoryMode = 0;
-    GyroMeasurementRange = 2000;
-    GyroXAxisOffset = 0;
-    GyroYAxisOffset = 0;
-    GyroZAxisOffset = 0;
-}} was set successfully
-Nov 10 21:35:45 backboardd(IOKit)[63] <Notice>: 0x10000037f: set report interval:5000 client:E66BA7F0-8983-4282-97CE-60FF0CDE19BA
-Nov 10 21:35:45 SpringBoard(CoreMotion)[60] <Notice>: [CLIoHidInterface] Property for usage pair {65280, 9}: {ReportInterval = 5000} was set successfully
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.5991 DR=150.8963 factor=0.0270
-Nov 10 21:35:45 SpringBoard(CoreMotion)[60] <Notice>: [CLIoHidInterface] Property for usage pair {65280, 9}: {GyroExtLevelTriggerSync = 0} was set successfully
-Nov 10 21:35:45 backboardd(IOKit)[63] <Notice>: 0x10000037f: set batch interval:15000 client:E66BA7F0-8983-4282-97CE-60FF0CDE19BA
-Nov 10 21:35:45 SpringBoard(CoreMotion)[60] <Notice>: [CLIoHidInterface] Property for usage pair {65280, 9}: {BatchInterval = 15000} was set successfully
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending background task with UIBackgroundTaskIdentifier: 35
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending task with identifier 35 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x283a46490>
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Decrementing reference count for assertion used by background task with identifier 35: <private>
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6000 DR=150.6748 factor=0.0272
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6009 DR=150.4532 factor=0.0273
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6017 DR=150.2332 factor=0.0275
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6026 DR=150.0130 factor=0.0276
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Task <FFD46B30-9596-4A47-B4A7-ED92E7D7EBAD>.<2> received response, status 200 content K
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Task <FFD46B30-9596-4A47-B4A7-ED92E7D7EBAD>.<2> done using Connection 2
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Task <FFD46B30-9596-4A47-B4A7-ED92E7D7EBAD>.<2> response ended
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Task <FFD46B30-9596-4A47-B4A7-ED92E7D7EBAD>.<2> summary for task success {transaction_duration_ms=422, response_status=200, connection=2, reused=1, request_start_ms=2, request_duration_ms=0, response_start_ms=419, response_duration_ms=2, request_bytes=258, response_bytes=734, cache_hit=true}
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6035 DR=149.7936 factor=0.0278
-Nov 10 21:35:45 Runner(CFNetwork)[16588] <Notice>: Task <FFD46B30-9596-4A47-B4A7-ED92E7D7EBAD>.<2> finished successfully
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending background task with UIBackgroundTaskIdentifier: 34
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending task with identifier 34 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x282117d40>
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Decrementing reference count for assertion used by background task with identifier 34: <private>
-Nov 10 21:35:45 Runner(libsystem_containermanager.dylib)[16588] <Notice>: Requesting app group container lookup; personaid = 1000, type = DEFAULT, name = 117F9CDA-C871-4583-842B-14601008101B, identifier = <private>, euid = 501, uid = 501, platform = 2
-Nov 10 21:35:45 containermanagerd[10429] <Error>: -[MCMClientConnection createOrLookupContainerWithContainerIdentity:createIfNecessary:transient:useLocking:updateLinks:withError:](858): com.kdex.app.v2 not entitled to retrieve container class 7 with identifier group.com.google.common
-Nov 10 21:35:45 containermanagerd[10429] <Error>: [0] command=38, client=<<~~~>, u=<501/501/~~/0/1000>, uid=501, pid=16588, sandboxed=1, platform=2 (1/1/0) [<~~~>]>, error=55 (NOT_ENTITLED_FOR_OPERATION)
-Nov 10 21:35:45 Runner(libsystem_containermanager.dylib)[16588] <Error>: container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
-Nov 10 21:35:45 Runner[16588] <Error>: -[MLKITx_GIPPseudonymousIDStore initializeStorage]: Shared App Groups unavailable
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6044 DR=149.5736 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6044 DR=149.5737 factor=0.0279
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending background task with UIBackgroundTaskIdentifier: 28
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending task with identifier 28 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x283a61a70>
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Decrementing reference count for assertion used by background task with identifier 28: <private>
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending background task with UIBackgroundTaskIdentifier: 30
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Ending task with identifier 30 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x283a63f00>
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Decrementing reference count for assertion used by background task with identifier 30: <private>
-Nov 10 21:35:45 Runner(UIKitCore)[16588] <Notice>: <private>: Will invalidate assertion: <BKSProcessAssertion: 0x281711a40> for task identifier: 30
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Invalidating assertion 31-16588-17470 (target:[application<com.kdex.app.v2>:16588]) from originator [application<com.kdex.app.v2>:16588]
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6043 DR=149.5845 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6043 DR=149.5955 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6043 DR=149.6065 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6042 DR=149.6173 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6042 DR=149.6283 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6041 DR=149.6392 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6041 DR=149.6501 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6040 DR=149.6611 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6040 DR=149.6720 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6039 DR=149.6828 factor=0.0279
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6039 DR=149.6937 factor=0.0279
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Calculated state for application<com.kdex.app.v2>: running-active (role: Background)
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Attempting to rename power assertion 37005 for target application<com.kdex.app.v2> to application<com.kdex.app.v2>31-16588-17472:com.apple.CFNetwork.StorageDB
-Nov 10 21:35:45 mediaserverd(RunningBoardServices)[34] <Notice>: Received state update for 16588
-Nov 10 21:35:45 SpringBoard(RunningBoardServices)[60] <Notice>: Received state update for 16588
-Nov 10 21:35:45 kbd(RunningBoardServices)[289] <Notice>: Received state update for 16588
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6039 DR=149.6960 factor=0.0278
-Nov 10 21:35:45 dasd(RunningBoardServices)[93] <Notice>: Received state update for 16588
-Nov 10 21:35:45 UserEventAgent(RunningBoardServices)[28] <Notice>: Received state update for 16588
-Nov 10 21:35:45 wifid(RunningBoardServices)[51] <Notice>: Received state update for 16588
-Nov 10 21:35:45 symptomsd(RunningBoardServices)[151] <Notice>: Received state update for 16588
-Nov 10 21:35:45 useractivityd(RunningBoardServices)[165] <Notice>: Received state update for 16588
-Nov 10 21:35:45 watchdogd(RunningBoardServices)[56] <Notice>: Received state update for 16588
-Nov 10 21:35:45 locationd(RunningBoardServices)[67] <Notice>: Received state update for 16588
-Nov 10 21:35:45 CommCenter(RunningBoardServices)[87] <Notice>: Received state update for 16588
-Nov 10 21:35:45 aggregated(RunningBoardServices)[15892] <Notice>: Received state update for 16588
-Nov 10 21:35:45 callservicesd(RunningBoardServices)[10479] <Notice>: Received state update for 16588
-Nov 10 21:35:45 contextstored(RunningBoardServices)[59] <Notice>: Received state update for 16588
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6038 DR=149.7266 factor=0.0278
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6037 DR=149.7557 factor=0.0278
-Nov 10 21:35:45 kernel(AppleBCMWLANCore)[0] <Notice>: LQM-WiFi:BT Coex Stats2:btDur=4120ms(82%) status=0x3 reqTypeMap=0x300000 req=41 gnt=65 abort=28224 rx1ovfl=13 latency=4 [5012ms]
-Nov 10 21:35:45 kernel(IO80211Family)[0] <Notice>: postMessageInternal:isPipeOpened:1, msg 190, dataLen 16
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6035 DR=149.7840 factor=0.0278
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6034 DR=149.8138 factor=0.0278
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6033 DR=149.8437 factor=0.0277
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6032 DR=149.8730 factor=0.0277
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6031 DR=149.9021 factor=0.0277
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6029 DR=149.9318 factor=0.0277
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6028 DR=149.9607 factor=0.0277
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6027 DR=149.9896 factor=0.0276
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6026 DR=150.0193 factor=0.0276
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6025 DR=150.0490 factor=0.0276
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6024 DR=150.0785 factor=0.0276
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6022 DR=150.1071 factor=0.0276
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6021 DR=150.1364 factor=0.0275
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6020 DR=150.1639 factor=0.0275
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Invalidating assertion 31-16588-17472 (target:[application<com.kdex.app.v2>:16588]) from originator [application<com.kdex.app.v2>:16588]
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6019 DR=150.1951 factor=0.0275
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6018 DR=150.2245 factor=0.0275
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6016 DR=150.2538 factor=0.0275
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6015 DR=150.2834 factor=0.0274
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6014 DR=150.3126 factor=0.0274
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6013 DR=150.3418 factor=0.0274
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6012 DR=150.3712 factor=0.0274
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6011 DR=150.3830 factor=0.0274
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6010 DR=150.4194 factor=0.0274
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6008 DR=150.4559 factor=0.0273
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: [application<com.kdex.app.v2>:16588] Set jetsam priority to 3 [0] flag[1]
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Calculated state for application<com.kdex.app.v2>: running-suspended (role: None)
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: [application<com.kdex.app.v2>:16588] Suspending task.
-Nov 10 21:35:45 mDNSResponder[119] <Notice>: [R6970] DNSServiceCreateConnection STOP PID[16588](Runner)
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: [application<com.kdex.app.v2>:16588] Shutdown sockets (SVC)
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: [application<com.kdex.app.v2>:16588] Set darwin role to: None
-Nov 10 21:35:45 powerd[42] <Notice>: Process runningboardd.31 Released SystemIsActive "application<com.kdex.app.v2>31-16588-17472:com.apple.CFNetwork.StorageDB" age:00:00:01  id:51539644557 [System: SysAct]
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: Released power assertion with ID 37005
-Nov 10 21:35:45 SpringBoard(RunningBoardServices)[60] <Notice>: Received state update for 16588
-Nov 10 21:35:45 SpringBoard(FrontBoard)[60] <Notice>: [application<com.kdex.app.v2>:16588] Setting process task state to: Suspended
-Nov 10 21:35:45 SpringBoard(SpringBoard)[60] <Notice>: Application process state changed for com.kdex.app.v2: <SBApplicationProcessState: 0x283bf1c80; pid: 16588; taskState: Suspended; visibility: Background>
-Nov 10 21:35:45 mediaserverd(RunningBoardServices)[34] <Notice>: Received state update for 16588
-Nov 10 21:35:45 mediaserverd(MediaExperience)[34] <Notice>: -CMSessionMgr- CMSessionMgrHandleApplicationStateChange: Client com.kdex.app.v2 with pid '16588' is now Background Suspended. Background entitlement: NO ActiveLongFormVideoSession: NO WhitelistedLongFormVideoApp NO
-Nov 10 21:35:45 mediaserverd(MediaExperience)[34] <Notice>: -CMSessionMgr- CMSessionMgrHandleApplicationStateChange: Sending stop command to com.kdex.app.v2 with pid '16588' because client is background suspended and there is no AirPlay video session for it
-Nov 10 21:35:45 mediaserverd(AudioToolbox)[34] <Notice>:           SSServerImp.cpp:1252  pid 16588(Runner)
-Nov 10 21:35:45 runningboardd(RunningBoard)[31] <Notice>: [application<com.kdex.app.v2>:16588] check if suspended process is holding locks
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6007 DR=150.4924 factor=0.0273
-Nov 10 21:35:45 symptomsd(SymptomEvaluator)[151] <Notice>: Data Usage for com.kdex.app.v2 on flow 87153 - WiFi in/out: 267341/65072, WiFi delta_in/delta_out: 7504/2977, Cell in/out: 0/0, Cell delta_in/delta_out: 0/0, RNF: 0, subscriber tag: 0
-Nov 10 21:35:45 symptomsd(SymptomEvaluator)[151] <Notice>: WiFi observer _foregroundCounts.currentCombinedFlags is 0x0
-Nov 10 21:35:45 symptomsd(SymptomEvaluator)[151] <Notice>: WiFi observer _backgroundCounts.currentCombinedFlags is 0x100000101010
-Nov 10 21:35:45 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4000 Lr=0.6005 DR=150.5289 factor=0.0273
-Nov 10 21:35:45 dasd(RunningBoardServices)[93] <Notice>: Received state update for 16588
-Nov 10 21:35:45 kbd(RunningBoardServices)[289] <Notice>: Received state update for 16588
-Nov 10 21:35:45 UserEventAgent(RunningBoardServices)[28] <Notice>: Received state update for 16588
-Nov 10 21:35:45 wifid(RunningBoardServices)[51] <Notice>: Received state update for 16588
-Nov 10 21:35:45 symptomsd(RunningBoardServices)[151] <Notice>: Received state update for 16588
-Nov 10 21:35:45 useractivityd(RunningBoardServices)[165] <Notice>: Received state update for 16588
-Nov 10 21:35:45 watchdogd(RunningBoardServices)[56] <Notice>: Received state update for 16588
-Nov 10 21:35:45 locationd(RunningBoardServices)[67] <Notice>: Received state update for 16588
-Nov 10 21:35:45 CommCenter(RunningBoardServices)[87] <Notice>: Received state update for 16588
-Nov 10 21:35:45 aggregated(RunningBoardServices)[15892] <Notice>: Received state update for 16588
-Nov 10 21:35:45 contextstored(RunningBoardServices)[59] <Notice>: Received state update for 16588
-Nov 10 21:35:45 callservicesd(RunningBoardServices)[10479] <Notice>: Received state update for 16588
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.038416 millisecond (22358 / 22358)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=72.2300 Lr=0.3442 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.312716 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 SpringBoard(CoreMotion)[60] <Notice>: Notify from, Portrait -> FaceUp
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.036250 millisecond (22359 / 22359)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=72.1377 Lr=0.3425 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.312505 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 mediaserverd(CMCapture)[34] <Notice>: m11:142611, m12:0, m21:516064, m22:77648, m23:395376, m24:388576
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.026541 millisecond (22360 / 22360)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=72.0456 Lr=0.3407 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.312265 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.130916 millisecond (22361 / 22361)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.9534 Lr=0.3390 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.312024 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.084583 millisecond (22362 / 22362)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.8614 Lr=0.3372 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.311784 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.100750 millisecond (22363 / 22363)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.7750 Lr=0.3356 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.311559 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.6780 Lr=0.3338 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080833 millisecond (22364 / 22364)
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.311305 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.085000 millisecond (22365 / 22365)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.5861 Lr=0.3320 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.311066 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.123708 millisecond (22366 / 22366)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.4961 Lr=0.3304 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.310831 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.4027 Lr=0.3286 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.237500 millisecond (22367 / 22367)
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.310587 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 kernel(IO80211Family)[0] <Notice>: postMessageInternal:isPipeOpened:1, msg 39, dataLen 180
+Nov 10 21:51:25 kernel(AppleBCMWLANCore)[0] <Notice>: WiFi Scores  ChanQual Score = 0  TxLoss Score = 5  RxLoss Score = 0  TxLat Score = 5 [0(100 %) / 0(0 %) / 0(0 %) / 0(0 %)] RxLat Score = 0 [0(0 %) / 0(0 %) / 0(0 %) / 0(0 %)]  intermittent-state = 0  latency = 0  LinkReco = 0x0
+Nov 10 21:51:25 wifid(WiFiPolicy)[51] <Notice>: __WiFiDeviceManagerMonitor24GHzInfraNetworkTraffic: SNR 29.2, CCA 21.4, Tx bandwidth 54338.5 (kbps), Rx bandwidth 54338.5, Tx data rate 78.1 (kbps), Rx data rate  52.0, Tx air time 0.144 %, Rx air time 0.096 %, Good background traffic ? No
+Nov 10 21:51:25 wifid(WiFiPolicy)[51] <Notice>: __WiFiDeviceManagerEvaluate24GHzInfraNetworkState:isConnected Yes, isTimeSensitiveAppRunning No, isThereTrafficNow No
+Nov 10 21:51:25 wifid(WiFiPolicy)[51] <Notice>: __WiFiLQAMgrLogStats(KK-929:Walking): Rssi: -33 Channel: 9 Bandwidth: 40Mhz Snr: 35 Cca: 19 (S:0 O:0 I:0) TxPer: 0.0% (101) BcnPer: 4.1% (49, 50.6%) RxFrms: 68 RxRetryFrames: 2 TxRate: 144444 RxRate: 1000 FBRate: 39000 TxFwFrms: 16 TxFwFail: 0 TxReTrans: 6 time: 2.1secs fgApp: com.kdex.app.v2
+Nov 10 21:51:25 wifid(WiFiPolicy)[51] <Notice>: WiFiLQAMgrCopyCoalescedUndispatchedLQMEvent: Rssi: -33 Snr:35 Cca: 19 TxFrames: 101 TxFail: 0 BcnRx: 47 BcnSch: 49  RxFrames: 68 RxRetries: 2 TxRate: 144444 RxRate: 1000 FBRate: 39000 TxFwFrms: 16 TxFwFail:0 TxRetries: 6
+Nov 10 21:51:25 SpringBoard(SpringBoard)[60] <Notice>: [SBWiFiManager] signal strength bars changed to 3
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.036375 millisecond (22368 / 22368)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.3119 Lr=0.3270 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.31035 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 symptomsd(SymptomEvaluator)[151] <Notice>: L2 Metrics on en0: rssi: -33 [-1,-1] -> -33, snr: 35 (cca [wake/total] self/other/intf): [0,0]/[0,0]/[0,0]/19 (txFrames/txReTx/txFail): 101/6/0 -> (was/is) 0/0
+Nov 10 21:51:25 symptomsd(SymptomEvaluator)[151] <Notice>: Received Wi-Fi Assist Override along with LQM info: 0
+Nov 10 21:51:25 WirelessRadioManagerd[45] <Notice>: <private>
+Nov 10 21:51:25 WirelessRadioManagerd[45] <Notice>: <private>
+Nov 10 21:51:25 WirelessRadioManagerd[45] <Notice>: <private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.057625 millisecond (22369 / 22369)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.2252 Lr=0.3254 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.310123 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079041 millisecond (22370 / 22370)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.1285 Lr=0.3236 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.309871 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.058500 millisecond (22371 / 22371)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.0386 Lr=0.3220 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.309636 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.059375 millisecond (22372 / 22372)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.9505 Lr=0.3204 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.309406 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.089667 millisecond (22373 / 22373)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.8567 Lr=0.3187 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.309161 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.085333 millisecond (22374 / 22374)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.7664 Lr=0.3170 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.308925 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082125 millisecond (22375 / 22375)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.6762 Lr=0.3154 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.30869 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.087666 millisecond (22376 / 22376)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.5854 Lr=0.3138 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.308453 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081167 millisecond (22377 / 22377)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.4957 Lr=0.3134 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.308219 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.4056 Lr=0.3125 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.192708 millisecond (22378 / 22378)
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.307984 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:25 kernel(AppleBCMWLANCore)[0] <Notice>: LQM-WiFi:BT Coex Stats2:btDur=3482ms(69%) status=0x3 reqTypeMap=0x300000 req=50 gnt=67 abort=28505 rx1ovfl=13 latency=4 [5007ms]
+Nov 10 21:51:25 kernel(IO80211Family)[0] <Notice>: postMessageInternal:isPipeOpened:1, msg 190, dataLen 16
+Nov 10 21:51:25 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.033791 millisecond (22379 / 22379)
+Nov 10 21:51:25 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.3155 Lr=0.3117 DR=200.0000 factor=0.0000
+Nov 10 21:51:25 backboardd[63] <Notice>: brightness change:0.307748 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.084875 millisecond (22380 / 22380)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.2256 Lr=0.3108 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.307514 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.091917 millisecond (22381 / 22381)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.1356 Lr=0.3099 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.307279 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.0458 Lr=0.3091 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.090750 millisecond (22382 / 22382)
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.307044 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 assetsd(PhotoLibraryServices)[203] <Notice>: <PLCameraCaptureTaskConstraintCoordinator: 0x104e5a260> (AutomaticCameraViewfinderSession, PhotoKitService: com.apple.camera(9906), 2025-11-06 08:15:36.123+09:00, <PLDelayedActionTimer: 0x100ceff10>(0x0x1051fb650 s:-1.392 e:598.608)): delayed task constraint deactivation cancelled by re-activation
+Nov 10 21:51:26 assetsd(PhotoLibraryServices)[203] <Notice>: <PLCameraCaptureTaskConstraintCoordinator: 0x100eef700> (AutomaticCameraViewfinderSession, PhotoKitService: com.apple.photoanalysisd(10426), 2025-11-06 10:14:12.404+09:00, <PLDelayedActionTimer: 0x100ee15d0>(0x0x1051e2a20 s:-1.395 e:598.605)): delayed task constraint deactivation cancelled by re-activation
+Nov 10 21:51:26 assetsd(PhotoLibraryServices)[203] <Notice>: <PLCameraCaptureTaskConstraintCoordinator: 0x100ec9ff0> (AutomaticCameraViewfinderSession, PhotoKitAddService: com.apple.springboard(60), 2025-11-06 08:11:52.849+09:00, <PLDelayedActionTimer: 0x100c04750>(0x0x105196b00 s:-1.393 e:598.607)): delayed task constraint deactivation cancelled by re-activation
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.031500 millisecond (22383 / 22383)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.9564 Lr=0.3082 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.306811 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.055500 millisecond (22384 / 22384)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.8710 Lr=0.3074 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.306588 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082791 millisecond (22385 / 22385)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.7779 Lr=0.3076 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.306345 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.057792 millisecond (22386 / 22386)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.6887 Lr=0.3077 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.306112 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.048084 millisecond (22387 / 22387)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.5997 Lr=0.3079 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.30588 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083833 millisecond (22388 / 22388)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.5106 Lr=0.3080 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.305647 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.084292 millisecond (22389 / 22389)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.4213 Lr=0.3088 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.305414 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.065250 millisecond (22390 / 22390)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.3347 Lr=0.3101 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.305188 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.085125 millisecond (22391 / 22391)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.2441 Lr=0.3114 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.304951 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(BackBoardHIDEventFoundation)[63] <Notice>: destinations for VendorDefined event: ()
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.086708 millisecond (22392 / 22392)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.1559 Lr=0.3128 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.304721 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088166 millisecond (22393 / 22393)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.0712 Lr=0.3140 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.3045 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079875 millisecond (22394 / 22394)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=68.9790 Lr=0.3154 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.304259 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=68.8909 Lr=0.3168 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.386083 millisecond (22395 / 22395)
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.304029 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: fadePeriod=4.243384 startTime=784471886.275511 display->fade.timer=0x113f10560
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: begin ramping L: 68.89 -> L: 110.67 Brightness: 0.607492 -> 0.710407 t: 4.243384 rate: 9.84 nits/s 58.39hz
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: [BRT update: ALS]: Begin ramp: L_target=110.6667 Lmax=420.021881 Lmin=4.197906 timeConstant=4.2434 _Esensor_trusted=142.0000
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.074084 millisecond (22396 / 22396)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=68.9103 Lr=0.3170 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.30408 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088792 millisecond (22397 / 22397)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.0394 Lr=0.3189 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.304417 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.065042 millisecond (22398 / 22398)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.1680 Lr=0.3207 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.304753 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082541 millisecond (22399 / 22399)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.2962 Lr=0.3226 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.305087 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.089833 millisecond (22400 / 22400)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.4259 Lr=0.3245 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.305426 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083292 millisecond (22401 / 22401)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.5548 Lr=0.3262 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.305762 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.078958 millisecond (22402 / 22402)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.6843 Lr=0.3286 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.306101 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.190125 millisecond (22403 / 22403)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.8142 Lr=0.3310 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.30644 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=69.9441 Lr=0.3334 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.084167 millisecond (22404 / 22404)
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.306779 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.087834 millisecond (22405 / 22405)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.0747 Lr=0.3359 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.30712 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.091667 millisecond (22406 / 22406)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.2056 Lr=0.3384 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.307461 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 symptomsd(SymptomEvaluator)[151] <Error>: Ignoring source 0x101552d90, snapshot is from kernel kernel_task UDPSUBFLOW4 flow id 87381 (close) so pkts rx 4 tx 0, bytes 199 0 cell 0 0 wifi 0 0 wired 0 0 deltas 199 0 0 0 0 0 0 0
+Nov 10 21:51:26 symptomsd(SymptomEvaluator)[151] <Notice>: Data Usage for mDNSResponder on flow 87381 - WiFi in/out: 10390074/733209, WiFi delta_in/delta_out: 0/0, Cell in/out: 0/0, Cell delta_in/delta_out: 0/0, RNF: 0, subscriber tag: 0
+Nov 10 21:51:26 symptomsd(SymptomEvaluator)[151] <Notice>: Data Usage for mDNSResponder on flow 87376 - WiFi in/out: 10390074/733209, WiFi delta_in/delta_out: 0/0, Cell in/out: 0/0, Cell delta_in/delta_out: 0/0, RNF: 0, subscriber tag: 0
+Nov 10 21:51:26 symptomsd(SymptomEvaluator)[151] <Notice>: Data Usage for mDNSResponder on flow 87378 - WiFi in/out: 10390074/733209, WiFi delta_in/delta_out: 0/0, Cell in/out: 0/0, Cell delta_in/delta_out: 0/0, RNF: 0, subscriber tag: 0
+Nov 10 21:51:26 symptomsd(SymptomEvaluator)[151] <Error>: Ignoring source 0x101552d90, snapshot is from kernel kernel_task UDPSUBFLOW6 flow id 87382 (close) so pkts rx 8 tx 0, bytes 398 0 cell 0 0 wifi 0 0 wired 0 0 deltas 398 0 0 0 0 0 0 0
+Nov 10 21:51:26 symptomsd(SymptomEvaluator)[151] <Notice>: Data Usage for mDNSResponder on flow 87382 - WiFi in/out: 10390074/733209, WiFi delta_in/delta_out: 0/0, Cell in/out: 0/0, Cell delta_in/delta_out: 0/0, RNF: 0, subscriber tag: 0
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.041417 millisecond (22407 / 22407)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.3357 Lr=0.3408 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.307801 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 symptomsd(SymptomEvaluator)[151] <Error>: Ignoring source 0x10146eac0, snapshot is from kernel kernel_task UDPSUBFLOW6 flow id 87380 (close) so pkts rx 4 tx 0, bytes 180 0 cell 0 0 wifi 0 0 wired 0 0 deltas 180 0 0 0 0 0 0 0
+Nov 10 21:51:26 symptomsd(SymptomEvaluator)[151] <Notice>: Data Usage for mDNSResponder on flow 87380 - WiFi in/out: 10390074/733209, WiFi delta_in/delta_out: 0/0, Cell in/out: 0/0, Cell delta_in/delta_out: 0/0, RNF: 0, subscriber tag: 0
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.038833 millisecond (22408 / 22408)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.4652 Lr=0.3433 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.308139 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.040708 millisecond (22409 / 22409)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.5985 Lr=0.3459 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.308487 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.7298 Lr=0.3484 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.184625 millisecond (22410 / 22410)
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.30883 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(BackBoardHIDEventFoundation)[63] <Notice>: destinations for VendorDefined event: ()
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.8554 Lr=0.3509 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081625 millisecond (22411 / 22411)
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.309158 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.084083 millisecond (22412 / 22412)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=70.9938 Lr=0.3536 DR=200.0000 factor=0.0000
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.309519 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.069583 millisecond (22413 / 22413)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.1266 Lr=0.3559 DR=199.8654 factor=0.0001
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.309866 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.047875 millisecond (22414 / 22414)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.2589 Lr=0.3587 DR=198.6706 factor=0.0006
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.310211 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083042 millisecond (22415 / 22415)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.3912 Lr=0.3615 DR=197.4844 factor=0.0011
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.310557 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.091125 millisecond (22416 / 22416)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.5249 Lr=0.3644 DR=196.2964 factor=0.0017
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.310906 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 mediaserverd(CMCapture)[34] <Notice>: m11:142595, m12:0, m21:516048, m22:37040, m23:418112, m24:418128
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.167584 millisecond (22417 / 22417)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.6496 Lr=0.3671 DR=195.1959 factor=0.0022
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.311231 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 assetsd(PhotoLibraryServices)[203] <Notice>: <PLCameraCaptureTaskConstraintCoordinator: 0x100eef700> (AutomaticCameraViewfinderSession, PhotoKitService: com.apple.photoanalysisd(10426), 2025-11-06 10:14:12.404+09:00, <PLDelayedActionTimer: 0x100ee15d0>(0x0x1051e2a20 s:-1.975 e:598.025)): delayed task constraint deactivation cancelled by re-activation
+Nov 10 21:51:26 assetsd(PhotoLibraryServices)[203] <Notice>: <PLCameraCaptureTaskConstraintCoordinator: 0x104e5a260> (AutomaticCameraViewfinderSession, PhotoKitService: com.apple.camera(9906), 2025-11-06 08:15:36.123+09:00, <PLDelayedActionTimer: 0x100ceff10>(0x0x1051fb650 s:-1.975 e:598.025)): delayed task constraint deactivation cancelled by re-activation
+Nov 10 21:51:26 assetsd(PhotoLibraryServices)[203] <Notice>: <PLCameraCaptureTaskConstraintCoordinator: 0x100ec9ff0> (AutomaticCameraViewfinderSession, PhotoKitAddService: com.apple.springboard(60), 2025-11-06 08:11:52.849+09:00, <PLDelayedActionTimer: 0x100c04750>(0x0x105196b00 s:-1.975 e:598.025)): delayed task constraint deactivation cancelled by re-activation
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082958 millisecond (22418 / 22418)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.7912 Lr=0.3701 DR=193.9559 factor=0.0028
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.311601 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.117458 millisecond (22419 / 22419)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=71.9252 Lr=0.3731 DR=192.7921 factor=0.0033
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.311951 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081375 millisecond (22420 / 22420)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=72.0590 Lr=0.3760 DR=191.6393 factor=0.0039
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.3123 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=72.1933 Lr=0.3790 DR=190.4910 factor=0.0044
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082041 millisecond (22421 / 22421)
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.312632 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.063542 millisecond (22422 / 22422)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=72.3281 Lr=0.3820 DR=189.3469 factor=0.0050
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.312941 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079375 millisecond (22423 / 22423)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=72.4616 Lr=0.3850 DR=188.2236 factor=0.0055
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.313247 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.120292 millisecond (22424 / 22424)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=72.5978 Lr=0.3880 DR=187.0865 factor=0.0061
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.313559 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081042 millisecond (22425 / 22425)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=72.7249 Lr=0.3909 DR=186.0332 factor=0.0066
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.31385 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=72.8675 Lr=0.3942 DR=184.8613 factor=0.0072
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.016458 millisecond (22426 / 22426)
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.314177 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.145250 millisecond (22427 / 22427)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=73.0039 Lr=0.3973 DR=183.7486 factor=0.0078
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.31449 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.154541 millisecond (22428 / 22428)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=73.1401 Lr=0.4004 DR=182.6468 factor=0.0083
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.314802 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.091334 millisecond (22429 / 22429)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=73.2768 Lr=0.4036 DR=181.5491 factor=0.0089
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.315115 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.091167 millisecond (22430 / 22430)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=73.4132 Lr=0.4068 DR=180.4625 factor=0.0095
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.315427 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.036833 millisecond (22431 / 22431)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=73.5501 Lr=0.4100 DR=179.3807 factor=0.0100
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.315741 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=73.6862 Lr=0.4132 DR=178.3139 factor=0.0106
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.090958 millisecond (22432 / 22432)
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.316053 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079791 millisecond (22433 / 22433)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=73.8240 Lr=0.4165 DR=177.2421 factor=0.0112
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.316368 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081916 millisecond (22434 / 22434)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=73.9614 Lr=0.4198 DR=176.1814 factor=0.0117
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.316683 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.024792 millisecond (22435 / 22435)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=74.0983 Lr=0.4231 DR=175.1328 factor=0.0123
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.316997 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.115667 millisecond (22436 / 22436)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=74.2373 Lr=0.4265 DR=174.0769 factor=0.0129
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.317316 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.086042 millisecond (22437 / 22437)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=74.3758 Lr=0.4298 DR=173.0329 factor=0.0135
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.317633 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.066500 millisecond (22438 / 22438)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=74.5141 Lr=0.4332 DR=171.9989 factor=0.0140
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.31795 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:26 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.114834 millisecond (22439 / 22439)
+Nov 10 21:51:26 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=74.6533 Lr=0.4367 DR=170.9661 factor=0.0146
+Nov 10 21:51:26 backboardd[63] <Notice>: brightness change:0.318269 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088792 millisecond (22440 / 22440)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=74.7930 Lr=0.4401 DR=169.9374 factor=0.0152
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.318589 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=74.9244 Lr=0.4434 DR=168.9773 factor=0.0158
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.163917 millisecond (22441 / 22441)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.31889 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081792 millisecond (22442 / 22442)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=75.0713 Lr=0.4471 DR=167.9124 factor=0.0164
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.319226 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.030500 millisecond (22443 / 22443)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=75.2037 Lr=0.4504 DR=166.9605 factor=0.0169
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.31953 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.028291 millisecond (22444 / 22444)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=75.3514 Lr=0.4542 DR=165.9065 factor=0.0175
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.319868 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.094125 millisecond (22445 / 22445)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=75.4925 Lr=0.4578 DR=164.9077 factor=0.0181
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.320191 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.085000 millisecond (22446 / 22446)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=75.6331 Lr=0.4614 DR=163.9206 factor=0.0187
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.320513 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082583 millisecond (22447 / 22447)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=75.7736 Lr=0.4650 DR=162.9416 factor=0.0193
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.320835 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=75.9148 Lr=0.4687 DR=161.9656 factor=0.0199
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088541 millisecond (22448 / 22448)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.321159 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(BackBoardHIDEventFoundation)[63] <Notice>: destinations for VendorDefined event: ()
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=76.0562 Lr=0.4724 DR=160.9958 factor=0.0205
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.168792 millisecond (22449 / 22449)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.321483 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.291167 millisecond (22450 / 22450)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=76.1978 Lr=0.4761 DR=160.0318 factor=0.0211
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.321807 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081291 millisecond (22451 / 22451)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=76.3399 Lr=0.4799 DR=159.0729 factor=0.0217
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.322133 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082833 millisecond (22452 / 22452)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=76.4821 Lr=0.4837 DR=158.1204 factor=0.0223
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.322459 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083291 millisecond (22453 / 22453)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=76.6246 Lr=0.4875 DR=157.1734 factor=0.0229
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.322785 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.087375 millisecond (22454 / 22454)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=76.7677 Lr=0.4914 DR=156.2294 factor=0.0235
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.323113 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082250 millisecond (22455 / 22455)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=76.9102 Lr=0.4952 DR=155.2974 factor=0.0241
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.32344 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.089000 millisecond (22456 / 22456)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=77.0504 Lr=0.4991 DR=154.3871 factor=0.0247
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.323761 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.058542 millisecond (22457 / 22457)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=77.1972 Lr=0.5031 DR=153.4419 factor=0.0253
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.324097 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080583 millisecond (22458 / 22458)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=77.3410 Lr=0.5071 DR=152.5227 factor=0.0259
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.324427 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079792 millisecond (22459 / 22459)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=77.4786 Lr=0.5109 DR=151.6502 factor=0.0265
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.324742 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.076458 millisecond (22460 / 22460)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=77.6294 Lr=0.5151 DR=150.7012 factor=0.0272
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.325087 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=77.7741 Lr=0.5192 DR=149.7984 factor=0.0278
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.086541 millisecond (22461 / 22461)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.325419 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.066583 millisecond (22462 / 22462)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=77.9194 Lr=0.5233 DR=148.8992 factor=0.0284
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.325752 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079500 millisecond (22463 / 22463)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=78.0645 Lr=0.5274 DR=148.0077 factor=0.0290
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.326084 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=78.2097 Lr=0.5316 DR=147.1223 factor=0.0296
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082250 millisecond (22464 / 22464)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.326417 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083500 millisecond (22465 / 22465)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=78.3559 Lr=0.5358 DR=146.2385 factor=0.0303
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.326752 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.041125 millisecond (22466 / 22466)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=78.5015 Lr=0.5400 DR=145.3647 factor=0.0309
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.327086 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081916 millisecond (22467 / 22467)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=78.6477 Lr=0.5443 DR=144.4948 factor=0.0315
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.32742 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(BackBoardHIDEventFoundation)[63] <Notice>: destinations for VendorDefined event: ()
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082792 millisecond (22468 / 22468)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=78.7944 Lr=0.5486 DR=143.6282 factor=0.0321
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.327757 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=78.9414 Lr=0.5529 DR=142.7669 factor=0.0328
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083917 millisecond (22469 / 22469)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.328093 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.071334 millisecond (22470 / 22470)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=79.0889 Lr=0.5573 DR=141.9096 factor=0.0334
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.328431 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.077875 millisecond (22471 / 22471)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=79.2348 Lr=0.5617 DR=141.0679 factor=0.0340
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.328766 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.092000 millisecond (22472 / 22472)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=79.3836 Lr=0.5662 DR=140.2160 factor=0.0347
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.329107 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.063250 millisecond (22473 / 22473)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=79.5314 Lr=0.5706 DR=139.3768 factor=0.0353
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.329445 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082041 millisecond (22474 / 22474)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=79.6789 Lr=0.5751 DR=138.5462 factor=0.0359
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.329783 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 mediaserverd(CMCapture)[34] <Notice>: m11:142595, m12:0, m21:516160, m22:51168, m23:413312, m24:407616
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079875 millisecond (22475 / 22475)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=79.8278 Lr=0.5797 DR=137.7137 factor=0.0366
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.330124 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088417 millisecond (22476 / 22476)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=79.9768 Lr=0.5843 DR=136.8871 factor=0.0372
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.330466 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=80.1260 Lr=0.5889 DR=136.0663 factor=0.0379
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088125 millisecond (22477 / 22477)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.330808 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088375 millisecond (22478 / 22478)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=80.2756 Lr=0.5935 DR=135.2500 factor=0.0385
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.33115 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.158208 millisecond (22479 / 22479)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=80.4256 Lr=0.5982 DR=134.4376 factor=0.0391
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.331494 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.093292 millisecond (22480 / 22480)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=80.5659 Lr=0.6027 DR=133.6833 factor=0.0398
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.331815 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082416 millisecond (22481 / 22481)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=80.7245 Lr=0.6077 DR=132.8375 factor=0.0404
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.332179 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=80.8749 Lr=0.6125 DR=132.0420 factor=0.0411
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.165583 millisecond (22482 / 22482)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.332523 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.050375 millisecond (22483 / 22483)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=81.0170 Lr=0.6171 DR=131.2961 factor=0.0417
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.332849 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.122625 millisecond (22484 / 22484)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=81.1766 Lr=0.6222 DR=130.4649 factor=0.0424
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.333215 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=81.3282 Lr=0.6271 DR=129.6812 factor=0.0431
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.091625 millisecond (22485 / 22485)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.333562 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.096500 millisecond (22486 / 22486)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=81.4772 Lr=0.6320 DR=128.9176 factor=0.0437
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.333903 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083083 millisecond (22487 / 22487)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=81.6315 Lr=0.6371 DR=128.1326 factor=0.0444
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.334257 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.087292 millisecond (22488 / 22488)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=81.7768 Lr=0.6419 DR=127.3994 factor=0.0450
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.33459 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080416 millisecond (22489 / 22489)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=81.9269 Lr=0.6469 DR=126.6477 factor=0.0457
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.334934 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081625 millisecond (22490 / 22490)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=82.0882 Lr=0.6523 DR=125.8461 factor=0.0464
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.335303 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.085666 millisecond (22491 / 22491)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=82.2416 Lr=0.6575 DR=125.0904 factor=0.0470
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.335655 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080042 millisecond (22492 / 22492)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=82.3947 Lr=0.6626 DR=124.3417 factor=0.0477
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.336005 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=82.5483 Lr=0.6679 DR=123.5965 factor=0.0484
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.086916 millisecond (22493 / 22493)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.336357 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.090875 millisecond (22494 / 22494)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=82.7025 Lr=0.6732 DR=122.8542 factor=0.0490
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.336711 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=82.8530 Lr=0.6784 DR=122.1356 factor=0.0497
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.156250 millisecond (22495 / 22495)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.337056 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=83.0109 Lr=0.6839 DR=121.3876 factor=0.0504
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.089375 millisecond (22496 / 22496)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.337417 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(58:86:94:8C:76:78) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<44 0 0 0 0 0 0 0 0 0 0> (5001ms)
+Nov 10 21:51:27 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(58:86:94:8C:76:78) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BK<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+Nov 10 21:51:27 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(58:86:94:8C:76:78) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VI<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+Nov 10 21:51:27 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(58:86:94:8C:76:78) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VO<1 0 0 0 0 0 0 0 0 0 0> (5001ms)
+Nov 10 21:51:27 kernel(IO80211Family)[0] <Notice>: postMessageInternal:isPipeOpened:1, msg 169, dataLen 136
+Nov 10 21:51:27 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:L3 Control VO TX(58:86:94:8C:76:78) Success=1 NoACK=0 Expired=0 OtherErr=0
+Nov 10 21:51:27 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(FF:FF:FF:FF:FF:FF) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+Nov 10 21:51:27 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(FF:FF:FF:FF:FF:FF) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BK<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+Nov 10 21:51:27 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(FF:FF:FF:FF:FF:FF) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VI<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+Nov 10 21:51:27 kernel(IO80211Family)[0] <Notice>: LQM-WiFi:TX(FF:FF:FF:FF:FF:FF) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VO<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+Nov 10 21:51:27 wifid(WiFiPolicy)[51] <Notice>: __WiFiDeviceProcessLqmTxStatsEvent: LQM-TX: Success:45(100.0%) Failure:0(0.0%) Retries:0(0.0%) NoACK:0(0.0%) Drops:0(0.0%) NoBuff:0(0.0%) NoRes:0(0.0%) ChipErr:0(0.0%) Expired:0(0.0%) ForcedExpiry:0(0.0%) Free:0(0.0%)
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=83.1650 Lr=0.6892 DR=120.6629 factor=0.0511
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.196541 millisecond (22497 / 22497)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.33777 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=83.3200 Lr=0.6947 DR=119.9400 factor=0.0517
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.179917 millisecond (22498 / 22498)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.338126 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:27 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=83.4760 Lr=0.7002 DR=119.2181 factor=0.0524
+Nov 10 21:51:27 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.404708 millisecond (22499 / 22499)
+Nov 10 21:51:27 backboardd[63] <Notice>: brightness change:0.338483 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080334 millisecond (22500 / 22500)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=83.6308 Lr=0.7057 DR=118.5075 factor=0.0531
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.338838 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088542 millisecond (22501 / 22501)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=83.7860 Lr=0.7113 DR=117.8006 factor=0.0538
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.339193 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.085750 millisecond (22502 / 22502)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=83.9435 Lr=0.7169 DR=117.0887 factor=0.0545
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.339554 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081291 millisecond (22503 / 22503)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=84.0993 Lr=0.7226 DR=116.3900 factor=0.0552
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.339911 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.067875 millisecond (22504 / 22504)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=84.2557 Lr=0.7283 DR=115.6944 factor=0.0559
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.340269 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.058500 millisecond (22505 / 22505)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=84.4132 Lr=0.7340 DR=114.9992 factor=0.0566
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.34063 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=84.5701 Lr=0.7398 DR=114.3118 factor=0.0572
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.167375 millisecond (22506 / 22506)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.34099 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.043875 millisecond (22507 / 22507)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=84.7248 Lr=0.7456 DR=113.6396 factor=0.0579
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.341344 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=84.8856 Lr=0.7516 DR=112.9463 factor=0.0586
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079333 millisecond (22508 / 22508)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.341713 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=85.0438 Lr=0.7575 DR=112.2698 factor=0.0593
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.089209 millisecond (22509 / 22509)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.342075 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=85.2024 Lr=0.7635 DR=111.5965 factor=0.0600
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.089958 millisecond (22510 / 22510)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.342438 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=85.3612 Lr=0.7695 DR=110.9278 factor=0.0608
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080083 millisecond (22511 / 22511)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.342802 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.086500 millisecond (22512 / 22512)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=85.5208 Lr=0.7756 DR=110.2614 factor=0.0615
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.343168 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080667 millisecond (22513 / 22513)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=85.6777 Lr=0.7817 DR=109.6110 factor=0.0622
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.343527 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079500 millisecond (22514 / 22514)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=85.8390 Lr=0.7879 DR=108.9477 factor=0.0629
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.343897 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.192500 millisecond (22515 / 22515)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=86.0001 Lr=0.7942 DR=108.2901 factor=0.0636
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.344266 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083583 millisecond (22516 / 22516)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=86.1536 Lr=0.8002 DR=107.6686 factor=0.0643
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.344618 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.172917 millisecond (22517 / 22517)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=86.3200 Lr=0.8067 DR=107.0005 factor=0.0650
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.344999 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083042 millisecond (22518 / 22518)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=86.4811 Lr=0.8131 DR=106.3585 factor=0.0657
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.345368 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.084125 millisecond (22519 / 22519)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=86.6411 Lr=0.8195 DR=105.7261 factor=0.0664
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.345735 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.090583 millisecond (22520 / 22520)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=86.8039 Lr=0.8260 DR=105.0873 factor=0.0672
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.346108 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.085291 millisecond (22521 / 22521)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=86.9652 Lr=0.8325 DR=104.4595 factor=0.0679
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.346477 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.030667 millisecond (22522 / 22522)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=87.1262 Lr=0.8391 DR=103.8377 factor=0.0686
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.346846 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.069250 millisecond (22523 / 22523)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=87.2902 Lr=0.8458 DR=103.2094 factor=0.0694
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.347222 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.060041 millisecond (22524 / 22524)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=87.4522 Lr=0.8524 DR=102.5936 factor=0.0701
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.347593 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.059583 millisecond (22525 / 22525)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=87.6151 Lr=0.8591 DR=101.9795 factor=0.0708
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.347966 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=87.7785 Lr=0.8659 DR=101.3681 factor=0.0715
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080584 millisecond (22526 / 22526)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.348341 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=87.9421 Lr=0.8728 DR=100.7608 factor=0.0723
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083959 millisecond (22527 / 22527)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.348715 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=88.1061 Lr=0.8797 DR=100.1567 factor=0.0730
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.089250 millisecond (22528 / 22528)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.349091 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083709 millisecond (22529 / 22529)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=88.2700 Lr=0.8866 DR=99.5577 factor=0.0738
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.349467 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081959 millisecond (22530 / 22530)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=88.4343 Lr=0.8936 DR=98.9618 factor=0.0745
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.349843 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=88.5990 Lr=0.9007 DR=98.3695 factor=0.0752
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.030958 millisecond (22531 / 22531)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.350221 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083459 millisecond (22532 / 22532)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=88.7645 Lr=0.9078 DR=97.7790 factor=0.0760
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.3506 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.085458 millisecond (22533 / 22533)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=88.9300 Lr=0.9150 DR=97.1927 factor=0.0767
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.350979 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088875 millisecond (22534 / 22534)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=89.0961 Lr=0.9222 DR=96.6092 factor=0.0775
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.35136 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=89.2591 Lr=0.9294 DR=96.0409 factor=0.0782
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079375 millisecond (22535 / 22535)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.351733 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.089334 millisecond (22536 / 22536)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=89.4283 Lr=0.9369 DR=95.4559 factor=0.0790
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.352121 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 mediaserverd(CMCapture)[34] <Notice>: m11:142595, m12:0, m21:516096, m22:35664, m23:418256, m24:418032
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082375 millisecond (22537 / 22537)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=89.5936 Lr=0.9442 DR=94.8885 factor=0.0797
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.352499 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080041 millisecond (22538 / 22538)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=89.7612 Lr=0.9517 DR=94.3179 factor=0.0805
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.352883 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.093041 millisecond (22539 / 22539)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=89.9300 Lr=0.9593 DR=93.7477 factor=0.0813
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.35327 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.026750 millisecond (22540 / 22540)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.0938 Lr=0.9667 DR=93.1990 factor=0.0820
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.353645 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.092334 millisecond (22541 / 22541)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.2648 Lr=0.9745 DR=92.6302 factor=0.0828
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.354037 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.033125 millisecond (22542 / 22542)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.4329 Lr=0.9822 DR=92.0755 factor=0.0835
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.354423 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.154084 millisecond (22543 / 22543)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.6005 Lr=0.9825 DR=92.2126 factor=0.0834
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.354806 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(BackBoardHIDEventFoundation)[63] <Notice>: destinations for VendorDefined event: ()
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.069750 millisecond (22544 / 22544)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.7697 Lr=0.9853 DR=92.1228 factor=0.0835
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.355194 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.112208 millisecond (22545 / 22545)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=90.9392 Lr=0.9881 DR=92.0330 factor=0.0836
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.355583 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=91.1077 Lr=0.9909 DR=91.9439 factor=0.0837
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.157084 millisecond (22546 / 22546)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.355968 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080958 millisecond (22547 / 22547)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=91.2785 Lr=0.9937 DR=91.8539 factor=0.0839
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.35636 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082625 millisecond (22548 / 22548)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=91.4405 Lr=0.9964 DR=91.7688 factor=0.0840
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.356731 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 kernel(AppleBCMWLANCore)[0] <Notice>:   9 b 20MHz n CCA 33% duration: 119 congest: 40 ts: 484829
+Nov 10 21:51:28 kernel(IO80211Family)[0] <Notice>: postMessageInternal:isPipeOpened:1, msg 60, dataLen 28
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.111041 millisecond (22549 / 22549)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=91.6096 Lr=0.9992 DR=91.6802 factor=0.0841
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.357118 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080750 millisecond (22550 / 22550)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=91.7893 Lr=1.0022 DR=91.5863 factor=0.0842
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.35753 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=91.9608 Lr=1.0051 DR=91.4970 factor=0.0844
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.089000 millisecond (22551 / 22551)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.357923 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=92.1304 Lr=1.0079 DR=91.4089 factor=0.0845
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.120625 millisecond (22552 / 22552)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.358312 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=92.3032 Lr=1.0108 DR=91.3194 factor=0.0846
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080583 millisecond (22553 / 22553)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.358708 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083166 millisecond (22554 / 22554)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=92.4756 Lr=1.0137 DR=91.2303 factor=0.0847
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.359103 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.147042 millisecond (22555 / 22555)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=92.6402 Lr=1.0164 DR=91.1455 factor=0.0848
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.35948 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080500 millisecond (22556 / 22556)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=92.8203 Lr=1.0194 DR=91.0530 factor=0.0850
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.359892 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=92.9941 Lr=1.0223 DR=90.9640 factor=0.0851
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.116250 millisecond (22557 / 22557)
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.360291 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.045791 millisecond (22558 / 22558)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=93.1652 Lr=1.0252 DR=90.8767 factor=0.0852
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.360682 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:28 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.036167 millisecond (22559 / 22559)
+Nov 10 21:51:28 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=93.3403 Lr=1.0281 DR=90.7874 factor=0.0854
+Nov 10 21:51:28 backboardd[63] <Notice>: brightness change:0.361084 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.036708 millisecond (22560 / 22560)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=93.5049 Lr=1.0309 DR=90.7038 factor=0.0855
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.361461 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.051042 millisecond (22561 / 22561)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=93.6884 Lr=1.0340 DR=90.6109 factor=0.0856
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.361881 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.064750 millisecond (22562 / 22562)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=93.8636 Lr=1.0369 DR=90.5225 factor=0.0857
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.362283 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.074791 millisecond (22563 / 22563)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=94.0378 Lr=1.0398 DR=90.4347 factor=0.0859
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.362682 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=94.2095 Lr=1.0427 DR=90.3485 factor=0.0860
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.140375 millisecond (22564 / 22564)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.363075 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.159959 millisecond (22565 / 22565)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=94.3842 Lr=1.0457 DR=90.2610 factor=0.0861
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.363475 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082833 millisecond (22566 / 22566)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=94.5645 Lr=1.0487 DR=90.1710 factor=0.0862
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.363889 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=94.7414 Lr=1.0517 DR=90.0830 factor=0.0864
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.171209 millisecond (22567 / 22567)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.364294 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079000 millisecond (22568 / 22568)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=94.9170 Lr=1.0547 DR=89.9957 factor=0.0865
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.364696 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079584 millisecond (22569 / 22569)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=95.0940 Lr=1.0577 DR=89.9081 factor=0.0866
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.365102 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.079375 millisecond (22570 / 22570)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=95.2676 Lr=1.0606 DR=89.8224 factor=0.0867
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.365499 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.083375 millisecond (22571 / 22571)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=95.4492 Lr=1.0637 DR=89.7330 factor=0.0869
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.365916 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.070541 millisecond (22572 / 22572)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=95.6277 Lr=1.0667 DR=89.6454 factor=0.0870
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.366325 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.113917 millisecond (22573 / 22573)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=95.8047 Lr=1.0697 DR=89.5588 factor=0.0871
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.36673 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.052959 millisecond (22574 / 22574)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=95.9834 Lr=1.0728 DR=89.4716 factor=0.0872
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.367139 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=96.1627 Lr=1.0758 DR=89.3843 factor=0.0874
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.161250 millisecond (22575 / 22575)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.36755 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.241625 millisecond (22576 / 22576)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=96.3411 Lr=1.0789 DR=89.2978 factor=0.0875
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.367959 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=96.5217 Lr=1.0820 DR=89.2103 factor=0.0876
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.198958 millisecond (22577 / 22577)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.368373 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.035084 millisecond (22578 / 22578)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=96.7008 Lr=1.0850 DR=89.1239 factor=0.0877
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.368783 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.036541 millisecond (22579 / 22579)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=96.8797 Lr=1.0881 DR=89.0378 factor=0.0879
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.369193 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=97.0613 Lr=1.0912 DR=88.9507 factor=0.0880
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.085250 millisecond (22580 / 22580)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.369609 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082416 millisecond (22581 / 22581)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=97.2424 Lr=1.0943 DR=88.8640 factor=0.0881
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.370024 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(BackBoardHIDEventFoundation)[63] <Notice>: destinations for VendorDefined event: ()
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.092042 millisecond (22582 / 22582)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=97.4241 Lr=1.0974 DR=88.7773 factor=0.0882
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.37044 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.021833 millisecond (22583 / 22583)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=97.6052 Lr=1.1005 DR=88.6911 factor=0.0884
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.370855 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.194084 millisecond (22584 / 22584)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=97.7875 Lr=1.1036 DR=88.6047 factor=0.0885
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.371273 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.137375 millisecond (22585 / 22585)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=97.9684 Lr=1.1067 DR=88.5191 factor=0.0886
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.371688 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.084625 millisecond (22586 / 22586)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=98.1518 Lr=1.1099 DR=88.4326 factor=0.0887
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.372108 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=98.3354 Lr=1.1131 DR=88.3462 factor=0.0889
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.115834 millisecond (22587 / 22587)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.372528 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.144084 millisecond (22588 / 22588)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=98.5165 Lr=1.1162 DR=88.2612 factor=0.0890
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.372943 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082292 millisecond (22589 / 22589)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=98.7012 Lr=1.1194 DR=88.1749 factor=0.0891
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.373366 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081666 millisecond (22590 / 22590)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=98.8850 Lr=1.1226 DR=88.0892 factor=0.0893
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.373788 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082333 millisecond (22591 / 22591)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=99.0666 Lr=1.1257 DR=88.0047 factor=0.0894
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.374204 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088791 millisecond (22592 / 22592)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=99.2549 Lr=1.1290 DR=87.9173 factor=0.0895
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.374635 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.135833 millisecond (22593 / 22593)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=99.4394 Lr=1.1322 DR=87.8320 factor=0.0896
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.375059 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=99.6216 Lr=1.1353 DR=87.7479 factor=0.0898
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.162917 millisecond (22594 / 22594)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.375485 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 dasd[93] <Notice>: BatteryTemperatureReader returning value 2970
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.106000 millisecond (22595 / 22595)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=99.8102 Lr=1.1386 DR=87.6612 factor=0.0899
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.375926 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=99.9962 Lr=1.1418 DR=87.5760 factor=0.0900
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.168542 millisecond (22596 / 22596)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.37636 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 mediaserverd(CMCapture)[34] <Notice>: m11:142387, m12:0, m21:516160, m22:51488, m23:413232, m24:407408
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.062333 millisecond (22597 / 22597)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=100.1823 Lr=1.1451 DR=87.4909 factor=0.0901
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.376795 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.025250 millisecond (22598 / 22598)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=100.3690 Lr=1.1483 DR=87.4057 factor=0.0903
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.377232 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=100.5558 Lr=1.1516 DR=87.3208 factor=0.0904
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.078291 millisecond (22599 / 22599)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.377668 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=100.7433 Lr=1.1548 DR=87.2358 factor=0.0905
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.091667 millisecond (22600 / 22600)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.378106 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081792 millisecond (22601 / 22601)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=100.9310 Lr=1.1581 DR=87.1509 factor=0.0907
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.378545 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.092417 millisecond (22602 / 22602)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=101.1200 Lr=1.1614 DR=87.0657 factor=0.0908
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.378987 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.033000 millisecond (22603 / 22603)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=101.3086 Lr=1.1647 DR=86.9810 factor=0.0909
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.379427 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.162958 millisecond (22604 / 22604)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=101.4967 Lr=1.1680 DR=86.8966 factor=0.0910
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.379867 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.159875 millisecond (22605 / 22605)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=101.6861 Lr=1.1713 DR=86.8120 factor=0.0912
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.380309 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.031459 millisecond (22606 / 22606)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=101.8738 Lr=1.1746 DR=86.7283 factor=0.0913
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.380748 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.037083 millisecond (22607 / 22607)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=102.0652 Lr=1.1780 DR=86.6432 factor=0.0914
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.381196 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.030833 millisecond (22608 / 22608)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=102.2551 Lr=1.1813 DR=86.5590 factor=0.0915
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.381639 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=102.4353 Lr=1.1845 DR=86.4793 factor=0.0917
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.080417 millisecond (22609 / 22609)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.38206 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.085833 millisecond (22610 / 22610)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=102.6367 Lr=1.1881 DR=86.3906 factor=0.0918
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.382531 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=102.8191 Lr=1.1913 DR=86.3104 factor=0.0919
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.084000 millisecond (22611 / 22611)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.382957 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.067958 millisecond (22612 / 22612)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=103.0200 Lr=1.1948 DR=86.2224 factor=0.0921
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.383427 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.061792 millisecond (22613 / 22613)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=103.2116 Lr=1.1982 DR=86.1387 factor=0.0922
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.383875 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.108167 millisecond (22614 / 22614)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=103.4041 Lr=1.2016 DR=86.0548 factor=0.0923
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.384325 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.162792 millisecond (22615 / 22615)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=103.5967 Lr=1.2050 DR=85.9711 factor=0.0924
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.384774 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.082166 millisecond (22616 / 22616)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=103.7891 Lr=1.2084 DR=85.8877 factor=0.0926
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.385224 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=103.9827 Lr=1.2119 DR=85.8041 factor=0.0927
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.158542 millisecond (22617 / 22617)
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.385677 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.070417 millisecond (22618 / 22618)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=104.1763 Lr=1.2153 DR=85.7207 factor=0.0928
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.386129 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:29 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.078542 millisecond (22619 / 22619)
+Nov 10 21:51:29 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=104.3703 Lr=1.2187 DR=85.6373 factor=0.0930
+Nov 10 21:51:29 backboardd[63] <Notice>: brightness change:0.386582 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.088250 millisecond (22620 / 22620)
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=104.5652 Lr=1.2222 DR=85.5539 factor=0.0931
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.387038 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.078250 millisecond (22621 / 22621)
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=104.7523 Lr=1.2255 DR=85.4739 factor=0.0932
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.387475 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.090833 millisecond (22622 / 22622)
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=104.9512 Lr=1.2291 DR=85.3891 factor=0.0933
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.38794 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=105.1510 Lr=1.2327 DR=85.3043 factor=0.0935
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.064375 millisecond (22623 / 22623)
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.388407 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.166792 millisecond (22624 / 22624)
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=105.3406 Lr=1.2360 DR=85.2240 factor=0.0936
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.38885 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=105.5432 Lr=1.2397 DR=85.1384 factor=0.0937
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.086792 millisecond (22625 / 22625)
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.389323 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=105.7395 Lr=1.2432 DR=85.0558 factor=0.0939
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.351041 millisecond (22626 / 22626)
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.389782 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=105.9353 Lr=1.2467 DR=84.9735 factor=0.0940
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.185375 millisecond (22627 / 22627)
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.39024 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.027625 millisecond (22628 / 22628)
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=106.1348 Lr=1.2503 DR=84.8899 factor=0.0941
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.390706 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.081334 millisecond (22629 / 22629)
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=106.3316 Lr=1.2538 DR=84.8078 factor=0.0942
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.391166 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.086041 millisecond (22630 / 22630)
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=106.5300 Lr=1.2574 DR=84.7252 factor=0.0944
+Nov 10 21:51:30 backboardd[63] <Notice>: brightness change:0.39163 reason:BrightnessSystemDidChange options:<private>
+Nov 10 21:51:30 backboardd(libEDR)[63] <Notice>: ScheduleSetBrightnessIn_block_invoke: enter WaitUntil late 0.034500 millisecond (22631 / 22631)
+Nov 10 21:51:30 backboardd(CoreBrightness)[63] <Notice>: Lcurrent=106.7293 Lr=1.2609 DR=84.6424 factor=0.0945

@@ -149,9 +149,10 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
       debugPrint('[MainScreen] 스캐너 컨트롤러 생성 시작');
 
       _scannerController = MobileScannerController(
-        detectionSpeed: DetectionSpeed.noDuplicates,
+        detectionSpeed: DetectionSpeed.normal,
         facing: CameraFacing.back,
         torchEnabled: false,
+        returnImage: false,
       );
 
       debugPrint('[MainScreen] 스캐너 컨트롤러 생성 완료');
@@ -270,9 +271,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   }
 
   void _onBarcodeDetect(BarcodeCapture capture) async {
-    // 스캔 중이면 무시
+    // 스캔 중이면 무시 (즉시 리턴)
     if (_isScanning) {
-      debugPrint('[MainScreen] 이미 스캔 중, 무시');
       return;
     }
 
@@ -282,37 +282,38 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     final barcode = barcodes.first;
     if (barcode.rawValue == null) return;
 
+    final code = barcode.rawValue!;
     final now = DateTime.now();
     
     // 같은 코드를 연속으로 스캔하는 것을 방지
-    if (_lastScannedCode == barcode.rawValue) {
-      debugPrint('[MainScreen] 중복 코드 감지, 무시: ${barcode.rawValue}');
+    if (_lastScannedCode == code) {
       return;
     }
 
-    // 디바운싱: 마지막 스캔으로부터 1초 이내 스캔 무시
-    if (_lastScanTime != null && now.difference(_lastScanTime!) < const Duration(seconds: 1)) {
-      debugPrint('[MainScreen] 너무 빠른 스캔, 무시 (${now.difference(_lastScanTime!).inMilliseconds}ms)');
+    // 디바운싱: 마지막 스캔으로부터 500ms 이내 스캔 무시
+    if (_lastScanTime != null && now.difference(_lastScanTime!) < const Duration(milliseconds: 500)) {
       return;
     }
 
-    debugPrint('[MainScreen] 바코드 감지: ${barcode.rawValue}');
+    // ✅ 플래그를 즉시 설정하여 추가 onDetect 차단
+    _isScanning = true;
+    _lastScannedCode = code;
+    _lastScanTime = now;
 
-    setState(() {
-      _isScanning = true;
-      _lastScannedCode = barcode.rawValue;
-      _lastScanTime = now;
-    });
-
-    // 스캔 중지
+    // 스캔 중지 (UI 업데이트 전에)
     try {
       await _scannerController?.stop();
-      debugPrint('[MainScreen] 스캐너 중지 완료');
     } catch (e) {
       debugPrint('[MainScreen] 스캐너 중지 오류: $e');
     }
 
-    _processBarcode(barcode.rawValue!);
+    // setState는 UI 업데이트만 담당
+    if (mounted) {
+      setState(() {});
+    }
+
+    // 바코드 처리
+    await _processBarcode(code);
   }
 
   Future<void> _processBarcode(String code) async {
