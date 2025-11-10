@@ -126,6 +126,7 @@ flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/images/icon.png"
+  remove_alpha_ios: true  # App Store 제출 시 투명도 제거 (필수)
   # Adaptive Icon 비활성화 (하단 텍스트 잘림 방지)
   # adaptive_icon_background: "#009688"
   # adaptive_icon_foreground: "assets/images/icon.png"
