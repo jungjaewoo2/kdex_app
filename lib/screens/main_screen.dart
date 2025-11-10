@@ -142,24 +142,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
       await Future.delayed(const Duration(milliseconds: 300));
     }
 
-    // 권한 서비스를 통해 권한 확인 및 요청 (싱글톤으로 중복 방지)
-    final permissionService = CameraPermissionService();
-    debugPrint('[MainScreen] 권한 확인 시작');
-    final permissionStatus = await permissionService.requestIfNeeded();
-    debugPrint('[MainScreen] 권한 상태: $permissionStatus');
-
-    if (!permissionStatus.isGranted) {
-      debugPrint('[MainScreen] 권한이 거부됨');
-      if (mounted) {
-        setState(() {
-          _isInitializing = false;
-        });
-        _showPermissionErrorDialog();
-      }
-      return;
-    }
-
-    // 권한이 허용된 경우에만 컨트롤러 생성
+    // iOS와 Android 모두 먼저 컨트롤러를 생성
+    // MobileScanner가 플랫폼별로 자동으로 권한을 처리함
     try {
       debugPrint('[MainScreen] 스캐너 컨트롤러 생성 시작');
 
@@ -189,7 +173,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             return;
           }
 
-          // 권한이 이미 허용되었으므로 MobileScanner는 자동 요청하지 않음
+          // MobileScanner가 플랫폼별로 권한을 자동 처리
           await _scannerController?.start();
           debugPrint('[MainScreen] 스캐너 시작 성공');
 
@@ -205,11 +189,23 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
         } catch (e, stackTrace) {
           debugPrint('[MainScreen] 스캐너 시작 오류: $e');
           debugPrint('[MainScreen] 스택 트레이스: $stackTrace');
-          if (mounted) {
-            setState(() {
-              _isInitializing = false;
-            });
-            _showErrorDialog('카메라를 시작할 수 없습니다: $e');
+          
+          // iOS에서 권한이 없어 실패한 경우 권한 다이얼로그 표시
+          if (e.toString().contains('permission') || e.toString().contains('Authorization')) {
+            debugPrint('[MainScreen] 권한 오류로 판단됨');
+            if (mounted) {
+              setState(() {
+                _isInitializing = false;
+              });
+              _showPermissionErrorDialog();
+            }
+          } else {
+            if (mounted) {
+              setState(() {
+                _isInitializing = false;
+              });
+              _showErrorDialog('카메라를 시작할 수 없습니다: $e');
+            }
           }
         }
       });
@@ -219,7 +215,13 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
         setState(() {
           _isInitializing = false;
         });
-        _showErrorDialog('카메라 초기화 실패: $e');
+        
+        // iOS에서 권한이 없어 실패한 경우
+        if (e.toString().contains('permission') || e.toString().contains('Authorization')) {
+          _showPermissionErrorDialog();
+        } else {
+          _showErrorDialog('카메라 초기화 실패: $e');
+        }
       }
     }
   }
