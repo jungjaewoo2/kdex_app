@@ -4,6 +4,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:http/http.dart' as http;
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:convert';
+import 'dart:developer' as developer;
 import 'result_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -23,6 +24,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+    developer.log('🟢 MainScreen initState 시작', name: 'MainScreen');
+    print('🟢 MainScreen initState 시작');
     WidgetsBinding.instance.addObserver(this);
     _initializeScanner();
   }
@@ -62,6 +65,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   }
 
   Future<void> _initializeScanner() async {
+    developer.log('🟡 스캐너 초기화 시작', name: 'MainScreen');
+    print('🟡 스캐너 초기화 시작');
     debugPrint('[MainScreen] ========== 스캐너 초기화 시작 ==========');
 
     // 기존 컨트롤러 완전 정리
@@ -95,6 +100,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
       // ✅ 명시적으로 start() 한 번만 호출
       try {
         await _scannerController!.start();
+        developer.log('✅ 스캐너 시작 성공', name: 'MainScreen');
+        print('✅ 스캐너 시작 성공');
         debugPrint('[MainScreen] 스캐너 시작 완료');
       } catch (e) {
         debugPrint('[MainScreen] 스캐너 시작 오류: $e');
@@ -173,6 +180,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   }
 
   void _onBarcodeDetect(BarcodeCapture capture) async {
+    developer.log('🔵 onBarcodeDetect 호출됨!', name: 'MainScreen');
+    print('🔵 onBarcodeDetect 호출됨! _isScanning: $_isScanning');
     debugPrint('[MainScreen] ========== onBarcodeDetect 호출됨 ==========');
     debugPrint('[MainScreen] _isScanning: $_isScanning');
     
@@ -199,6 +208,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     final code = barcode.rawValue!;
     final now = DateTime.now();
     
+    developer.log('🎯 바코드 감지: $code', name: 'MainScreen');
+    print('🎯 바코드 감지: $code');
     debugPrint('[MainScreen] 바코드 값: $code');
     debugPrint('[MainScreen] 마지막 스캔 코드: $_lastScannedCode');
     
