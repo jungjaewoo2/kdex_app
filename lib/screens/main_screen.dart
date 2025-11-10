@@ -1,3 +1,4 @@
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -284,15 +285,18 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
         'https://pennygold.kr/kgex/viewGiftCardInfo',
       ).replace(queryParameters: {'id': id, 'lat': '0', 'lng': '0', 'ip': ''});
 
-      // iOS에서 서버가 빈 응답을 보내는 문제 해결을 위해 헤더 추가
-      final response = await http.get(
-        url,
-        headers: {
-          'User-Agent': 'KDEX-App/1.0 (iOS; Flutter)',
-          'Accept': 'application/json',
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-      );
+      // iOS에서 서버가 빈 응답을 보내는 문제 해결
+      // React Native 앱(com.korda.koreagoldex)과 동일한 헤더 사용
+      final headers = Platform.isIOS 
+        ? {
+            'User-Agent': 'koreagoldex/1 CFNetwork/1408.0.4 Darwin/22.5.0',
+            'Accept': '*/*',
+            'Accept-Language': 'ko-kr',
+            'Accept-Encoding': 'gzip, deflate, br',
+          }
+        : <String, String>{};
+      
+      final response = await http.get(url, headers: headers);
       developer.log('📡 API 응답: ${response.statusCode}', name: 'MainScreen');
       print('📡 API 응답 코드: ${response.statusCode}');
       print('📡 API 응답 본문 길이: ${response.body.length}');
