@@ -5,7 +5,7 @@
   "packages": [
     {
       "name": "kdex_app",
-      "version": "1.0.0+14",
+      "version": "1.0.0+15",
       "dependencies": [
         "camera",
         "cupertino_icons",

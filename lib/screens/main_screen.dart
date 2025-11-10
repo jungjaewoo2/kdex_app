@@ -284,7 +284,15 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
         'https://pennygold.kr/kgex/viewGiftCardInfo',
       ).replace(queryParameters: {'id': id, 'lat': '0', 'lng': '0', 'ip': ''});
 
-      final response = await http.get(url);
+      // iOS에서 서버가 빈 응답을 보내는 문제 해결을 위해 헤더 추가
+      final response = await http.get(
+        url,
+        headers: {
+          'User-Agent': 'KDEX-App/1.0 (iOS; Flutter)',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+      );
       developer.log('📡 API 응답: ${response.statusCode}', name: 'MainScreen');
       print('📡 API 응답 코드: ${response.statusCode}');
       print('📡 API 응답 본문 길이: ${response.body.length}');
