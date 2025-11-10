@@ -39,16 +39,35 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
-    debugPrint('앱 라이프사이클 변경: $state');
+    debugPrint('[MainScreen] 앱 라이프사이클 변경: $state');
 
     if (state == AppLifecycleState.resumed) {
-      // 앱이 다시 활성화될 때 스캐너 재시작
-      debugPrint('앱 재개, 스캐너 재시작 시도');
-      _restartScanner();
+      // 앱이 다시 활성화될 때 권한 재확인 및 스캐너 재시작
+      debugPrint('[MainScreen] 앱 재개, 권한 재확인 및 스캐너 재시작');
+      _checkPermissionAndRestart();
     } else if (state == AppLifecycleState.paused) {
       // 앱이 백그라운드로 갈 때 스캐너 중지
-      debugPrint('앱 일시정지, 스캐너 중지');
+      debugPrint('[MainScreen] 앱 일시정지, 스캐너 중지');
       _scannerController?.stop();
+    }
+  }
+
+  Future<void> _checkPermissionAndRestart() async {
+    final permissionService = CameraPermissionService();
+    final permissionStatus = await permissionService.getStatus();
+    debugPrint('[MainScreen] 앱 재개 시 권한 상태: $permissionStatus');
+
+    if (permissionStatus.isGranted) {
+      // 권한이 허용되었으면 다이얼로그가 있다면 닫고 스캐너 재시작
+      if (_isInitializing || _scannerController == null) {
+        debugPrint('[MainScreen] 권한 허용됨, 스캐너 초기화');
+        await _initializeScanner();
+      } else {
+        debugPrint('[MainScreen] 권한 허용됨, 스캐너 재시작');
+        await _restartScanner();
+      }
+    } else {
+      debugPrint('[MainScreen] 권한이 여전히 거부됨');
     }
   }
 
