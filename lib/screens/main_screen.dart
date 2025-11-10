@@ -477,7 +477,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                 GestureDetector(
                   onTap: _onAppDownloadTap,
                   child: Image.asset(
-                    'assets/images/kdex_banner.jpg',
+                    'assets/images/banner.png',
                     width: double.infinity,
                     fit: BoxFit.fitWidth,
                   ),

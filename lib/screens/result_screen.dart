@@ -161,30 +161,36 @@ class _ResultScreenState extends State<ResultScreen> {
               // 이미지 영역
               Container(
                 width: double.infinity,
-                height: 240,
                 color: const Color(0xFFFCF9EE),
-                padding: const EdgeInsets.symmetric(vertical: 20),
+                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      _getStockImagePath(),
-                      width: 100,
-                      height: 100,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Image.asset(
-                          'assets/images/stock/no_stock.png',
-                          width: 100,
-                          height: 100,
-                        );
-                      },
+                    // 유가증권 이미지 - 가로 폭에 맞게 크게 표시
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Image.asset(
+                        _getStockImagePath(),
+                        width: double.infinity,
+                        height: 220,
+                        fit: BoxFit.contain,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Image.asset(
+                            'assets/images/stock/no_stock.png',
+                            width: double.infinity,
+                            height: 220,
+                            fit: BoxFit.contain,
+                          );
+                        },
+                      ),
                     ),
+                    const SizedBox(height: 10),
                     Image.asset(
                       stockId == 'no_stock'
                           ? 'assets/images/logo_gray.png'
                           : 'assets/images/logo.png',
-                      width: 80,
-                      height: 80,
+                      height: 50,
+                      fit: BoxFit.contain,
                     ),
                   ],
                 ),
