@@ -15,7 +15,7 @@ class CameraScreen extends StatefulWidget {
   State<CameraScreen> createState() => _CameraScreenState();
 }
 
-class _CameraScreenState extends State<CameraScreen> {
+class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver {
   CameraController? _controller;
   List<CameraDescription>? _cameras;
   bool _isInitialized = false;
@@ -26,14 +26,42 @@ class _CameraScreenState extends State<CameraScreen> {
   bool _isScanning = false;
   String? _lastScannedCode;
   MobileScannerController? _scannerController;
+  bool _isNavigatingAway = false;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     if (_useBarcodeScanner) {
       _scannerController = MobileScannerController();
     } else {
       _initializeCamera();
+    }
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+
+    // 스캐너 모드가 아니거나 이미 다른 화면으로 이동 중이면 무시
+    if (!_useBarcodeScanner || _scannerController == null || _isNavigatingAway) {
+      return;
+    }
+
+    switch (state) {
+      case AppLifecycleState.paused:
+      case AppLifecycleState.inactive:
+        // 백그라운드로 가거나 비활성화될 때 스캐너 정지
+        _scannerController?.stop();
+        break;
+      case AppLifecycleState.resumed:
+        // 포그라운드로 돌아올 때 스캐너 재시작 (스캔 중이 아닐 때만)
+        if (!_isScanning && mounted) {
+          _scannerController?.start();
+        }
+        break;
+      default:
+        break;
     }
   }
 
@@ -73,6 +101,7 @@ class _CameraScreenState extends State<CameraScreen> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _controller?.dispose();
     _scannerController?.dispose();
     super.dispose();
@@ -137,6 +166,11 @@ class _CameraScreenState extends State<CameraScreen> {
           final stockInfo = data['rows'][0];
 
           if (mounted) {
+            // 다른 화면으로 이동하기 전에 플래그 설정
+            setState(() {
+              _isNavigatingAway = true;
+            });
+
             // 결과 화면으로 이동
             await Navigator.push(
               context,
@@ -145,13 +179,21 @@ class _CameraScreenState extends State<CameraScreen> {
                     ResultScreen(stockInfo: stockInfo, id: id),
               ),
             );
+
             // 결과 화면에서 돌아왔을 때 스캐너 재시작 및 상태 초기화
             if (mounted) {
               setState(() {
+                _isNavigatingAway = false;
                 _isScanning = false;
                 _lastScannedCode = null;
               });
-              _scannerController?.start();
+
+              // 약간의 딜레이 후 스캐너 재시작 (iOS에서 카메라 리소스 안정화)
+              await Future.delayed(const Duration(milliseconds: 300));
+
+              if (mounted && !_isScanning) {
+                _scannerController?.start();
+              }
             }
           }
         } else {
@@ -244,13 +286,21 @@ class _CameraScreenState extends State<CameraScreen> {
         content: Text(message),
         actions: [
           TextButton(
-            onPressed: () {
+            onPressed: () async {
               Navigator.pop(context);
-              setState(() {
-                _isScanning = false;
-                _lastScannedCode = null;
-              });
-              _scannerController?.start();
+              if (mounted) {
+                setState(() {
+                  _isScanning = false;
+                  _lastScannedCode = null;
+                });
+
+                // 약간의 딜레이 후 스캐너 재시작
+                await Future.delayed(const Duration(milliseconds: 300));
+
+                if (mounted && !_isScanning) {
+                  _scannerController?.start();
+                }
+              }
             },
             child: const Text('확인'),
           ),
