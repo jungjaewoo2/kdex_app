@@ -285,10 +285,58 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
       ).replace(queryParameters: {'id': id, 'lat': '0', 'lng': '0', 'ip': ''});
 
       final response = await http.get(url);
+      developer.log('📡 API 응답: ${response.statusCode}', name: 'MainScreen');
+      print('📡 API 응답 코드: ${response.statusCode}');
+      print('📡 API 응답 본문 길이: ${response.body.length}');
+      print('📡 API 응답 본문: ${response.body}');
       debugPrint('[MainScreen] API 응답: ${response.statusCode}');
 
       if (response.statusCode == 200) {
-        final data = json.decode(response.body);
+        // 빈 응답 체크
+        if (response.body.isEmpty) {
+          developer.log('⚠️ API 응답이 비어있음', name: 'MainScreen');
+          print('⚠️ API 응답이 비어있음');
+          debugPrint('[MainScreen] API 응답이 비어있음');
+          if (mounted) {
+            try {
+              await _scannerController?.start();
+              debugPrint('[MainScreen] 스캐너 재시작 성공');
+            } catch (e) {
+              debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
+            }
+            setState(() {
+              _isScanning = false;
+              _lastScannedCode = null;
+              _lastScanTime = null;
+            });
+          }
+          return;
+        }
+
+        dynamic data;
+        try {
+          data = json.decode(response.body);
+          developer.log('✅ JSON 파싱 성공', name: 'MainScreen');
+          print('✅ JSON 파싱 성공: ${data.toString().substring(0, data.toString().length > 100 ? 100 : data.toString().length)}...');
+        } catch (e) {
+          developer.log('❌ JSON 파싱 실패: $e', name: 'MainScreen');
+          print('❌ JSON 파싱 실패: $e');
+          debugPrint('[MainScreen] JSON 파싱 오류: $e');
+          if (mounted) {
+            try {
+              await _scannerController?.start();
+            } catch (e) {
+              debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
+            }
+            setState(() {
+              _isScanning = false;
+              _lastScannedCode = null;
+              _lastScanTime = null;
+            });
+          }
+          return;
+        }
+        
         debugPrint('[MainScreen] API 데이터: ${data.toString()}');
 
         if (data['rows'] != null && data['rows'].length > 0) {
