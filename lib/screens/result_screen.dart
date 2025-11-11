@@ -32,18 +32,10 @@ class _ResultScreenState extends State<ResultScreen> {
 
   Future<void> _fetchStockData() async {
     try {
-      final ipAddress = await _getIPAddress();
-
-      final params = {
-        'id': widget.id,
-        'lat': widget.lat.toString(),
-        'lng': widget.lng.toString(),
-        'ip': ipAddress,
-      };
-
+      // 새로운 API 엔드포인트
       final uri = Uri.parse(
-        'https://pennygold.kr/kgex/viewGiftCardInfo',
-      ).replace(queryParameters: params);
+        'https://www.exgold.co.kr/api/kdex/securities',
+      ).replace(queryParameters: {'id': widget.id});
 
       final response = await http.get(uri);
 
@@ -76,14 +68,6 @@ class _ResultScreenState extends State<ResultScreen> {
     }
   }
 
-  Future<String> _getIPAddress() async {
-    try {
-      final response = await http.get(Uri.parse('https://api.ipify.org'));
-      return response.body;
-    } catch (e) {
-      return '0.0.0.0';
-    }
-  }
 
   String _getStockImagePath() {
     return 'assets/images/stock/$stockId.png';

@@ -1,14 +1,14 @@
 package com.kdex.app.v2
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import io.flutter.embedding.android.FlutterActivity
 
-class SplashActivity : FlutterActivity() {
+class SplashActivity : Activity() {
     
-    private val splashTimeOut: Long = 3000 // 3초
+    private val splashTimeOut: Long = 2000 // 2초
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,9 +1,7 @@
-import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:http/http.dart' as http;
-import 'package:permission_handler/permission_handler.dart';
 import 'dart:convert';
 import 'dart:developer' as developer;
 import 'result_screen.dart';
@@ -18,8 +16,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   bool _isScanning = false;
   String? _lastScannedCode;
-  MobileScannerController? _scannerController;
-  bool _isInitializing = true;
+  late MobileScannerController _scannerController;
   DateTime? _lastScanTime;
 
   @override
@@ -34,9 +31,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    // 스캐너 안전하게 종료 (stop은 async이므로 dispose에서는 호출하지 않음)
-    _scannerController?.dispose();
-    _scannerController = null;
+    debugPrint('[MainScreen] dispose 호출, 스캐너 정리 중...');
+    _scannerController.dispose();
     super.dispose();
   }
 
@@ -65,103 +61,31 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     }
   }
 
-  Future<void> _initializeScanner() async {
+  void _initializeScanner() {
     developer.log('🟡 스캐너 초기화 시작', name: 'MainScreen');
     print('🟡 스캐너 초기화 시작');
     debugPrint('[MainScreen] ========== 스캐너 초기화 시작 ==========');
 
-    // 기존 컨트롤러 완전 정리
-    if (_scannerController != null) {
-      debugPrint('[MainScreen] 기존 컨트롤러 정리 중...');
-      try {
-        _scannerController?.dispose();
-        debugPrint('[MainScreen] 기존 스캐너 dispose 완료');
-      } catch (e) {
-        debugPrint('[MainScreen] 스캐너 해제 오류: $e');
-      }
-      _scannerController = null;
-      await Future.delayed(const Duration(milliseconds: 300));
-      debugPrint('[MainScreen] 기존 컨트롤러 정리 완료');
-    }
-
     try {
-      debugPrint('[MainScreen] 새 컨트롤러 생성 중...');
+      debugPrint('[MainScreen] 컨트롤러 생성 중...');
 
-      // ✅ autoStart: false로 명시적 제어
+      // ✅ 한 번만 생성, MobileScanner가 모든 권한 및 생명주기 관리
       _scannerController = MobileScannerController(
         detectionSpeed: DetectionSpeed.noDuplicates,
         facing: CameraFacing.back,
         torchEnabled: false,
         returnImage: false,
-        autoStart: false,
       );
 
       debugPrint('[MainScreen] 컨트롤러 생성 완료');
-
-      // ✅ 명시적으로 start() 한 번만 호출
-      try {
-        await _scannerController!.start();
-        developer.log('✅ 스캐너 시작 성공', name: 'MainScreen');
-        print('✅ 스캐너 시작 성공');
-        debugPrint('[MainScreen] 스캐너 시작 완료');
-      } catch (e) {
-        debugPrint('[MainScreen] 스캐너 시작 오류: $e');
-        if (e.toString().contains('permission') || e.toString().contains('Authorization')) {
-          if (mounted) {
-            setState(() {
-              _isInitializing = false;
-            });
-            _showPermissionErrorDialog();
-          }
-          return;
-        }
-        rethrow;
-      }
-
-      if (mounted) {
-        setState(() {
-          _isInitializing = false;
-        });
-        debugPrint('[MainScreen] UI 업데이트: _isInitializing = false');
-      }
+      developer.log('✅ 스캐너 생성 성공', name: 'MainScreen');
+      print('✅ 스캐너 생성 성공');
       
     } catch (e, stackTrace) {
       debugPrint('[MainScreen] ❌ 스캐너 초기화 실패: $e');
       debugPrint('[MainScreen] 스택 트레이스: $stackTrace');
-      
-      if (mounted) {
-        setState(() {
-          _isInitializing = false;
-        });
-        _showErrorDialog('카메라 초기화 실패: $e');
-      }
+      _showErrorDialog('카메라 초기화 실패: $e');
     }
-  }
-
-  void _showPermissionErrorDialog() {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('카메라 권한 필요'),
-        content: const Text(
-          'QR 코드 스캔을 위해 카메라 권한이 필요합니다.\n설정에서 카메라 권한을 허용해주세요.',
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('취소'),
-          ),
-          TextButton(
-            onPressed: () async {
-              Navigator.pop(context);
-              // 설정 앱 열기
-              await openAppSettings();
-            },
-            child: const Text('설정으로 이동'),
-          ),
-        ],
-      ),
-    );
   }
 
   void _showErrorDialog(String message) {
@@ -257,16 +181,12 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     if (!code.startsWith(prefix)) {
       debugPrint('[MainScreen] 유효하지 않은 QR 코드 형식');
       if (mounted) {
-        try {
-          await _scannerController?.start();
-          debugPrint('[MainScreen] 스캐너 재시작 성공');
-        } catch (e) {
-          debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
-        }
         setState(() {
           _isScanning = false;
           _lastScannedCode = null;
         });
+        // MobileScanner 위젯이 다시 빌드되며 자동 시작됨
+        debugPrint('[MainScreen] 스캐너 위젯 다시 표시');
       }
       return;
     }
@@ -281,22 +201,13 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   Future<void> _fetchSecurityInfo(String id) async {
     try {
       debugPrint('[MainScreen] API 호출 시작: $id');
-      final url = Uri.parse(
-        'https://pennygold.kr/kgex/viewGiftCardInfo',
-      ).replace(queryParameters: {'id': id, 'lat': '0', 'lng': '0', 'ip': ''});
-
-      // iOS에서 서버가 빈 응답을 보내는 문제 해결
-      // React Native 앱(com.korda.koreagoldex)과 동일한 헤더 사용
-      final headers = Platform.isIOS 
-        ? {
-            'User-Agent': 'koreagoldex/1 CFNetwork/1408.0.4 Darwin/22.5.0',
-            'Accept': '*/*',
-            'Accept-Language': 'ko-kr',
-            'Accept-Encoding': 'gzip, deflate, br',
-          }
-        : <String, String>{};
       
-      final response = await http.get(url, headers: headers);
+      // 새로운 API 엔드포인트
+      final url = Uri.parse(
+        'https://www.exgold.co.kr/api/kdex/securities',
+      ).replace(queryParameters: {'id': id});
+
+      final response = await http.get(url);
       developer.log('📡 API 응답: ${response.statusCode}', name: 'MainScreen');
       print('📡 API 응답 코드: ${response.statusCode}');
       print('📡 API 응답 본문 길이: ${response.body.length}');
@@ -310,17 +221,19 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
           print('⚠️ API 응답이 비어있음');
           debugPrint('[MainScreen] API 응답이 비어있음');
           if (mounted) {
-            try {
-              await _scannerController?.start();
-              debugPrint('[MainScreen] 스캐너 재시작 성공');
-            } catch (e) {
-              debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
-            }
-            setState(() {
-              _isScanning = false;
-              _lastScannedCode = null;
-              _lastScanTime = null;
+            // ✅ 즉시 재스캔 방지: 3초 대기 후 재활성화
+            Future.delayed(const Duration(seconds: 3), () {
+              if (mounted) {
+                setState(() {
+                  _isScanning = false;
+                  _lastScannedCode = null;
+                  _lastScanTime = null;
+                });
+              }
             });
+            
+            // 사용자에게 에러 알림
+            _showErrorDialog('서버 응답이 비어있습니다.\n잠시 후 다시 시도해주세요.');
           }
           return;
         }
@@ -335,16 +248,19 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
           print('❌ JSON 파싱 실패: $e');
           debugPrint('[MainScreen] JSON 파싱 오류: $e');
           if (mounted) {
-            try {
-              await _scannerController?.start();
-            } catch (e) {
-              debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
-            }
-            setState(() {
-              _isScanning = false;
-              _lastScannedCode = null;
-              _lastScanTime = null;
+            // ✅ 즉시 재스캔 방지: 3초 대기 후 재활성화
+            Future.delayed(const Duration(seconds: 3), () {
+              if (mounted) {
+                setState(() {
+                  _isScanning = false;
+                  _lastScannedCode = null;
+                  _lastScanTime = null;
+                });
+              }
             });
+            
+            // 사용자에게 에러 알림
+            _showErrorDialog('서버 응답 형식이 올바르지 않습니다.\n잠시 후 다시 시도해주세요.');
           }
           return;
         }
@@ -366,71 +282,65 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             if (mounted) {
               await Future.delayed(const Duration(milliseconds: 300));
               
-              // ✅ 명시적으로 start() 호출 (autoStart: false이므로)
-              try {
-                await _scannerController?.start();
-                debugPrint('[MainScreen] 스캐너 재시작 성공');
-              } catch (e) {
-                debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
-              }
-              
               setState(() {
                 _isScanning = false;
                 _lastScannedCode = null;
                 _lastScanTime = null;
               });
+              // MobileScanner 위젯이 다시 빌드되며 자동 시작됨
               debugPrint('[MainScreen] 상태 초기화 완료');
             }
           }
         } else {
           debugPrint('[MainScreen] 유가증권 정보 없음');
-          // 유가증권 정보를 찾을 수 없는 경우 스캐너 재시작
+          // 유가증권 정보를 찾을 수 없는 경우
           if (mounted) {
-            try {
-              await _scannerController?.start();
-              debugPrint('[MainScreen] 스캐너 재시작 성공');
-            } catch (e) {
-              debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
+            // ✅ lastScannedCode는 유지하여 재스캔 방지
+            Future.delayed(const Duration(seconds: 2), () {
+              if (mounted) {
+                setState(() {
+                  _isScanning = false;
+                  _lastScannedCode = null;
+                  _lastScanTime = null;
+                });
+              }
+            });
+            
+            _showErrorDialog('유가증권 정보를 찾을 수 없습니다.');
+          }
+        }
+      } else {
+        debugPrint('[MainScreen] API 오류: ${response.statusCode}');
+        // API 오류 시
+        if (mounted) {
+          Future.delayed(const Duration(seconds: 3), () {
+            if (mounted) {
+              setState(() {
+                _isScanning = false;
+                _lastScannedCode = null;
+                _lastScanTime = null;
+              });
             }
+          });
+          
+          _showErrorDialog('서버 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.');
+        }
+      }
+    } catch (e) {
+      debugPrint('[MainScreen] API 에러: $e');
+      // 에러 발생 시
+      if (mounted) {
+        Future.delayed(const Duration(seconds: 3), () {
+          if (mounted) {
             setState(() {
               _isScanning = false;
               _lastScannedCode = null;
               _lastScanTime = null;
             });
           }
-        }
-      } else {
-        debugPrint('[MainScreen] API 오류: ${response.statusCode}');
-        // API 오류 시 스캐너 재시작
-        if (mounted) {
-          try {
-            await _scannerController?.start();
-            debugPrint('[MainScreen] 스캐너 재시작 성공');
-          } catch (e) {
-            debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
-          }
-          setState(() {
-            _isScanning = false;
-            _lastScannedCode = null;
-            _lastScanTime = null;
-          });
-        }
-      }
-    } catch (e) {
-      debugPrint('[MainScreen] API 에러: $e');
-      // 에러 발생 시 스캐너 재시작
-      if (mounted) {
-        try {
-          await _scannerController?.start();
-          debugPrint('[MainScreen] 스캐너 재시작 성공');
-        } catch (e) {
-          debugPrint('[MainScreen] 스캐너 재시작 오류: $e');
-        }
-        setState(() {
-          _isScanning = false;
-          _lastScannedCode = null;
-          _lastScanTime = null;
         });
+        
+        _showErrorDialog('네트워크 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.');
       }
     }
   }
@@ -442,6 +352,10 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    // ✅ 빌드 시 상태 로그 추가
+    debugPrint('[MainScreen] 🏗️ build() 호출 - _isScanning: $_isScanning');
+    print('🏗️ build() - _isScanning: $_isScanning');
+    
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -475,54 +389,45 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),
-                          child: _isInitializing
-                              ? Container(
-                                  color: Colors.black,
-                                  child: const Center(
-                                    child: CircularProgressIndicator(
-                                      color: Colors.orange,
+                          child: _isScanning
+                              ? ((){
+                                  debugPrint('[MainScreen] 📦 렌더링: 스캔 중 (검은색 + 로딩)');
+                                  print('📦 렌더링: 스캔 중');
+                                  return Container(
+                                    color: Colors.black,
+                                    child: const Center(
+                                      child: CircularProgressIndicator(
+                                        color: Colors.orange,
+                                      ),
                                     ),
-                                  ),
-                                )
-                              : _isScanning
-                              ? Container(
-                                  color: Colors.black,
-                                  child: const Center(
-                                    child: CircularProgressIndicator(
-                                      color: Colors.orange,
-                                    ),
-                                  ),
-                                )
-                              : _scannerController != null
-                              ? SizedBox.expand(
-                                  child: MobileScanner(
-                                    controller: _scannerController,
-                                    onDetect: _onBarcodeDetect,
-                                    errorBuilder: (context, error, child) {
-                                      debugPrint('[MainScreen] MobileScanner 에러: $error');
-                                      return Container(
-                                        color: Colors.black,
-                                        child: Center(
-                                          child: Text(
-                                            '카메라 오류: $error',
-                                            style: const TextStyle(
-                                              color: Colors.white,
+                                  );
+                                }())
+                              : ((){
+                                  debugPrint('[MainScreen] 📦 렌더링: MobileScanner 위젯');
+                                  print('📦 렌더링: MobileScanner 위젯');
+                                  return SizedBox.expand(
+                                    child: MobileScanner(
+                                      key: const ValueKey('main_scanner'),  // ✅ Key 추가
+                                      controller: _scannerController,
+                                      onDetect: _onBarcodeDetect,
+                                      errorBuilder: (context, error, child) {
+                                        debugPrint('[MainScreen] ❌ MobileScanner 에러: $error');
+                                        print('❌ MobileScanner 에러: $error');
+                                        return Container(
+                                          color: Colors.black,
+                                          child: Center(
+                                            child: Text(
+                                              '카메라 오류: $error',
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                )
-                              : Container(
-                                  color: Colors.black,
-                                  child: const Center(
-                                    child: Text(
-                                      '카메라를 초기화할 수 없습니다',
-                                      style: TextStyle(color: Colors.white),
+                                        );
+                                      },
                                     ),
-                                  ),
-                                ),
+                                  );
+                                }()),
                         ),
                         // 중앙 스캔 가이드
                         Center(
@@ -569,7 +474,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                 GestureDetector(
                   onTap: _onAppDownloadTap,
                   child: Image.asset(
-                    'assets/images/banner.png',
+                    'assets/images/kdex_banner.jpg',
                     width: double.infinity,
                     fit: BoxFit.fitWidth,
                   ),
