@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart' show defaultTargetPlatform, TargetPlatform;
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:developer' as developer;
+import 'package:url_launcher/url_launcher.dart';
 import 'result_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -345,9 +347,43 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     }
   }
 
-  void _onAppDownloadTap() {
-    // 센골드 앱 다운로드 처리
-    debugPrint('센골드 앱 다운로드');
+  Future<void> _onAppDownloadTap() async {
+    // 플랫폼별 앱 다운로드 링크
+    String url;
+    
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      // Android - Google Play Store
+      url = 'https://play.google.com/store/apps/details?id=com.korda.goldmarket';
+      debugPrint('센골드 앱 다운로드 - Android Play Store');
+    } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+      // iOS - App Store
+      url = 'https://apps.apple.com/kr/app/%EA%B8%88%EB%B0%A9%EA%B8%88%EB%B0%A9/id1575200660';
+      debugPrint('센골드 앱 다운로드 - iOS App Store');
+    } else {
+      // 기타 플랫폼
+      debugPrint('지원하지 않는 플랫폼');
+      return;
+    }
+    
+    try {
+      final uri = Uri.parse(url);
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(
+          uri,
+          mode: LaunchMode.externalApplication,
+        );
+      } else {
+        debugPrint('URL을 열 수 없습니다: $url');
+        if (mounted) {
+          _showErrorDialog('앱 스토어를 열 수 없습니다.');
+        }
+      }
+    } catch (e) {
+      debugPrint('URL 열기 오류: $e');
+      if (mounted) {
+        _showErrorDialog('앱 스토어를 열 수 없습니다.');
+      }
+    }
   }
 
   @override

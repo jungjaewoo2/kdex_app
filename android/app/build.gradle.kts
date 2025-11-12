@@ -38,6 +38,13 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        
+        // 16KB 페이지 크기 지원
+        ndk {
+            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64"))
+            // 16KB 페이지 크기 명시적 설정
+            debugSymbolLevel = "FULL"
+        }
     }
 
     signingConfigs {
@@ -82,10 +89,16 @@ android {
                 "META-INF/NOTICE.txt"
             )
         }
+        // 16KB 페이지 크기 지원 (필수!)
+        jniLibs {
+            useLegacyPackaging = false
+        }
     }
 }
 
 dependencies {
+    // ML Kit barcode scanning - 16KB 페이지 크기 지원
+    implementation("com.google.mlkit:barcode-scanning:17.3.0")
 }
 
 flutter {

@@ -11,7 +11,13 @@
     <application
         android:label="유가증권Check한국금거래소"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:extractNativeLibs="false">
+        
+        <!-- 16KB 페이지 크기 지원 (Android 15+) -->
+        <property
+            android:name="android.app.16kb_page_size"
+            android:value="true" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
