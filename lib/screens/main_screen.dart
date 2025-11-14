@@ -391,6 +391,13 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     // ✅ 빌드 시 상태 로그 추가
     debugPrint('[MainScreen] 🏗️ build() 호출 - _isScanning: $_isScanning');
     print('🏗️ build() - _isScanning: $_isScanning');
+
+    final String bannerAsset;
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      bannerAsset = 'assets/images/ios_banner.png';
+    } else {
+      bannerAsset = 'assets/images/kdex_banner.jpg';
+    }
     
     return Scaffold(
       backgroundColor: Colors.white,
@@ -510,7 +517,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                 GestureDetector(
                   onTap: _onAppDownloadTap,
                   child: Image.asset(
-                    'assets/images/kdex_banner.jpg',
+                    bannerAsset,
                     width: double.infinity,
                     fit: BoxFit.fitWidth,
                   ),
