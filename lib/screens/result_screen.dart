@@ -34,7 +34,7 @@ class _ResultScreenState extends State<ResultScreen> {
     try {
       // 새로운 API 엔드포인트
       final uri = Uri.parse(
-        'https://www.exgold.co.kr/api/kdex/securities',
+        'https://www.exgold.co.kr/api/kdex/v2/securities',
       ).replace(queryParameters: {'id': widget.id});
 
       final response = await http.get(uri);
@@ -94,8 +94,14 @@ class _ResultScreenState extends State<ResultScreen> {
   }
 
   double _calculatePrice() {
+    // PURTICKERPRICE 필드를 직접 사용하므로 이 함수는 더 이상 사용하지 않음
+    // 호환성을 위해 유지하지만, 실제로는 PURTICKERPRICE 필드를 직접 사용
     if (stockData == null) return 0.0;
-    final perPrice = double.tryParse(stockData!['TICKERG'].toString()) ?? 0.0;
+    if (stockData!.containsKey('PURTICKERPRICE')) {
+      return double.tryParse(stockData!['PURTICKERPRICE'].toString()) ?? 0.0;
+    }
+    // 폴백: 기존 계산 방식 (하위 호환성)
+    final perPrice = double.tryParse(stockData!['TICKERG']?.toString() ?? '0') ?? 0.0;
     final weightStr = stockData!['ID']
         .toString()
         .substring(2, 7)
@@ -281,8 +287,8 @@ class _ResultScreenState extends State<ResultScreen> {
 
   Widget _buildStockEvaluation() {
     final currentDate = DateTime.now();
-    final perPrice = double.parse(stockData!['TICKERG'].toString());
-    final calculatedPrice = _calculatePrice();
+    final perPrice = double.parse(stockData!['PURTICKERG'].toString());
+    final calculatedPrice = double.parse(stockData!['PURTICKERPRICE'].toString());
 
     return Container(
       width: double.infinity,

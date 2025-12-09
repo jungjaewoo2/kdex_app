@@ -206,7 +206,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
       
       // 새로운 API 엔드포인트
       final url = Uri.parse(
-        'https://www.exgold.co.kr/api/kdex/securities',
+        'https://www.exgold.co.kr/api/kdex/v2/securities',
       ).replace(queryParameters: {'id': id});
 
       final response = await http.get(url);
