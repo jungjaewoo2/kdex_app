@@ -6,7 +6,7 @@ class AppVersionChecker {
   static const String playStorePackageId = 'com.kdex.app.v2';
 
   // 최신 버전 (하드코딩 - 업데이트 시 이 값만 변경)
-  static const String latestVersion = "1.0.1+25";
+  static const String latestVersion = "1.0.2";
 
   // 강제 업데이트 여부 (true면 업데이트 전까지 앱 사용 불가)
   static const bool forceUpdate = false;
