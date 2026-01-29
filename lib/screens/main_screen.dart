@@ -7,6 +7,8 @@ import 'dart:convert';
 import 'dart:developer' as developer;
 import 'package:url_launcher/url_launcher.dart';
 import 'result_screen.dart';
+import '../services/app_version_checker.dart';
+import '../widgets/update_dialog.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -28,6 +30,9 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     print('🟢 MainScreen initState 시작');
     WidgetsBinding.instance.addObserver(this);
     _initializeScanner();
+    
+    // 앱 시작 시 업그레이드 체크
+    _checkForUpdate();
   }
 
   @override
@@ -104,6 +109,38 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
         ],
       ),
     );
+  }
+
+  /// 업그레이드 체크 메서드
+  Future<void> _checkForUpdate() async {
+    try {
+      // 약간의 딜레이를 주어 앱이 완전히 로드된 후 체크
+      await Future.delayed(const Duration(seconds: 1));
+      
+      final needsUpdate = await AppVersionChecker.checkForUpdate();
+      
+      if (needsUpdate && mounted) {
+        final updateInfo = AppVersionChecker.getUpdateInfo();
+        final currentVersion = await AppVersionChecker.getCurrentVersion();
+        final forceUpdate = updateInfo['force_update'] as bool;
+        
+        // 현재 버전 정보 추가
+        updateInfo['current_version'] = currentVersion;
+        
+        if (mounted) {
+          showDialog(
+            context: context,
+            barrierDismissible: !forceUpdate, // 강제 업데이트 시 닫기 방지
+            builder: (context) => UpdateDialog(
+              updateInfo: updateInfo,
+              forceUpdate: forceUpdate,
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      debugPrint('업그레이드 체크 오류: $e');
+    }
   }
 
   void _onBarcodeDetect(BarcodeCapture capture) async {
