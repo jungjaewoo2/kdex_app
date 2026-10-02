@@ -429,12 +429,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     debugPrint('[MainScreen] 🏗️ build() 호출 - _isScanning: $_isScanning');
     print('🏗️ build() - _isScanning: $_isScanning');
 
-    final String bannerAsset;
-    if (defaultTargetPlatform == TargetPlatform.iOS) {
-      bannerAsset = 'assets/images/ios_banner.png';
-    } else {
-      bannerAsset = 'assets/images/kdex_banner.jpg';
-    }
+    final String bannerAsset = 'assets/images/kodex_banner_new_1.jpg';
     
     return Scaffold(
       backgroundColor: Colors.white,
